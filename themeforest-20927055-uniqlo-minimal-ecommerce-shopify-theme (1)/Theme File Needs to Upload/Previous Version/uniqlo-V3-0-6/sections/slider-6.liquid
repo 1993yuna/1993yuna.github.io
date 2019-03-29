@@ -1,0 +1,120 @@
+<!-- Start Slider Area -->
+<div id="home" class="slider__container slider--7" style="padding-bottom: {{ section.settings.section_padding_bottom }}px;">
+  <div class="slider__activation__wrap owl-carousel owl-theme">
+    {% assign i = 1 %}
+    {% for block in section.blocks %}
+    <div class="slide slider__full--screen">
+      <div class="{% if settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+        <div class="row">
+          <div class="col-md-9 col-lg-10 col-sm-12 col-xs-12">
+            <div class="slider__inner">
+              <div class="slider__inner">
+                {% if block.settings.slider_sup_title != '' %}
+                <h4>{{ block.settings.slider_sup_title }} </h4>
+                {% endif %}
+                {% if block.settings.slider_title != '' %}
+                <h1>{{ block.settings.slider_title }} 
+                  {% if block.settings.slider_sub_title != '' %}
+                  <br>{{ block.settings.slider_sub_title }}
+                  {% endif %}
+                </h1>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>   
+      <div class="slider__fornt__images">
+        <div class="slider__fornt__inner">
+          {% if block.settings.slider_image %}
+          <img src="{{ block.settings.slider_image | img_url: 'master' }}" alt="slider images">
+          {% else %}
+		  <img src="https://via.placeholder.com/750x975" alt="slider image">
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% assign i = i | plus: 1 %}
+    {% endfor %}
+  </div>
+</div>
+<!-- Start Slider Area -->
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Fullscreen Image Slider",
+    "settings": [
+		{
+			"type": "header",
+            "content": "Section Padding"
+        },
+		{
+          "type": "text",
+          "id": "section_padding_bottom",
+          "label": "Padding Bottom",
+          "default": "110",
+          "info": "Defined in pixels. Do not add the 'px' unit."	
+      	}
+	],
+	"blocks":[
+		{
+			"type": "slide",
+			"name": "Slide",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "slider_image",
+					"label": "Slider Image"
+				},
+				{
+					"type": "text",
+					"id": "slider_sup_title",
+					"label": "Sup Title",
+					"default": "Sup Title"
+				},
+				{
+					"type": "text",
+					"id": "slider_title",
+					"label": "Title",
+					"default": "Slider Title"
+				},
+				{
+					"type": "text",
+					"id": "slider_sub_title",
+					"label": "Sub Title",
+					"default": "Sub Title"
+				}
+			]
+		}
+	],
+	"presets":[
+		{
+			"name": "Fullscreen Image Slider",
+			"category": "slider",
+			"blocks":[
+				{
+					"type": "slide"
+				},
+				{
+					"type": "slide"
+				}
+			]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

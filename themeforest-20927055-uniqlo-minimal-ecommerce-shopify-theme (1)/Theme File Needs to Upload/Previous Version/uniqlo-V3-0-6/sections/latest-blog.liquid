@@ -1,0 +1,227 @@
+<!-- Start Blog Area -->
+<section class="htc__blog__area bg__white" style="padding-bottom: {{ section.settings.section_padding_bottom }}px">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    {% if section.settings.section_title != '' %}
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="section__title section__title--2 {% if section.settings.section_text_align == 'section_text_center' %}text-center{% endif %}{% if section.settings.section_text_align == 'section_text_left' %}text-left{% endif %}{% if section.settings.section_text_align == 'section_text_right' %}text-right{% endif %}">
+          <h2 class="title__line">{{ section.settings.section_title }}</h2>
+          {% if section.settings.section_content != '' %}
+          <p {% if section.settings.section_text_align == 'section_text_center' %}class="text-center" style="margin: 27px auto auto;"{% endif %}{% if section.settings.section_text_align == 'section_text_left' %}class="text-left" style="margin: 27px auto auto 0;"{% endif %}{% if section.settings.section_text_align == 'section_text_right' %}class="text-right" style="margin: 27px 0 auto auto;"{% endif %}>{{ section.settings.section_content }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <div class="row">
+      <div class="blog__wrap latest-blog clearfix mt--60 xmt-30">
+        <!-- Start Single Blog -->
+        {% assign blog = blogs[section.settings.blog_handle] %}
+        {% assign blog_limit = section.settings.blog_limit_handle %}
+        {% for article in blog.articles limit: blog_limit %}
+        <div class="col-md-{{ section.settings.blog_column }} col-sm-{{ section.settings.product_column_sm }} col-xs-12 mb--30">
+          {% include 'blog-grid-item' %}
+        </div>
+        {% endfor %}
+        <!-- End Single Blog -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Blog Area -->
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Latest Blog",
+    "settings": [
+		{
+			"type": "header",
+            "content": "Section Header"
+        },
+		{
+          "type": "text",
+          "id": "section_title",
+          "label": "Section Title",
+          "default": "Section Title"		
+      	},
+		{
+          "type": "textarea",
+          "id": "section_content",
+          "label": "Section Content",
+          "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod temp incididunt ut labore et dolore magna aliqua."		
+      	},
+		{
+          "type": "select",
+          "id": "section_text_align",
+          "label": "Text Alignment",
+		  "options":[
+				{
+					"label": "Align Left",
+					"value": "section_text_left"
+				},
+				{
+					"label": "Align Center",
+					"value": "section_text_center"
+				},
+				{
+					"label": "Align Right",
+					"value": "section_text_right"
+				}
+			],
+			"default": "section_text_center"
+      	},
+
+
+		{
+			"type": "header",
+            "content": "Blog Options"
+        },
+		{
+          "type": "blog",
+          "id": "blog_handle",
+          "label": "Select Blog"
+        },
+		{
+          "type": "select",
+          "id": "blog_column",
+          "label": "Blog Column",
+		  "options":[
+				{
+					"label": "2 Column",
+					"value": "6"
+				},
+				{
+					"label": "3 Column",
+					"value": "4"
+				},
+				{
+					"label": "4 Column",
+					"value": "3"
+				}
+			],
+			"default": "4"
+      	},
+		{
+          "type": "select",
+          "id": "product_column_sm",
+          "label": "Blog Column for Tablet Device",
+		  "options":[
+				{
+					"label": "2 Column",
+					"value": "6"
+				},
+				{
+					"label": "3 Column",
+					"value": "4"
+				},
+				{
+					"label": "4 Column",
+					"value": "3"
+				},
+				{
+					"label": "6 Column",
+					"value": "2"
+				}
+			],
+			"default": "4"
+      	},
+		{
+          "type": "select",
+          "id": "blog_limit_handle",
+          "label": "Blog Limit",
+		  "options":[
+				{
+					"label": "3 Blogs",
+					"value": "3"
+				},
+				{
+					"label": "4 Blogs",
+					"value": "4"
+				},
+				{
+					"label": "6 Blogs",
+					"value": "6"
+				},
+				{
+					"label": "8 Blogs",
+					"value": "8"
+				},
+				{
+					"label": "10 Blogs",
+					"value": "10"
+				},
+				{
+					"label": "12 Blogs",
+					"value": "12"
+				},
+				{
+					"label": "14 Blogs",
+					"value": "14"
+				},
+				{
+					"label": "16 Blogs",
+					"value": "16"
+				},
+				{
+					"label": "Unlimited",
+					"value": "100"
+				}
+			],
+			"default": "3"
+      	},
+		{
+          "type": "radio",
+          "id": "scroll_effect",
+          "label": "Scroll Fade In Effect",
+		  "options":[
+				{
+					"label": "Yes",
+					"value": "fade_in"
+				},
+				{
+					"label": "No",
+					"value": "normal"
+				}
+			],
+			"default": "fade_in"
+      	},
+		{
+			"type": "header",
+            "content": "Section Padding"
+        },
+		{
+          "type": "text",
+          "id": "section_padding_bottom",
+          "label": "Padding Bottom",
+          "default": "70",
+          "info": "Defined in pixels. Do not add the 'px' unit."	
+      	}
+	],
+	"presets": [
+      {
+        "name": "Latest Blog",
+        "category": "Blog",
+        "settings": {
+          "blog_handle": "News"
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

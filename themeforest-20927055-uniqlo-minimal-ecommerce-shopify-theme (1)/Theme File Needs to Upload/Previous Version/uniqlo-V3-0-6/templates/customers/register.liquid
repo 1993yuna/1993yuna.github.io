@@ -1,0 +1,49 @@
+<!-- Start Login Register Area -->
+<div class="htc__login__register bg__white ptb--130" {% if settings.customer_page_bg %}style="background: rgba(0, 0, 0, 0) url({{ settings.customer_page_bg | img_url: 'master' }}) no-repeat scroll center center / cover ;"{% endif %}>
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="login__register__menu">
+          <h2 class="login active">Resister</h2>
+        </div>
+      </div>
+    </div>
+    <!-- Start Login Register Content -->
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="htc__login__register__wrap">
+          <!-- Start Single Content -->
+          <div id="register" class="single__tabs__panel login">
+            {% form 'create_customer' %}
+
+            {{ form.errors | default_errors }}
+
+            <label for="FirstName" class="hidden-label">{{ 'customer.register.first_name' | t }}</label>
+            <input type="text" name="customer[first_name]" id="FirstName" class="input-full" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
+
+            <label for="LastName" class="hidden-label">{{ 'customer.register.last_name' | t }}</label>
+            <input type="text" name="customer[last_name]" id="LastName" class="input-full" placeholder="{{ 'customer.register.last_name' | t }}" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words">
+
+            <label for="Email" class="hidden-label">{{ 'customer.register.email' | t }}</label>
+            <input type="email" name="customer[email]" id="Email" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.register.email' | t }}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+
+            <label for="CreatePassword" class="hidden-label">{{ 'customer.register.password' | t }}</label>
+            <input type="password" name="customer[password]" id="CreatePassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.register.password' | t }}">
+
+            <div class="htc__login__btn mt--20">
+              <button type="submit">{{ 'customer.register.submit' | t }}</button>
+            </div>
+
+            {% endform %}
+          </div>
+          <!-- End Single Content -->
+        </div>
+      </div>
+    </div>
+
+
+    <!-- End Login Register Content -->
+  </div>
+</div>
+<!-- End Login Register Area -->

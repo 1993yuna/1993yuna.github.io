@@ -1,0 +1,604 @@
+{
+  "current": {
+    "wrapper_handle": "wrapper_box_2",
+    "favicon_enable": true,
+    "menu_font_size": "15",
+    "menu_font_weight": "500",
+    "header_style": "header_one",
+    "header_style_option": "header_1",
+    "theme_color": "#ff4136",
+    "google_analytic_enable": true,
+    "google_tracking_id": "UA-91020528-1",
+    "enable_preloader": true,
+    "preloader_style": "Style_5",
+    "preloader_bg": "#ffffff",
+    "preloader_color": "#ff4136",
+    "preloader_border_color": "#ffffff",
+    "preloader_border_width": "4px",
+    "newsletter_action": "http:\/\/devitems.us11.list-manage.com\/subscribe\/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef",
+    "email_placeholder": "Email Address",
+    "button_name": "Send",
+    "newsletter_popup_enable": false,
+    "newletter_popup_title": "Join With Us",
+    "newsletter_text": "Join over 1,000 people who get free and fresh content delivered automatically each time we publish",
+    "newsletter_button_name": "Subscribe",
+    "newsletter_img": "",
+    "popup_newsletter_title_color": "#ffffff",
+    "popup_newsletter_description_color": "#ffffff",
+    "input_fild_color": "#ddd",
+    "popup_newsletter_button_bg_color": "#ff4136",
+    "popup_newsletter_button_color": "#ffffff",
+    "supported_currencies": "USD, USD - US Dollar | EUR, EUR - Euro | GBP, GBP - British Pound | INR, INR - Indian Rupee | BDT, BDT - Bangladesh Taka | JPY, JPY - Japan Yen | CAD, CAD - Canada Dollar | AUD, AUD - Australian Dollar",
+    "topbar_notification_enable": false,
+    "notification_text": "All Accessories Product 50% off",
+    "notification_button_name": "Shop Now",
+    "notification_button_url": "shopify:\/\/collections\/accessories",
+    "notification_bg_image": "",
+    "notification_text_color": "#ffffff",
+    "topbar_color_1": "#999999",
+    "topbar_color_2": "#666666",
+    "notification_overlay_rgb_color": "0, 0, 0",
+    "notification_overlay_opacity": 0.6,
+    "notificaction_button_bg_color": "rgba(0,0,0,0)",
+    "notificaction_button_border_color": "#ffffff",
+    "notificaction_button_color": "#ffffff",
+    "notificaction_button_hover_bg_color": "#ff4136",
+    "notificaction_button_hover_border_color": "#ff4136",
+    "notificaction_button_hover_color": "#ffffff",
+    "notificaction_close_button_bg_color": "",
+    "notificaction_close_button_border_color": "#fff",
+    "notificaction_close_button_color": "#ffffff",
+    "notificaction_close_button_hover_bg_color": "#ff4136",
+    "notificaction_close_button_hover_border_color": "#ff4136",
+    "notificaction_close_button_hover_color": "#ffffff",
+    "social_icon_1_name": "facebook",
+    "socila_icon_1_link": "https:\/\/www.facebook.com\/devitems\/?ref=bookmarks",
+    "social_icon_2_name": "google-plus",
+    "socila_icon_2_link": "https:\/\/plus.google.com\/",
+    "social_icon_3_name": "twitter",
+    "socila_icon_3_link": "https:\/\/twitter.com\/devitemsllc",
+    "social_icon_4_name": "instagram",
+    "socila_icon_4_link": "https:\/\/www.instagram.com\/devitems\/",
+    "social_icon_5_name": "",
+    "socila_icon_5_link": "",
+    "social_icon_6_name": "",
+    "socila_icon_6_link": "",
+    "social_icon_7_name": "",
+    "socila_icon_7_link": "",
+    "breadcrumb_banner_enable": true,
+    "breadcrumb_banner_image": "",
+    "breadcrumb_banner_bg": "#f6f6f6",
+    "breadcurmb_title_color": "#343434",
+    "breadcurmb_page_title_color": "#343434",
+    "active_breadcurmb_page_title_color": "#343434",
+    "categories_title": "Categories",
+    "categories_list_limit_hanlde": "5",
+    "vendors_title": "Vendors",
+    "vendors_list_limit_hanlde": "5",
+    "types_title": "Products Types",
+    "types_list_limit_hanlde": "5",
+    "size_title": "Size",
+    "size_picker": "xl, xs, ml, X, M, L",
+    "size_list_limit_hanlde": "5",
+    "color_title": "Color",
+    "color_picker": "red, green, blue, white, yellow, violet, brown, black, orange, grey, pink, purple, maroon, silver, fuchsia, navy, aqua, lime, teal, magenta",
+    "colors_list_limit_hanlde": "5",
+    "tags_title": "Tags",
+    "tags_list_limit_hanlde": "15",
+    "recent_post_title": "Recent Posts",
+    "recent_product_limit_hanlde": "4",
+    "archive_title": "Archive",
+    "blog_tags_title": "Tags",
+    "blog_tags_list_limit_hanlde": "10",
+    "error_404_image_enable": true,
+    "error_404_image": "",
+    "heading_404": "Ooops.... Error 404",
+    "sub_text_404": "Sorry, But the page you are looking for does't exist",
+    "button_title": "go to home page",
+    "error_404_btn_url": "\/",
+    "cart_notes_enable": true,
+    "cart_vendor_enable": false,
+    "ajax_cart_method": "drawer",
+    "wishlist_empty_title": "Your wishlist is currently empty!",
+    "login_request_title": "Please login your account",
+    "product_quickview_description_enable": true,
+    "customer_page_bg": "",
+    "customer_page_breadcrumb_enable": false,
+    "logo_use_image": true,
+    "checkout_header_image": "",
+    "checkout_use_storefront_logo": false,
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#eeeeee",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#000000",
+    "checkout_button_color": "#000000",
+    "checkout_error_color": "#ff6d6d",
+    "title_currency": "Currency:",
+    "show_multiple_currencies": true,
+    "currency_format": "money_with_currency_format",
+    "default_currency": "USD",
+    "store_content": "Lorem ipsum dolor sit amet consectetu adipisicing elit sed do eiusmod tempor incididunt ut labore.",
+    "instafeed_user_id": "3314048741",
+    "instafeed_limit": "8",
+    "instafeed_access_token": "3314048741.1677ed0.312841e77dd94fd694b05808d34204f1",
+    "sidebar_social_midea_enble": true,
+    "color_primary": "#747474",
+    "color_secondary": "#bbb",
+    "color_borders": "#e5e5e5",
+    "color_body_bg": "#fff",
+    "color_body_text": "#333333",
+    "color_footer_bg": "#f2f2f2",
+    "color_footer_text": "#636363",
+    "color_footer_social_link": "#bbbbbb",
+    "successfull_note": "Added to cart successfully!",
+    "view_cart_button2": "View Cart",
+    "breadcrumb_banner_image_enable": "false",
+    "breadcrumb_banner_overlay_color": "#f6f6f6",
+    "breadcrumb_banner_opacity": "0.6",
+    "sidebar_product_handle": "bag",
+    "sidebar_product_limit_handle": "8",
+    "featured_product_handle": "bag",
+    "logo_max_width": "450",
+    "footer_newsletter_enable": true,
+    "footer_social_enable": true,
+    "social_facebook_link": "",
+    "social_twitter_link": "",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "header_sticky_enable": true,
+          "logo": "shopify:\/\/shop_images\/uniqlo.png",
+          "logo_2": "shopify:\/\/shop_images\/uniqlo.png",
+          "logo_custom_width": false,
+          "logo_width": "106",
+          "offset_menu_icon_enable": true,
+          "store_content": "Lorem ipsum dolor sit amet consectetu adipisicing elit sed do eiusmod tempor incididunt ut labore.",
+          "instafeed_user_id": "6667588161",
+          "instafeed_limit": "8",
+          "instafeed_access_token": "6667588161.1677ed0.705c7b82e16f42b2898cd19e737dc53e",
+          "sidebar_social_midea_enble": true,
+          "social_fild_title": "Follow Us",
+          "currency_enable": true,
+          "currency_title": "Currencies"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_style_handle": "footer_2",
+          "footer_bg_image": "",
+          "logo_2": "shopify:\/\/shop_images\/uniqlo.png",
+          "footer_content": "Get 10% discount with notified about the latest news and updates.",
+          "newsletter_title": "Newsletters",
+          "contact_us_title": "Contact Us",
+          "contact_information": "319 Clematis St.\n<br>\nSuite 100 WPB, FL 33401",
+          "follow_us_title": "Follow Us",
+          "footer_bottom_enable": true,
+          "copy_ritht_text": "© 2017 <a href=\"https:\/\/devitems.com\" target=\"_blank\">Devitems<\/a>\n                                    All Right Reserved.",
+          "footer_menu_1_handle": "footer",
+          "footer_padding_top": "0",
+          "footer_padding_bottom": "0"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "product_style_handle": "product_style_5",
+          "product_margin_bottom": "50",
+          "scroll_effect": "normal",
+          "product_column": "3",
+          "product_column_sm": "6",
+          "products_limit_handle": "16",
+          "collection_page_handle": "by_pagination",
+          "load_more_button": "Load More",
+          "button_border_color": "#eeeeee",
+          "pagination_bg_color": "#f6f6f6",
+          "pagination_margin_top": "30",
+          "sorting_enable": true,
+          "short_by_enable": true,
+          "filter_button_enable": true,
+          "tab_bar_enable": false,
+          "filter_menu_margin_bottom": "50",
+          "sidebar_handle": "without_sidebar",
+          "categories_enable": true,
+          "vendors_enable": true,
+          "types_enable": true,
+          "size_enable": true,
+          "color_enable": true,
+          "tags_enable": true
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "buy_now_button": "buy now",
+          "wishlist_enable": true,
+          "email_enable": true,
+          "share_button_enable": true,
+          "product_tab_enable": true,
+          "product_tab_1_enable": true,
+          "product_info_tab_title": "More Info",
+          "product_tab_2_enable": true,
+          "product_review_tab_title": "Reviews",
+          "product_tab_3_enable": true,
+          "product_comments_title": "Comments",
+          "product_page_comments_box": "disqus_comment",
+          "facebook_comments_post_limit": "10",
+          "disqus_shortname": "demo-store",
+          "custom_tab_1_enable": true,
+          "custom_tab_1_title": "Custom Tab-1",
+          "custom_tab_handle_1": "size-chart",
+          "custom_tab_2_enable": true,
+          "custom_tab_2_title": "Custom Tab-2",
+          "custom_tab_handle_2": "shipping-policy",
+          "related_products_enable": true,
+          "section_title_enable": true,
+          "section_title": "Related Products",
+          "product_style_handle": "product_style_5",
+          "product_c_column": "4",
+          "product_c_column_sm": "3",
+          "related_product_limit_handle": "4"
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "scroll_effect": "fade_in",
+          "product_column": "4",
+          "product_column_sm": "4",
+          "products_limit_handle": "12",
+          "blog_page_handle": "by_pagination",
+          "load_more_button": "Load More",
+          "button_border_color": "#eeeeee",
+          "pagination_bg_color": "#f6f6f6",
+          "sidebar_handle": "right_sidebar_handle",
+          "sidebar_search": true,
+          "recent_post_enable": true,
+          "archive_enable": true,
+          "tags_enable": true
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "comment_post_limit_handle": "5",
+          "sidebar_handle": "right_sidebar_handle",
+          "sidebar_search": true,
+          "recent_post_enable": true,
+          "archive_enable": true,
+          "tags_enable": true
+        }
+      },
+      "contact-template": {
+        "type": "contact-template",
+        "settings": {
+          "contact_form_and_contact_info_enable": true,
+          "contact_information_enable": true,
+          "contact_information_title": "contact info",
+          "icon_name1": "location-pin",
+          "contact_info1": "Location :\n<br>\n77, seventh avenue, Brat road USA.",
+          "icon_name2": "mobile",
+          "contact_info2": "Phone :\n<br>\n<a href=\"#\">+00 111 222 333 44<\/a>",
+          "icon_name3": "email",
+          "contact_info3": "Mail :\n<br>\n<a href=\"#\">yourmail@gmail.com<\/a>",
+          "contact_form_enable": true,
+          "form_title": "Get In Touch",
+          "name_placeholder": "Your name",
+          "email_placeholder": "Your email",
+          "subject_placeholder": "Subject",
+          "message_placeholder": "Message",
+          "form_button_name": "Send",
+          "map_enable": true,
+          "latitude": "47.606205",
+          "languid": "-122.332046",
+          "map_icon_image": "shopify:\/\/shop_images\/map.png",
+          "icon_animation_enable": true,
+          "google_map_api_key": "AIzaSyCBEypW1XtGLWpikFPcityAok8rhJzzWRw"
+        }
+      },
+      "list-collection-template": {
+        "type": "list-collection-template",
+        "settings": {
+          "product_style_handle": "product_style_5",
+          "scroll_effect": "normal",
+          "product_column": "3",
+          "product_column_sm": "6",
+          "products_limit_handle": "8"
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "table_image_title": "Image",
+          "continue_shopping_title": "Continue Shopping",
+          "clear_cart_title": "Clear Cart",
+          "cart_feature": "cart_note",
+          "cart_total_title": "Cart Totals",
+          "checkout_button_title": "Proceed to Checkout"
+        }
+      },
+      "collection-list-template": {
+        "type": "collection-list-template",
+        "settings": {
+          "products_limit_handle": "12",
+          "collection_page_handle": "by_pagination",
+          "load_more_button": "Load More",
+          "button_border_color": "#eeeeee",
+          "pagination_bg_color": "#f6f6f6",
+          "sorting_enable": true,
+          "short_by_enable": true,
+          "filter_button_enable": false,
+          "tab_bar_enable": true,
+          "sidebar_handle": "left_sidebar_handle",
+          "categories_enable": true,
+          "vendors_enable": true,
+          "types_enable": true,
+          "size_enable": true,
+          "color_enable": true,
+          "tags_enable": true
+        }
+      },
+      "1509683887015": {
+        "type": "slider-5",
+        "blocks": {
+          "1509683887015-0": {
+            "type": "slide",
+            "settings": {
+              "slider_sup_title": "welcome to uniqlo store",
+              "slider_title": "Awesome Product",
+              "slider_title_highlight": "Collection",
+              "slider_sub_title": "In 2017"
+            }
+          }
+        },
+        "block_order": [
+          "1509683887015-0"
+        ],
+        "settings": {
+          "slider_height": "630",
+          "slider_text_padding_top": "95",
+          "section_padding_bottom": "0"
+        }
+      },
+      "1509684114256": {
+        "type": "masonry-product",
+        "settings": {
+          "product_style_handle": "product_style_5",
+          "scroll_effect": "normal",
+          "masonry_product_handle": "accessories",
+          "vew_more_button_enable": true,
+          "view_more_button_name": "View more",
+          "view_more_button_link": "shopify:\/\/collections\/accessories",
+          "section_padding_bottom": "120"
+        }
+      },
+      "1509684291029": {
+        "type": "newsletter",
+        "settings": {
+          "newsletter_sup_title": "Contact To Uniqlo",
+          "newsletter_title": "Join Our Newsletter",
+          "newsletter_bg": "shopify:\/\/shop_images\/3.jpg",
+          "section_margin_bottom": "115"
+        }
+      },
+      "about-info": {
+        "type": "about-info",
+        "settings": {
+          "about_content_enable": true,
+          "about_image": "",
+          "about_title": "Welcome To Uniqlo Store",
+          "about_content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore gna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.",
+          "about_button_name": "Contact Us",
+          "about_url": "shopify:\/\/pages\/contact",
+          "choose_us_section": true,
+          "choose_us_video": true,
+          "video_url": "https:\/\/www.youtube.com\/watch?v=Bs7VCV7MreA",
+          "video_thumbnail_image": "shopify:\/\/shop_images\/1.jpg",
+          "choose_us_area": true,
+          "choose_us_title": "Why Choose Us?",
+          "single_choose_us_1": true,
+          "choose_us_1_icon": "heart",
+          "choose_us_1_title": "Free Gift Box",
+          "choose_us_1_content": "Lorem ipsum dolor sit amet consect adipisic elit sed do.",
+          "single_choose_us_2": true,
+          "choose_us_2_icon": "truck",
+          "choose_us_2_title": "Free Delivery",
+          "choose_us_2_content": "Lorem ipsum dolor sit amet consect adipisic elit sed do.",
+          "single_choose_us_3": true,
+          "choose_us_3_icon": "reload",
+          "choose_us_3_title": "Money Back",
+          "choose_us_3_content": "Lorem ipsum dolor sit amet consect adipisic elit sed do.",
+          "single_choose_us_4": true,
+          "choose_us_4_icon": "time",
+          "choose_us_4_title": "support 24\/7",
+          "choose_us_4_content": "Lorem ipsum dolor sit amet consect adipisic elit sed do."
+        }
+      },
+      "team-member": {
+        "type": "team-member",
+        "blocks": {
+          "1510037076678": {
+            "type": "team_member",
+            "settings": {
+              "member_image": "shopify:\/\/shop_images\/4_f4c6e046-96b4-4292-b27b-86db97f4d547.jpg",
+              "member_name": "Aliya Meri",
+              "member_url": "https:\/\/www.facebook.com\/devitems\/?ref=bookmarks",
+              "member_link_1_enable": true,
+              "member_link_1": "https:\/\/www.facebook.com\/devitems\/?ref=bookmarks",
+              "member_link_2_enable": true,
+              "member_link_2": "https:\/\/twitter.com\/devitemsllc",
+              "member_link_3_enable": true,
+              "member_link_3": "https:\/\/plus.google.com\/",
+              "member_link_4_enable": true,
+              "member_link_4": "https:\/\/www.linkedin.com\/company\/devitems-llc"
+            }
+          },
+          "1510037302385": {
+            "type": "team_member",
+            "settings": {
+              "member_image": "shopify:\/\/shop_images\/2.jpg",
+              "member_name": "Lelin Balie",
+              "member_url": "",
+              "member_link_1_enable": true,
+              "member_link_1": "",
+              "member_link_2_enable": true,
+              "member_link_2": "",
+              "member_link_3_enable": true,
+              "member_link_3": "https:\/\/plus.google.com\/",
+              "member_link_4_enable": true,
+              "member_link_4": "https:\/\/www.linkedin.com\/company\/devitems-llc"
+            }
+          },
+          "1510037362892": {
+            "type": "team_member",
+            "settings": {
+              "member_image": "shopify:\/\/shop_images\/4_f4c6e046-96b4-4292-b27b-86db97f4d547.jpg",
+              "member_name": "Alo Howa",
+              "member_url": "",
+              "member_link_1_enable": true,
+              "member_link_1": "",
+              "member_link_2_enable": true,
+              "member_link_2": "",
+              "member_link_3_enable": true,
+              "member_link_3": "https:\/\/plus.google.com\/",
+              "member_link_4_enable": true,
+              "member_link_4": "https:\/\/www.linkedin.com\/company\/devitems-llc"
+            }
+          }
+        },
+        "block_order": [
+          "1510037076678",
+          "1510037302385",
+          "1510037362892"
+        ],
+        "settings": {
+          "team_member_area_enable": true,
+          "section_title": "Team Member",
+          "section_content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labo.",
+          "member_social_icon_enable": true,
+          "product_column": "4",
+          "scroll_effect": "fade_in",
+          "section_padding_bottom": "120"
+        }
+      },
+      "testimonial": {
+        "type": "testimonial",
+        "blocks": {
+          "1510038374513": {
+            "type": "testimonial",
+            "settings": {
+              "author_image": "shopify:\/\/shop_images\/3.png",
+              "client_name": "Alia Neli",
+              "client_designation": "Designer",
+              "client_comment": "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod teincidi dunt ut labore et dolore gna aliqua. Ut enim ad minim veniam,"
+            }
+          },
+          "1510038400162": {
+            "type": "testimonial",
+            "settings": {
+              "author_image": "shopify:\/\/shop_images\/2.png",
+              "client_name": "Pliba sen",
+              "client_designation": "Developer",
+              "client_comment": "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod teincidi dunt ut labore et dolore gna aliqua. Ut enim ad minim veniam,"
+            }
+          },
+          "1510038434521": {
+            "type": "testimonial",
+            "settings": {
+              "author_image": "shopify:\/\/shop_images\/1.png",
+              "client_name": "Yealin ba",
+              "client_designation": "Md",
+              "client_comment": "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod teincidi dunt ut labore et dolore gna aliqua. Ut enim ad minim veniam,"
+            }
+          }
+        },
+        "block_order": [
+          "1510038374513",
+          "1510038400162",
+          "1510038434521"
+        ],
+        "settings": {
+          "testimonial_area_enable": true,
+          "testimonial_bg_image": "shopify:\/\/shop_images\/4.jpg",
+          "section_margin_bottom": "120"
+        }
+      },
+      "brand-logo": {
+        "type": "brand-logo",
+        "blocks": {
+          "1510039483746": {
+            "type": "brand_logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/1_90594822-bd84-47f0-b365-48ef9e375bfd.png",
+              "brand_link": ""
+            }
+          },
+          "1510039494403": {
+            "type": "brand_logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/2_d8b19b3f-52a8-4b34-9896-87fbb8a90086.png",
+              "brand_link": ""
+            }
+          },
+          "1510039504403": {
+            "type": "brand_logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/3_c8626b84-2292-40f5-bbb4-15b00ed5521b.png",
+              "brand_link": ""
+            }
+          },
+          "1510039514955": {
+            "type": "brand_logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/4.png",
+              "brand_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1510039483746",
+          "1510039494403",
+          "1510039504403",
+          "1510039514955"
+        ],
+        "settings": {
+          "brand_logo_enable": true,
+          "section_padding_bottom": "120"
+        }
+      }
+    },
+    "content_for_index": [
+      "1509683887015",
+      "1509684114256",
+      "1509684291029"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "ajax_cart_method": "drawer",
+      "cart_notes_enable": true,
+      "color_body_bg": "#fff",
+      "color_body_text": "#333333",
+      "color_borders": "#e5e5e5",
+      "color_footer_bg": "#f2f2f2",
+      "color_footer_social_link": "#bbbbbb",
+      "color_footer_text": "#636363",
+      "color_primary": "#747474",
+      "color_secondary": "#bbb",
+      "favicon_enable": false,
+      "footer_newsletter_enable": true,
+      "footer_social_enable": true,
+      "logo_use_image": false,
+      "social_facebook_link": "",
+      "social_twitter_link": ""
+    }
+  }
+}

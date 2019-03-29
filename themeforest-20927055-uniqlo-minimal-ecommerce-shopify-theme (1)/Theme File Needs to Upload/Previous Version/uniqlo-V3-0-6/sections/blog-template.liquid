@@ -1,0 +1,307 @@
+<!-- Start BLog Area -->
+<div class="htc__blog__area bg__white ptb--120">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">  
+    <div class="row">
+      <div class="{% if section.settings.sidebar_handle == 'without_sidebar' %}col-md-12{% else %}{% if section.settings.sidebar_handle == 'left_sidebar_handle' %}col-md-push-3{% endif %} col-md-9{% endif %} col-sm-12">
+        {% assign products_limit = section.settings.products_limit_handle %}
+        {% paginate blog.articles by products_limit %}        
+        {% if section.settings.blog_page_handle == 'by_pagination' %}
+        {% include 'blog-template-inner' %}
+        {% if paginate.pages > 1 %}
+        <div class="row mt--60">
+          <div class="col-md-12">
+            {% include 'pagination' %}
+          </div>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endpaginate %}
+        {% if section.settings.blog_page_handle == 'by_loadmore' %}
+        {% include 'blog-template-inner' %}
+        <div class="row mt--60" id="loadmore-area">
+          <div class="col-md-12">
+            <div class="htc__loadmore__btn">
+              <button type="button" id="loadMore">{{ section.settings.load_more_button }}</button>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      <!-- End Load More BTn -->
+      {% unless section.settings.sidebar_handle == 'without_sidebar' %}
+      <div class="col-md-3 {% if section.settings.sidebar_handle == 'left_sidebar_handle' %}col-md-pull-9{% endif %} col-sm-12">
+        {% include 'blog-sidebar' %}
+      </div>
+      {% endunless %}
+    </div>
+  </div>
+</div>
+<!-- End BLog Area -->
+
+
+
+
+
+
+<script>
+  var size_lib={{ blog.articles_count }},b;
+  b={{ section.settings.products_limit_handle }};
+  $('.load-more:lt('+b+')').show();  
+  $('#loadMore').on("click", function () {
+    b= ({% if section.settings.product_column == '2' %}b+6{% endif %}{% if section.settings.product_column == '3' %}b+4{% endif %}{% if section.settings.product_column == '4' %}b+3{% endif %}{% if section.settings.product_column == '6' %}b+2{% endif %} <= size_lib) ? {% if section.settings.product_column == '2' %}b+6{% endif %}{% if section.settings.product_column == '3' %}b+4{% endif %}{% if section.settings.product_column == '4' %}b+3{% endif %}{% if section.settings.product_column == '6' %}b+2{% endif %} : size_lib;
+    $('.load-more:lt('+b+')').slideDown(1000);  
+    if(size_lib<=b)
+    {
+      $("#loadmore-area").fadeOut(1000);
+    }     
+  });
+</script>
+
+
+<style>
+  .htc__loadmore__btn button {
+    border: 1px solid {{ section.settings.button_border_color }};
+  }
+  .page-pagination ul li a {
+    background-color: {{ section.settings.pagination_bg_color }};
+  }
+</style>
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Blog Page",
+    "settings": [
+		{
+          "type": "radio",
+          "id": "scroll_effect",
+          "label": "Scroll Fade In Effect",
+		  "options":[
+				{
+					"label": "Yes",
+					"value": "fade_in"
+				},
+				{
+					"label": "No",
+					"value": "normal"
+				}
+			],
+			"default": "fade_in"
+      	},
+		{
+          "type": "select",
+          "id": "product_column",
+          "label": "Blog Column",
+		  "options":[
+				{
+					"label": "2 Blogs",
+					"value": "6"
+				},
+				{
+					"label": "3 Blogs",
+					"value": "4"
+				},
+				{
+					"label": "4 Blogs",
+					"value": "3"
+				}
+			],
+			"default": "4"
+      	},
+		{
+          "type": "select",
+          "id": "product_column_sm",
+          "label": "Blog Column for Tablet Device",
+		  "options":[
+				{
+					"label": "2 Blogs",
+					"value": "6"
+				},
+				{
+					"label": "3 Blogs",
+					"value": "4"
+				},
+				{
+					"label": "4 Blogs",
+					"value": "3"
+				},
+				{
+					"label": "6 Blogs",
+					"value": "2"
+				}
+			],
+			"default": "4"
+      	},
+		{
+          "type": "select",
+          "id": "products_limit_handle",
+          "label": "Post Limit",
+		  "options":[
+				{
+					"label": "4 Blogs",
+					"value": "4"
+				},
+				{
+					"label": "6 Blogs",
+					"value": "6"
+				},
+				{
+					"label": "8 Blogs",
+					"value": "8"
+				},
+				{
+					"label": "9 Blogs",
+					"value": "9"
+				},
+				{
+					"label": "10 Blogs",
+					"value": "10"
+				},
+				{
+					"label": "12 Blogs",
+					"value": "12"
+				},
+				{
+					"label": "14 Blogs",
+					"value": "14"
+				},
+				{
+					"label": "15 Blogs",
+					"value": "15"
+				},
+				{
+					"label": "16 Products",
+					"value": "16"
+				},
+				{
+					"label": "18 Blogs",
+					"value": "18"
+				},
+				{
+					"label": "20 Blogs",
+					"value": "20"
+				},
+				{
+					"label": "21 Blogs",
+					"value": "21"
+				},
+				{
+					"label": "22 Blogs",
+					"value": "22"
+				},
+				{
+					"label": "24 Blogs",
+					"value": "24"
+				},
+				{
+					"label": "25 Blogs",
+					"value": "25"
+				},
+				{
+					"label": "Unlimited",
+					"value": "100"
+				}
+			],
+			"default": "12",
+			"info": "How many products show on per page"
+      	},
+		{
+          "type": "radio",
+          "id": "blog_page_handle",
+          "label": "Pagination Type",
+		  "options":[
+				{
+					"label": "Pagination",
+					"value": "by_pagination"
+				},
+				{
+					"label": "Loadmore",
+					"value": "by_loadmore"
+				}
+			],
+			"default": "by_pagination"
+      	},
+		{
+            "type": "text",
+            "id": "load_more_button",
+            "label": "Load More Button Name",
+            "default": "Load More"
+        },
+		{
+			"type": "color",
+            "id": "button_border_color",
+            "label": "Load More Button Border Color",
+			"default": "#eeeeee"
+        },
+		{
+			"type": "color",
+            "id": "pagination_bg_color",
+            "label": "Pagination BG Color",
+			"default": "#f6f6f6"
+        },
+		{
+			"type": "header",
+			"content": "Blog Sidebar"
+		},
+		{
+			"type": "radio",
+			"id": "sidebar_handle",
+			"label": "Sidebar Position",
+			"options": [
+				{
+					"label": "Left Sidebar",
+					"value": "left_sidebar_handle"
+				},
+				{
+					"label": "Right Sidebar",
+					"value": "right_sidebar_handle"
+				},
+				{
+					"label": "Without Sidebar",
+					"value": "without_sidebar"
+				}
+			],
+			"default": "left_sidebar_handle"
+		},
+		{
+			"type": "header",
+			"content": "Sidebar Widgets"
+		},
+		{
+			"type": "checkbox",
+			"id": "sidebar_search",
+			"label": "Show Searchbar",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "recent_post_enable",
+			"label": "Show Recent Posts",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "archive_enable",
+			"label": "Show Archive",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "tags_enable",
+			"label": "Show Tags",
+			"default": true
+		}
+	 ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

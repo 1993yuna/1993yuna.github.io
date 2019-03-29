@@ -1,0 +1,184 @@
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+{% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available %}
+{% assign sold_out = false %}
+{% endif %}
+
+{% assign variant = product.selected_or_first_available_variant %}
+
+{% if product.available %}
+{% assign func = "Shopify.addItem(" | append: variant.id | append: ", 1)" %}
+{% endif %} 
+
+{% if section.settings.product_style_handle == 'product_style_1' %}
+<div class="product foo">
+  <div class="product__inner">
+    <div class="pro__thumb">
+      <a class="image" href="{{ product.url | within: collection }}"><img src="{{ product.featured_image.src | img_url: '1024x1024' }}" alt=""/></a>
+    </div>
+    <div class="product__hover__info">
+      <ul class="product__action {% unless product.available %}product__action__2{% endunless %}">
+        <li><a data-toggle="modal" href="javascript:void(0);" onclick="quiqview('{{ product.handle | handleize }}')" title="Quick View" class="quick-view modal-view detail-link"><span class="ti-plus"></span></a></li>
+        {% if product.available %}
+        <li><a class="cart__menu" href="javascript:void(0);" onclick="{{ func }}; return false;" title="{{ 'products.product.add_to_cart' | t }}"><span class="ti-shopping-cart"></span></a></li>
+        {% endif %}
+      </ul>
+    </div>
+    <div class="add__to__wishlist">
+      {% include 'wishlist-button' %}
+    </div>
+  </div>
+  <div class="product__details">
+    <h2><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h2>
+    <ul class="product__price">
+      {% if product.compare_at_price_max > product.price %}
+      <li class="old__price">{{ product.compare_at_price | money }}</li>
+      {% endif %}
+      <li class="new__price">{{ product.price | money }}</li>
+    </ul>
+  </div>
+</div>
+{% endif %}
+
+{% if section.settings.product_style_handle == 'product_style_2' %}
+<div class="best__product foo">
+  <div class="best__product__inner">
+    <div class="best__product__thumb">
+      <a href="{{ product.url | within: collection }}"><img src="{{ product.featured_image.src | img_url: '1024x1024' }}" alt=""/></a>
+    </div>
+    <div class="bst__pro__hover__info">
+      <div class="bst__pro__hover__action">
+        <h2><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h2>        
+        <span class="bst__pro__prize">{{ product.price | money }}</span>
+        {% if product.compare_at_price_max > product.price %}
+        <span class="bst__pro__prize old__pro_price">{{ product.compare_at_price | money }}</span>
+        {% endif %}
+        <ul class="bst__pro__action">
+          <li><a data-toggle="modal" href="javascript:void(0);" onclick="quiqview('{{ product.handle | handleize }}')" title="Quick View" class="quick-view modal-view detail-link"><span class="ti-plus"></span></a></li>
+          {% if product.available %}
+          <li><a class="cart__menu" href="javascript:void(0);" onclick="{{ func }}; return false;" title="{{ 'products.product.add_to_cart' | t }}"><span class="ti-shopping-cart"></span></a></li>
+          {% endif %}
+          <li>{% include 'wishlist-button-2' %}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% if section.settings.product_style_handle == 'product_style_3' %}
+<div class="single__pro cat--2 cat--4 popular__product--2">
+  <div class="product foo">
+    <div class="product__inner">
+      <div class="pro__thumb">
+        <a href="{{ product.url | within: collection }}"><img src="{{ product.featured_image.src | img_url: '1024x1024' }}" alt=""/></a>
+      </div>
+      <div class="popular__product__hover__info">
+        <ul class="product__action">
+          <li>{% include 'wishlist-button-2' %}</li>
+          <li><a data-toggle="modal" href="javascript:void(0);" onclick="quiqview('{{ product.handle | handleize }}')" title="Quick View" class="quick-view modal-view detail-link"><span class="ti-plus"></span></a></li>
+          {% if product.available %}
+          <li><a class="cart__menu" href="javascript:void(0);" onclick="{{ func }}; return false;" title="{{ 'products.product.add_to_cart' | t }}"><span class="ti-shopping-cart"></span></a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+    <div class="product__details">
+      <h2><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h2> 
+      <span class="popular__pro__prize">{{ product.price | money }}</span>
+      {% if product.compare_at_price_max > product.price %}
+      <span class="popular__pro__prize old__pro_price">{{ product.compare_at_price | money }}</span>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% if section.settings.product_style_handle == 'product_style_4' %}
+<div class="popular__product--2 popular__product--4">
+  <div class="product foo">
+    <div class="product__inner">
+      <div class="pro__thumb">
+        <a class="image" href="{{ product.url | within: collection }}"><img src="{{ product.featured_image.src | img_url: '1024x1024' }}" alt=""/></a>
+      </div>
+      <div class="popular__product__hover__info">
+        <ul class="product__action {% unless product.available %}product-action-4{% endunless %}">
+          <li><a data-toggle="modal" href="javascript:void(0);" onclick="quiqview('{{ product.handle | handleize }}')" title="Quick View" class="quick-view modal-view detail-link"><span class="ti-plus"></span></a></li>
+          {% if product.available %}
+          <li><a class="cart__menu" href="javascript:void(0);" onclick="{{ func }}; return false;" title="{{ 'products.product.add_to_cart' | t }}"><span class="ti-shopping-cart"></span></a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+    <div class="product__details">
+      <h2><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h2> 
+      <span class="popular__pro__prize">{{ product.price | money }}</span>
+      {% if product.compare_at_price_max > product.price %}
+      <span class="popular__pro__prize old__pro_price">{{ product.compare_at_price | money }}</span>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% if section.settings.product_style_handle == 'product_style_5' %}
+<div class="popular__product--6">
+  <div class="product foo">
+    <div class="product__inner">
+      <div class="pro__thumb">
+        <a class="image" href="{{ product.url | within: collection }}"><img src="{{ product.featured_image.src | img_url: '1024x1024' }}" alt=""/></a>
+      </div>
+      <div class="popular__product__hover__info">
+        <ul class="product__action">
+          <li>{% include 'wishlist-button-2' %}</li>
+          <li><a data-toggle="modal" href="javascript:void(0);" onclick="quiqview('{{ product.handle | handleize }}')" title="Quick View" class="quick-view modal-view detail-link"><span class="ti-plus"></span></a></li>
+          {% if product.available %}
+          <li><a class="cart__menu" href="javascript:void(0);" onclick="{{ func }}; return false;" title="{{ 'products.product.add_to_cart' | t }}"><span class="ti-shopping-cart"></span></a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+    <div class="product__details">
+      <h2><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h2>
+      <ul class="product__price">
+        {% if product.compare_at_price_max > product.price %}
+        <li class="old__price">{{ product.compare_at_price | money }}</li>
+        {% endif %}
+        <li class="new__price">{{ product.price | money }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% if section.settings.product_style_handle == 'product_style_6' %}
+<div class="product__style--7">
+  <div class="product foo">
+    <div class="product__inner">
+      <div class="pro__thumb">
+        <a href="{{ product.url | within: collection }}"><img src="{{ product.featured_image.src | img_url: '1024x1024' }}" alt=""/></a>
+      </div>
+      <div class="popular__product__hover__info">
+        <ul class="product__action">
+          <li>{% include 'wishlist-button-2' %}</li>
+          <li><a data-toggle="modal" href="javascript:void(0);" onclick="quiqview('{{ product.handle | handleize }}')" title="Quick View" class="quick-view modal-view detail-link"><span class="ti-plus"></span></a></li>
+          {% if product.available %}
+          <li><a class="cart__menu" href="javascript:void(0);" onclick="{{ func }}; return false;" title="{{ 'products.product.add_to_cart' | t }}"><span class="ti-shopping-cart"></span></a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+    <div class="product__details">
+      <h2><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h2> 
+      <span class="popular__pro__prize">{{ product.price | money }}</span>
+      {% if product.compare_at_price_max > product.price %}
+      <span class="popular__pro__prize old__pro_price">{{ product.compare_at_price | money }}</span>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}

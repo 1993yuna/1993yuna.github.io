@@ -1,0 +1,77 @@
+<div class="body__overlay"></div>
+<!-- Start Offset Wrapper -->
+<div class="offset__wrapper">
+  {% include 'search-popup' %}
+  <!-- End Search Popap -->
+  <!-- Start Offset MEnu -->
+  {% if settings.header_style == 'header_one' or settings.header_style == 'header_three' %}
+  <div class="offsetmenu">
+    <div class="offsetmenu__inner">
+      <div class="offsetmenu__close__btn">
+        <a href="#"><i class="zmdi zmdi-close"></i></a>
+      </div>
+      <div class="off__contact">
+        {% include 'header-logo-2' %}
+        {% if section.settings.store_content != '' %}
+        <p>{{ section.settings.store_content }}</p>
+        {% endif %}
+      </div>
+      {% if section.settings.instafeed_enable %}
+      <ul class="sidebar__thumd">
+        {% include 'instafeed' %}
+      </ul>
+      {% endif %}
+      {% if section.settings.currency_enable %}
+      <div class="offset__widget">
+        <div class="offset__single offset-currency-picker">
+          <h4 class="offset__title">{{ section.settings.currency_title }}</h4>
+          {% include 'currency-picker' %}
+        </div>
+      </div>
+      {% endif %}
+      {% include 'offset-social-link' %}
+    </div>
+  </div>
+  {% endif %}
+  {% if settings.header_style == 'header_two' %}
+  <div class="offsetmenu home-five">
+    <div class="offsetmenu__inner sidebar__menu--inner">
+      <div class="offsetmenu__close__btn">
+        <a href="#"><i class="zmdi zmdi-close"></i></a>
+      </div>
+      <div class="off__contact">
+        {% include 'header-logo' %}
+        {% if section.settings.store_content != '' %}
+        <p>{{ section.settings.store_content }}</p>
+        {% endif %}
+      </div>
+      <nav>
+        <ul class="sidebar__menu">
+          {% for link in linklists.main-menu.links %}
+          {% assign childlink_handle = link.title | handle %}
+          {% if linklists[childlink_handle] and linklists[childlink_handle].links.size > 0 %}
+          <li class="{% if link.active %}active{% endif %} drop-menu"><a href="{{ link.url }}">{{ link.title }}</a>
+            <ul class="dropdown">
+              {% for childlink in linklists[childlink_handle].links %}
+              <li><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% else %}
+          <li class="{% if link.active %}active{% endif %}"><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
+      {% include 'offset-social-link' %}
+    </div>
+  </div>
+  {% endif %}
+  <!-- End Offset MEnu -->
+  <!-- Start Cart Panel -->
+  {% include 'mini-cart' %}
+  <!-- End Cart Panel -->
+  {% if template != 'customers/login' %}
+  {% include 'login-register' %}
+  {% endif %}
+</div>

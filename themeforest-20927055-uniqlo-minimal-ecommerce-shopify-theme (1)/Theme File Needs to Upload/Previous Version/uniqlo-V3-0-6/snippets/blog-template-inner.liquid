@@ -1,0 +1,11 @@
+<div class="blog__wrap blog--page clearfix">
+  <div class="row">
+    <!-- Start Single Blog -->
+    {% for article in blog.articles %}
+    <div class="col-md-{{ section.settings.product_column }} col-sm-{{ section.settings.product_column_sm }} col-xs-12 {% if section.settings.blog_page_handle == 'by_loadmore' %}load-more{% endif %}">
+      {% include 'blog-grid-item' %}
+    </div>
+    {% endfor %}
+    <!-- End Single Blog -->
+  </div>
+</div>

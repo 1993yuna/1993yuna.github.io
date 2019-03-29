@@ -1,0 +1,42 @@
+{% assign itemStyle = '' %}{% if cart.item_count == 0 %}{% assign itemStyle = ' style="display:none;"' %}{% endif %}
+{% assign itemEmpty = '' %}{% if cart.item_count == 0 %}{% assign itemEmpty = ' style="display:block;"' %}{% endif %}
+<div class="shopping__cart">
+  <div class="shopping__cart__inner">
+    <div class="offsetmenu__close__btn">
+      <a href="#"><i class="zmdi zmdi-close"></i></a>
+    </div>
+    <div {{ itemEmpty }} class="cart_empty_title">
+      <h2>{{ settings.cart_empty_title }}</h2>
+    </div>
+    <div class="shp__cart__wrap" {{ itemStyle }}>
+      <ul>
+        {% for item in cart.items limit: 20 %}
+        <li>
+          <div class="shp__single__product">
+            <div class="shp__pro__thumb">
+              <a href="{{ item.url }}">
+                <img src="{{ item | img_url: 'small' }}" alt="product images">
+              </a>
+            </div>
+            <div class="shp__pro__details">
+              <h2><a href="{{ item.url }}">{{ item.title }}</a></h2>
+              <span class="shp__price">{{ item.quantity }} x {{ item.price | money }}</span>
+            </div>
+            <div class="remove__btn">
+              <a href="javascript:void(0);" onclick="Shopify.removeItem({{ item.variant.id }})" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <ul class="shoping__total" {{ itemStyle }}>
+      <li class="subtotal">{{ settings.cart_total_title }}</li>
+      <li class="total__price shopping-cart__total">{{ cart.total_price | money }}</li>
+    </ul>
+    <ul class="shopping__btn" {{ itemStyle }}>
+      <li><a href="/cart">{{ settings.view_cart_title }}</a></li>
+      <li class="shp__checkout"><a href="/checkout">{{ settings.checkout_title }}</a></li>
+    </ul>
+  </div>
+</div>

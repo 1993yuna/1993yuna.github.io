@@ -1,0 +1,88 @@
+<!-- Start User Login & register -->
+<div class="user__meta hidden-xs">
+  <div class="user__meta__inner">
+    <div class="offsetmenu__close__btn">
+      <a href="#"><i class="zmdi zmdi-close"></i></a>
+    </div>
+    <div class="htc__login__register">
+      <ul class="login__register__menu" role="tablist">
+        <li role="presentation" class="login active"><a href="#login" role="tab" data-toggle="tab">{{ 'customer.login.title' | t }}</a></li>
+        <li role="presentation" class="register"><a href="#register" role="tab" data-toggle="tab">Register</a></li>
+      </ul>
+      <!-- Start Login Register Content -->
+      <div class="htc__login__register__wrap">
+        <div id="login" role="tabpanel" class="single__tabs__panel login tab-pane fade in active">
+          <div id="CustomerLoginForm">
+            {% form 'customer_login' %}
+            <div class="login__register__menu">
+              <h2 class="login">{{ 'customer.login.title' | t }}</h2>
+            </div>
+            {{ form.errors | default_errors }}
+            <input type="email" name="customer[email]" id="CustomerEmail" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.login.email' | t }}" autocorrect="off" autocapitalize="off" autofocus>
+            {% if form.password_needed %}
+            <input type="password" value="" name="customer[password]" id="CustomerPassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.login.password' | t }}">
+            {% endif %}
+            <div class="tabs__checkbox">
+              <span class="forget">
+                {% if form.password_needed %}
+                <a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a>
+                {% endif %}
+              </span>
+            </div>
+            <div class="htc__login__btn mt--30">
+              <button type="submit">{{ 'customer.login.sign_in' | t }}</button>
+            </div>
+            {% endform %}
+          </div>
+          <div id="RecoverPasswordForm" style="display: none;">
+            <div class="login__register__menu">
+              <h2 class="login">{{ 'customer.recover_password.title' | t }}</h2>
+            </div>
+            {% form 'recover_customer_password' %}
+            {{ form.errors | default_errors }}
+            {% if form.posted_successfully? %}
+            {% assign resetPassword = true %}
+            {% endif %}
+            <input type="email" value="" name="email" id="RecoverEmail" class="input-full" placeholder="{{ 'customer.recover_password.email' | t }}" autocorrect="off" autocapitalize="off">
+            <div class="tabs__checkbox">
+              <span class="forget">
+                <a href="#" id="HideRecoverPasswordLink">{{ 'customer.recover_password.cancel' | t }}</a>
+              </span>
+            </div>
+            <div class="htc__login__btn mt--30">
+              <button type="submit">{{ 'customer.recover_password.submit' | t }}</button>
+            </div>
+            {% endform %}
+          </div>
+        </div>
+        <!-- Start Single Content -->
+        <div id="register" role="tabpanel" class="single__tabs__panel login tab-pane fade">
+          <div class="login__register__menu">
+            <h2 class="login">{{ 'customer.register.title' | t }}</h2>
+          </div>
+          {% form 'create_customer' %}
+          {{ form.errors | default_errors }}
+          <label for="FirstName" class="hidden-label">{{ 'customer.register.first_name' | t }}</label>
+          <input type="text" name="customer[first_name]" id="FirstName" class="input-full" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
+
+          <label for="LastName" class="hidden-label">{{ 'customer.register.last_name' | t }}</label>
+          <input type="text" name="customer[last_name]" id="LastName" class="input-full" placeholder="{{ 'customer.register.last_name' | t }}" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words">
+
+          <label for="Email" class="hidden-label">{{ 'customer.register.email' | t }}</label>
+          <input type="email" name="customer[email]" id="Email" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.register.email' | t }}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+
+          <label for="CreatePassword" class="hidden-label">{{ 'customer.register.password' | t }}</label>
+          <input type="password" name="customer[password]" id="CreatePassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.register.password' | t }}">
+
+          <div class="htc__login__btn mt--20">
+            <button type="submit">{{ 'customer.register.submit' | t }}</button>
+          </div>
+          {% endform %}
+        </div>
+      </div>
+      <!-- End Single Content -->
+    </div>
+    <!-- End Login Register Content -->
+  </div>
+</div>
+<!-- End User Login & register -->

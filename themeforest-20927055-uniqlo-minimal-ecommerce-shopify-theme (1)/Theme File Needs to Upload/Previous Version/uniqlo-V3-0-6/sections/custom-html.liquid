@@ -1,0 +1,51 @@
+<div class="custom-html" id="section-{{ section.id }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="custom-html-content">
+          {{ pages[section.settings.custom_html].content }}
+        </div>
+      </div>
+    </div>	
+  </div>
+</div>
+
+
+<style>
+  .custom-html{
+    margin-bottom: {{ section.settings.section_margin_bottom }}px;
+  }
+</style>
+
+
+
+{% schema %}
+  {
+    "name": "Custom HTML",
+    "settings": [
+		{
+          "type": "page",
+          "id": "custom_html",
+          "label": "Select Page",
+          "info": "[Create a page](\/admin\/pages\/new)"
+        },
+		{
+			"type": "header",
+            "content": "Section Margin"
+        },
+		{
+          "type": "text",
+          "id": "section_margin_bottom",
+          "label": "Margin Bottom",
+          "default": "130",
+          "info": "Defined in pixels. Do not add the 'px' unit."	
+      	}
+	],
+	"presets": [
+		{
+			"name": "Custom HTML",
+			"category": "Custom Content"
+		}
+	]
+  }
+{% endschema %}

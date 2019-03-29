@@ -1,0 +1,95 @@
+<!-- Start brand Area -->
+{% if section.settings.brand_logo_enable %}
+<div class="htc__brand__area bg__white" style="padding-bottom: {{ section.settings.section_padding_bottom }}px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="brand__list">
+          {% assign i = 0 %}
+          {% for block in section.blocks %}
+          <li><a href="{{ block.settings.brand_link }}"><img src="{% if block.settings.brand_logo %}{{ block.settings.brand_logo | img_url: 'compact' }}{% else %}https://via.placeholder.com/160x65{% endif %}" alt="brand images"></a></li>
+          {% assign i = i | plus: 1 %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+<!-- End brand Area -->
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Brand Logo",
+    "settings": [
+		{
+          "type": "checkbox",
+          "id": "brand_logo_enable",
+          "label": "Show Brand Logo",
+		  "default": true
+        },
+		{
+			"type": "header",
+            "content": "Section Padding"
+        },
+		{
+          "type": "text",
+          "id": "section_padding_bottom",
+          "label": "Padding Bottom",
+          "default": "120",
+          "info": "Defined in pixels. Do not add the 'px' unit."	
+      	}
+	],
+	"blocks":[
+		{
+			"type": "brand_logo",
+			"name": "Brand Logo",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "brand_logo",
+					"label": "Brand Logo",
+					"info": "Recommended Size: 160 x 65px"
+				},
+				{
+					"type": "url",
+					"id": "brand_link",
+					"label": "Brand Link"
+				}
+			]
+		}
+	],
+	"presets":[
+		{
+			"name": "Brand Logo",
+			"category": "About",
+			"blocks":[
+				{
+					"type": "brand_logo"
+				},
+				{
+					"type": "brand_logo"
+				},
+				{
+					"type": "brand_logo"
+				}
+			]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,234 @@
+<!-- Start Our Blog Area -->
+<section class="blog-details-wrap ptb--120 bg__white">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    <div class="row">
+      <div class="{% if section.settings.sidebar_handle == 'without_sidebar' %}col-md-12{% else %}{% if section.settings.sidebar_handle == 'left_sidebar_handle' %}col-md-push-3{% endif %} col-md-9{% endif %} col-sm-12">
+        <div class="blog-details-left-sidebar">
+          <div class="blog-details-top">
+            <!--Start Blog Thumb -->
+            <div class="blog-details-thumb-wrap">
+              <div class="blog-details-thumb">
+                <img src="{{ article | img_url: 'master' }}" alt="{{ article.image.alt }}">
+              </div>
+              <div class="upcoming-date">
+                {{ article.published_at | date: "%d" }}<span class="upc-mth">{{ article.published_at | date: "%b" }},{{ article.published_at | date: "%Y" }}</span>
+              </div>
+            </div>
+            <!--End Blog Thumb -->
+            <h2>{{ article.title }}</h2>
+            <div class="blog-admin-and-comment">
+              <p>BY : {{ article.author }}</p>
+              {% if article.comments.size > 0 and article.comments_enabled? %}
+              <p class="separator">|</p>
+              <p><a href="#comments">{{ 'blogs.comments.with_count' | t: count: article.comments_count }}</a></p>
+              {% endif %}
+            </div>
+            <!-- Start Blog Pra -->
+            <div class="blog-details-pra">
+              {{ article.content }}
+            </div>
+            <!-- End Blog Pra -->
+            <!-- Start Blog Tags -->
+            <div class="postandshare">
+              {% if article.tags.size > 0 %}
+              <div class="post">
+                <p>{{ 'blogs.article.tags' | t }} :</p>
+                <ul>
+                  {% for tag in article.tags limit: 5 %}
+                  <li>{{ tag | link_to_tag: tag }}{% unless forloop.last %},{% endunless %}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %}
+              <div class="blog-social-icon">
+                {% include 'blog-share' %}
+              </div>
+            </div>
+            <!-- End Blog Tags -->
+            <!-- Start Blog Comment Area -->
+
+            {% if article.comments_enabled? %}
+            <!-- Start Blog Comment Area -->
+            <div class="our-blog-comment mt--20" id="comments">
+              {% assign comment_post_limit = section.settings.comment_post_limit_handle %}
+
+              {% paginate article.comments by comment_post_limit %}
+
+              {% if comment and comment.created_at %}
+              <p class="note form-success">
+                {% if blog.comments_modareted? %}
+                {{ 'blogs.comments.success_moderated' | t }}            
+                {% else %}
+                {{ 'blogs.comments.success' | t }}
+                {% endif %}
+              </p>
+              <!-- comments on t this post -->
+              {% endif %}
+
+              <div class="blog-comment-inner">
+                {% if article.comments.size > 0 %}
+                <h2 class="section-title-2">{{ 'blogs.comments.with_count' | t: count: article.comments_count }}</h2>
+                {% endif %}
+                <!-- Start Single Comment -->
+
+                {% if article.comments.size > 0 %}
+                {% include 'blog-comments' %}
+                {% endif %}
+
+                <!-- End Single Comment -->
+              </div>
+              {% if paginate.pages > 1 %}
+              <div class="mt--40">
+              {% include 'pagination' %}
+              </div>
+              {% endif %}
+              {% endpaginate %}
+            </div>
+            <!-- End Blog Comment Area -->
+
+
+
+            <!-- End Blog Comment Area -->
+            <!-- Start Reply Form -->
+            {% include 'blog-comment-form' %}
+            <!-- End Reply Form -->
+
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% unless section.settings.sidebar_handle == 'without_sidebar' %}
+      <div class="col-md-3 {% if section.settings.sidebar_handle == 'left_sidebar_handle' %}col-md-pull-9{% endif %} col-sm-12">
+        {% include 'blog-sidebar' %}
+      </div>
+      {% endunless %}
+    </div>
+  </div>
+</section>
+<!-- End Our Blog Area -->  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Article Page",
+    "settings": [
+		{
+			"type": "select",
+			"id": "comment_post_limit_handle",
+			"label": "How Many Comment Post Show",
+			"options": [
+				{
+					"label": "3",
+					"value": "3"
+				},
+				{
+					"label": "4",
+					"value": "4"
+				},
+				{
+					"label": "5",
+					"value": "5"
+				},
+				{
+					"label": "6",
+					"value": "6"
+				},
+				{
+					"label": "7",
+					"value": "7"
+				},
+				{
+					"label": "8",
+					"value": "8"
+				},
+				{
+					"label": "9",
+					"value": "9"
+				},
+				{
+					"label": "10",
+					"value": "10"
+				},
+				{
+					"label": "Unlimited",
+					"value": "100"
+				}
+			],
+			"default": "5"
+		},
+		{
+			"type": "radio",
+			"id": "sidebar_handle",
+			"label": "Sidebar Position",
+			"options": [
+				{
+					"label": "Left Sidebar",
+					"value": "left_sidebar_handle"
+				},
+				{
+					"label": "Right Sidebar",
+					"value": "right_sidebar_handle"
+				},
+				{
+					"label": "Without Sidebar",
+					"value": "without_sidebar"
+				}
+			],
+			"default": "left_sidebar_handle"
+		},
+
+		{
+			"type": "header",
+			"content": "Sidebar Widgets"
+		},
+		{
+			"type": "header",
+			"content": "Search Bar"
+		},
+		{
+			"type": "checkbox",
+			"id": "sidebar_search",
+			"label": "Show Searchbar",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "recent_post_enable",
+			"label": "Show Recent Posts",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "archive_enable",
+			"label": "Show Archive",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "tags_enable",
+			"label": "Show Tags",
+			"default": true
+		}
+	]
+  }
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

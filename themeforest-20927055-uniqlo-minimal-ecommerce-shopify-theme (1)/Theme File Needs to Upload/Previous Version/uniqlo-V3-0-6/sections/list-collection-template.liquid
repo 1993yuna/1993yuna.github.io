@@ -1,0 +1,235 @@
+<section class="ptb--120 bg__white">
+  <div class="list-collection-template {% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    {% for collection in collections %}
+    {% unless collection.handle == 'frontpage' %}
+    {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section__title section__title--2 text-center">
+          <h2 class="title__line">{{ collection_title }}</h2>
+          <a href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: collection_title }}">More {{ collection_title }} &rsaquo;</a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {% assign products_limit = section.settings.products_limit_handle %}
+      {% for product in collection.products limit:products_limit %}
+      {% assign grid_item_width = 'large--one-fifth medium--one-half' %}
+      <div class="col-md-{{ section.settings.product_column }} col-sm-{{ section.settings.product_column_sm }} col-xs-12">
+        {% if section.settings.scroll_effect == 'fade_in' %}
+        {% include 'product-grid-item' %}
+        {% endif %}
+
+        {% if section.settings.scroll_effect == 'normal' %}
+        {% include 'product-grid-item-2' %}
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% unless forloop.last %}<hr class="mtb--50">{% endunless %}
+    {% endunless %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "All Collection List",
+    "settings": [
+		{
+			"type": "header",
+            "content": "List Collection"
+        },
+		{
+            "type": "radio",
+            "id": "product_style_handle",
+            "label": "Product Style",
+            "options": [
+                {
+                  "label": "Style One",
+                  "value": "product_style_1"
+                },
+                {
+                  "label": "Style Two",
+                  "value": "product_style_2"
+                },
+                {
+                  "label": "Style Three",
+                  "value": "product_style_3"
+                },
+				{
+                  "label": "Style Four",
+                  "value": "product_style_4"
+                },
+				{
+                  "label": "Style Five",
+                  "value": "product_style_5"
+                },
+				{
+                  "label": "Style Six",
+                  "value": "product_style_6"
+                }
+            ],
+            "default": "product_style_1"
+        },
+		{
+          "type": "radio",
+          "id": "scroll_effect",
+          "label": "Scroll Fade In Effect",
+		  "options":[
+				{
+					"label": "Yes",
+					"value": "fade_in"
+				},
+				{
+					"label": "No",
+					"value": "normal"
+				}
+			],
+			"default": "fade_in"
+      	},
+		{
+          "type": "select",
+          "id": "product_column",
+          "label": "Product Column",
+		  "options":[
+				{
+					"label": "2 Products",
+					"value": "6"
+				},
+				{
+					"label": "3 Products",
+					"value": "4"
+				},
+				{
+					"label": "4 Products",
+					"value": "3"
+				},
+				{
+					"label": "6 Products",
+					"value": "2"
+				}
+			],
+			"default": "3"
+      	},
+		{
+          "type": "select",
+          "id": "product_column_sm",
+          "label": "Product Column for Tablet Device",
+		  "options":[
+				{
+					"label": "2 Products",
+					"value": "6"
+				},
+				{
+					"label": "3 Products",
+					"value": "4"
+				},
+				{
+					"label": "4 Products",
+					"value": "3"
+				},
+				{
+					"label": "6 Products",
+					"value": "2"
+				}
+			],
+			"default": "4"
+      	},
+		{
+          "type": "select",
+          "id": "products_limit_handle",
+          "label": "Product Limit",
+		  "options":[
+				{
+					"label": "4 Products",
+					"value": "4"
+				},
+				{
+					"label": "6 Products",
+					"value": "6"
+				},
+				{
+					"label": "8 Products",
+					"value": "8"
+				},
+				{
+					"label": "9 Products",
+					"value": "9"
+				},
+				{
+					"label": "10 Products",
+					"value": "10"
+				},
+				{
+					"label": "12 Products",
+					"value": "12"
+				},
+				{
+					"label": "14 Products",
+					"value": "14"
+				},
+				{
+					"label": "15 Products",
+					"value": "15"
+				},
+				{
+					"label": "16 Products",
+					"value": "16"
+				},
+				{
+					"label": "18 Products",
+					"value": "18"
+				},
+				{
+					"label": "20 Products",
+					"value": "20"
+				},
+				{
+					"label": "21 Products",
+					"value": "21"
+				},
+				{
+					"label": "22 Products",
+					"value": "22"
+				},
+				{
+					"label": "24 Products",
+					"value": "24"
+				},
+				{
+					"label": "25 Products",
+					"value": "25"
+				},
+				{
+					"label": "Unlimited",
+					"value": "100"
+				}
+			],
+			"default": "4",
+			"info": "How many products show on per collection"
+      	}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

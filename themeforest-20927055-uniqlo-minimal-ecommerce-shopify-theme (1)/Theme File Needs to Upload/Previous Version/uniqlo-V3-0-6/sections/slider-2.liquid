@@ -1,0 +1,110 @@
+<!-- Start Slider Area -->
+<div class="slider__container slider--two" style="padding-bottom: {{ section.settings.section_padding_bottom }}px;">
+  <div class="slider__activation__wrap--2">
+    <!-- Start Single Slide -->
+    <div class="slider__full--screen slider__bg--2">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="slider__content--2 text-center">
+              <div class="slider__inner--2 text-center">
+                {% if section.settings.slider_title != '' %}
+                <h1>{{ section.settings.slider_title }}</h1>
+                {% endif %}
+                <div class="slider__btn">
+                  {% if section.settings.slider_button != '' %}
+                  <a class="htc__btn" href="{{ section.settings.slider_url }}">{{ section.settings.slider_button }}</a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Single Slide -->
+  </div>
+</div>
+<!-- Start Slider Area -->
+
+
+
+<style>
+  {% if section.settings.slider_bg_image %}
+  .slider--two .slider__bg--2 {
+    background: rgba(0, 0, 0, 0) url("{{ section.settings.slider_bg_image | img_url: 'master' }}") no-repeat scroll center center / cover;
+  }
+  {% else %}
+  .slider--two .slider__bg--2 {
+    background: rgba(0, 0, 0, 0) url("https://via.placeholder.com/1920x800") no-repeat scroll center center / cover ;
+  }
+  {% endif %}
+  .slider--two .slider__bg--2 {
+    background-attachment: fixed;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Fixed BG Slider",
+    "settings": [
+		{
+          "type": "image_picker",
+          "id": "slider_bg_image",
+          "label": "BG Image",
+		  "info": "Recommended Size: 1920 x 800px"
+        },
+		{
+          "type": "text",
+          "id": "slider_title",
+          "label": "Title",
+		  "default": "Slider Title"
+        },
+		{
+          "type": "text",
+          "id": "slider_button",
+          "label": "Button Name",
+		  "default": "Shop Now"
+        },
+		{
+          "type": "url",
+          "id": "slider_url",
+          "label": "Slider Link"
+        },
+		{
+			"type": "header",
+            "content": "Section Padding"
+        },
+		{
+          "type": "text",
+          "id": "section_padding_bottom",
+          "label": "Padding Bottom",
+          "default": "100",
+          "info": "Defined in pixels. Do not add the 'px' unit."	
+      	}
+	],
+	"presets": [
+		{
+			"name": "Fixed BG Slider",
+			"category": "slider"
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

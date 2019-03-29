@@ -1,0 +1,81 @@
+<!-- PRODUCT SECTION START -->
+{% assign related_product_limit_count = section.settings.related_product_limit_handle %}
+{% assign related_product_limit = related_product_limit_count | plus: 1 %}
+
+{% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
+{% assign product_found = false %}
+
+{% for c in product.collections %}
+{% if product_found == false and c.handle != 'frontpage' and c.handle != 'all' and c.all_products_count > 1 %}
+{% assign product_found = true %}
+{% assign collection = c %}
+{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% if collection and collection.products_count > 1 and section.settings.related_products_enable %}
+
+<section class="htc__choose__us__ares bg__white pb--120">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    {% if section.settings.section_title_enable %}
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section__title section__title--2 text-center">
+          <h2 class="title__line">{{ section.settings.section_title }}</h2>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <div class="row">
+      <div class="related-product-slider popular__product__wrap">
+        {% assign current_product = product %}
+        {% assign current_product_count = false %}
+
+        {% for product in collection.products limit: related_product_limit %}
+
+        {% if product.handle == current_product.handle %}
+
+        {% assign current_product_count = false %}
+
+        {% else %}
+
+        {% unless current_product_count == true and forloop.last %}
+
+        <div class="{% if section.settings.product_c_column == '3' %}col-xs-4{% elsif section.settings.product_c_column == '4' %}col-xs-3{% elsif section.settings.product_c_column == '2' %}col-xs-6{% elsif section.settings.product_c_column == '5' %}col-xs-2{% else %}col-xs-12{% endif %}">
+          {% include 'product-grid-item-2' %}
+        </div>
+
+        {% endunless %}
+        {% endif %}     
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+
+
+
+<script>
+  	$('.popular__product__wrap').slick({
+        speed: 700,
+        arrows: true,
+        dots: false,
+      	{% if settings.enable_rtl %}
+        rtl: true,
+      	{% endif %}
+        slidesToShow: {{ section.settings.product_c_column }},
+        slidesToScroll: 1,
+        prevArrow: '<i class="zmdi zmdi-chevron-left"></i>',
+        nextArrow: '<i class="zmdi zmdi-chevron-right"></i>',
+        responsive: [
+            {  breakpoint: 991,   settings: { slidesToShow: {{ section.settings.product_c_column_sm }},  }  },
+            {  breakpoint: 767,   settings: { slidesToShow: 2, }   },
+            {  breakpoint: 479,   settings: { slidesToShow: 1, }   },
+        ]
+    });
+</script>

@@ -1,0 +1,163 @@
+{% include 'related-product' %}
+
+
+
+{% schema %}
+  {
+    "name": "Related Products",
+    "settings": [
+		{
+            "type": "checkbox",
+            "id": "related_products_enable",
+            "label": "Show Related Products",
+            "default": true
+        },
+        {
+			"type": "checkbox",
+            "id": "section_title_enable",
+            "label": "Show Section Title",
+			"default": false
+        },
+		{
+			"type": "text",
+            "id": "section_title",
+            "label": "Section Title",
+			"default": "Section Title"
+        },
+		{
+            "type": "header",
+            "content": "Product Options"
+        },
+		{
+            "type": "radio",
+            "id": "product_style_handle",
+            "label": "Product Style",
+            "options": [
+                {
+                  "label": "Style One",
+                  "value": "product_style_1"
+                },
+                {
+                  "label": "Style Two",
+                  "value": "product_style_2"
+                },
+                {
+                  "label": "Style Three",
+                  "value": "product_style_3"
+                },
+				{
+                  "label": "Style Four",
+                  "value": "product_style_4"
+                },
+				{
+                  "label": "Style Five",
+                  "value": "product_style_5"
+                },
+				{
+                  "label": "Style Six",
+                  "value": "product_style_6"
+                }
+            ],
+            "default": "product_style_1"
+        },
+		{
+          "type": "select",
+          "id": "product_c_column",
+          "label": "Product Column",
+		  "options":[
+				{
+					"label": "2 Products",
+					"value": "2"
+				},
+				{
+					"label": "3 Products",
+					"value": "3"
+				},
+				{
+					"label": "4 Products",
+					"value": "4"
+				},
+				{
+					"label": "5 Products",
+					"value": "5"
+				}
+			],
+			"default": "3"
+      	},
+		{
+          "type": "select",
+          "id": "product_c_column_sm",
+          "label": "Product Column for Tablet Device",
+		  "options":[
+				{
+					"label": "2 Products",
+					"value": "2"
+				},
+				{
+					"label": "3 Products",
+					"value": "3"
+				},
+				{
+					"label": "4 Products",
+					"value": "4"
+				},
+				{
+					"label": "5 Products",
+					"value": "5"
+				}
+			],
+			"default": "3"
+      	},
+		{
+            "type": "select",
+            "id": "related_product_limit_handle",
+            "label": "Product Limit",
+            "options":[
+				{
+					"label": "3 Products",
+					"value": "3"
+				},
+				{
+					"label": "4 Products",
+					"value": "4"
+				},
+				{
+					"label": "6 Products",
+					"value": "6"
+				},
+				{
+					"label": "8 Products",
+					"value": "8"
+				},
+				{
+					"label": "10 Products",
+					"value": "10"
+				},
+				{
+					"label": "12 Products",
+					"value": "12"
+				},
+				{
+					"label": "14 Products",
+					"value": "14"
+				},
+				{
+					"label": "16 Products",
+					"value": "16"
+				},
+				{
+					"label": "Unlimited",
+					"value": "100"
+				}
+			],
+			"default": "10"
+      	}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

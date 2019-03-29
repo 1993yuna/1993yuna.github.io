@@ -1,0 +1,180 @@
+/*-----------------------------------------------------------------------------------
+Template Name: Uniqlo-Minimalist eCommerce HTML5 Template.
+Template URI: #
+Description: Uniqlo is a unique website template designed in HTML with a simple & beautiful look. There is an excellent solution for creating clean, wonderful and trending material design corporate, corporate any other purposes websites.
+Author: HasTech
+Version: 1.0
+
+-----------------------------------------------------------------------------------*/
+
+
+/* Large screen desktop */
+@media (min-width: 1366px) and (max-width: 1500px){
+
+}
+
+@media (min-width: 1170px) and (max-width: 1500px){
+
+}
+
+
+
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1169px) {
+
+}
+
+
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+  .popular__product__wrap > i.zmdi-chevron-left.slick-arrow {
+    left: 0;
+    z-index: 9;
+  }
+  .popular__product__wrap > i.zmdi-chevron-right.slick-arrow {
+    right: 0;
+    z-index: 9;
+  }
+  .htc__shop__left__sidebar {
+    margin-top: 100px;
+  }
+  .htc__shop__cat:last-child {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+  .blod-details-right-sidebar {
+    margin-top: 100px;
+  }
+  .category-search-area form{
+    width: 100%;
+  }
+  blockquote::before {
+    height: 100%;
+    top: 0;
+  }
+  .custom_page .account-details{
+    margin-top: 50px;
+  }
+  .product-tile-container.wishlist-tile-container {
+    width: 50%;
+  }
+  .box-width-footer .footer__container{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .box-width-footer .htc__copyright__area {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .wrapper__sidebar--left .wrapper--content {
+    margin-left: auto;
+  }
+  .productModal .selector-wrapper > label {
+    width: 75px;
+  }
+  .smt-60{
+    margin-top: 60px;
+  }
+}
+
+
+/* small mobile :320px. */
+@media (max-width: 767px) {
+  .popular__product__wrap > i.zmdi-chevron-left.slick-arrow {
+    left: 0;
+    z-index: 9;
+  }
+  .popular__product__wrap > i.zmdi-chevron-right.slick-arrow {
+    right: 0;
+    z-index: 9;
+  }
+  .productModal .selector-wrapper > label {
+    width: 75px;
+  }
+  .productModal .cart-plus-minus {
+    width: 75px;
+  }
+  .addtocart-btn button {
+    padding: 0 50px;
+  }
+  .shop__page .product__menu {
+    width: 100%;
+  }
+  .htc__shop__left__sidebar {
+    margin-top: 100px;
+  }
+  .htc__shop__cat:last-child {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+  .pro__dtl__btn li + li {
+    margin-left: 0px;
+  }
+  .pro__dtl__btn li {
+    margin-right: 10px;
+  }
+  .blod-details-right-sidebar {
+    margin-top: 100px;
+  }
+  .category-search-area form{
+    width: 100%;
+  }
+  blockquote::before {
+    height: 100%;
+    top: 0;
+  }
+  .bradcaump-title {
+    font-size: 30px;
+  }
+  .breadcrumb-list > li {
+    font-size: 16px;
+  }
+  .custom_page .account-details{
+    margin-top: 50px;
+  }
+  a.is-active + a.go-to-wishlist {
+    display: none;
+  }
+  .product-tile-container.wishlist-tile-container {
+    width: 100%;
+  }
+  .box-width-footer .footer__container{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .box-width-footer .htc__copyright__area {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .footer__menu li {
+    padding: 0 10px;
+  }
+  .wrapper__sidebar--left .wrapper--content {
+    margin-left: auto;
+  }
+  .wrapper__sidebar .menu-extra {
+    margin-right: 40px;
+  }
+  .filter__content {
+    margin-top: 50px;
+  }
+  .single__filter {
+    width: 100%;
+  }
+  .xmt-60{
+    margin-top: 60px;
+  }
+  .home-v5 .menu-extra {
+    margin-right: 40px;
+  }
+  .slide.slider-with-description.slider__bg--1 {
+    padding: 45px 0 100px;
+  }
+}
+
+
+/* Large Mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+}
+

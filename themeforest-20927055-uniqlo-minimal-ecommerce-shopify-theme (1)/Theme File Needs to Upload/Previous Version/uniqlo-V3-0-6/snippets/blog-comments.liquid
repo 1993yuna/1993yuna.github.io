@@ -1,0 +1,16 @@
+{% for comment in article.comments %}
+<div class="single-blog-comment">
+  <div class="blog-comment-thumb">
+    <img class="media-object" src="{{ 'author.png' | asset_url }}" alt="#">
+  </div>
+  <div class="blog-comment-details">
+    <div class="comment-title-date">
+      <h2><a href="#">{{ comment.author }}</a></h2>
+      <div class="reply">
+        <p>{{ comment.created_at | date: "%b %d, %Y at %H:%M" }}</p>
+      </div>
+    </div>
+    <p>{{ comment.content }}</p>
+  </div>
+</div>
+{% endfor %}

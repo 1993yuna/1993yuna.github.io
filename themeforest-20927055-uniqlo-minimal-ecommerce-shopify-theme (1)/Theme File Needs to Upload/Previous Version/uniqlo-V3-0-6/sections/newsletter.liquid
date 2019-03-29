@@ -1,0 +1,101 @@
+<!-- Start Newsletter Ares -->
+<section class="htc__newsletter__area fix" data--black__overlay="7"  style="background: rgba(0, 0, 0, 0) url({% if section.settings.newsletter_bg %}{{ section.settings.newsletter_bg | img_url: 'master' }}{% else %}https://via.placeholder.com/1600x377{% endif %}) no-repeat scroll center center / cover ; margin-bottom: {{ section.settings.section_margin_bottom }}px;">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' or settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="newsletter__container">
+          {% if section.settings.newsletter_sup_title %}
+          <h4>{{ section.settings.newsletter_sup_title }}</h4>
+          {% endif %}
+          {% if section.settings.newsletter_title %}
+          <h2>{{ section.settings.newsletter_title }}</h2>
+          {% endif %}
+          <div class="newsletter__form">
+            <div class="input__box">
+              <div id="mc_embed_signup">
+                <form action="{{ settings.newsletter_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                  <div id="mc_embed_signup_scroll" class="htc__news__inner">
+                    <div class="news__input">
+                      <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="{{ settings.email_placeholder }}" required>
+                    </div>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
+                    <div class="clearfix subscribe__btn"><input type="submit" value="Send" name="subscribe" id="mc-embedded-subscribe" class="bst__btn btn--white__color">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>        
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Newsletter",
+    "settings": [
+		{
+			"type": "textarea",
+            "id": "newsletter_sup_title",
+            "label": "Newsletter Sup Title",
+			"default": "Newsletter Sup Title"
+        },
+		{
+			"type": "text",
+            "id": "newsletter_title",
+            "label": "Newsletter Title",
+			"default": "Newsletter Title"
+        },
+		{
+			"type": "image_picker",
+            "id": "newsletter_bg",
+            "label": "Newsletter BG Image",
+			"info": "Recommended Size: 1600 x 377px"
+        },
+		{
+			"type": "header",
+            "content": "Section Margin"
+        },
+		{
+          "type": "text",
+          "id": "section_margin_bottom",
+          "label": "Margin Bottom",
+          "default": "0",
+          "info": "Defined in pixels. Do not add the 'px' unit."	
+      	}
+	],
+	"presets": [
+		{
+			"name": "Newsletter",
+			"category": "newsletter"
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

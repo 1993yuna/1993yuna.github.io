@@ -1,0 +1,37 @@
+<!-- Start Product MEnu -->
+{% if section.settings.sorting_enable %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="filter__menu__container">
+      {% if section.settings.short_by_enable %}
+      <div class="product__menu">
+        {% include 'collection-sorting' %}
+      </div>
+      {% endif %}
+      {% if section.settings.filter_button_enable %}
+      <div class="filter__box">
+        <a class="filter__menu" href="#">filter</a>
+      </div>
+      {% endif %}
+      {% if section.settings.tab_bar_enable %}
+      {% include 'tab-bar' %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
+<!-- Start Filter Menu -->
+{% include 'product-filter' %}
+<!-- End Filter Menu -->
+<!-- End Product MEnu -->
+<div class="row">
+  <div class="product__list">
+    <!-- Start Single Product -->
+    {% for product in collection.products %}
+    <div class="single__list__content clearfix {% if section.settings.collection_page_handle == 'by_loadmore' %}load-more{% endif %}">
+      {% include 'product-list-item' %}
+    </div>
+    {% endfor %}
+    <!-- End Single Product -->
+  </div>
+</div>

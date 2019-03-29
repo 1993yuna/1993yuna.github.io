@@ -1,0 +1,33 @@
+<nav class="mainmenu__nav hidden-xs hidden-sm">
+  <ul class="main__menu">   
+    {% for link in linklists.main-menu.links %}
+    {% assign childlink_handle = link.title | handle %}
+    {% if linklists[childlink_handle] and linklists[childlink_handle].links.size > 0 %}
+    <li class="drop"><a href="{{ link.url }}">{{ link.title }}</a>
+      <ul class="dropdown">
+        {% for childlink in linklists[childlink_handle].links %}
+        {% assign grand_childlink_handle = childlink.title | handle %}
+        {% if linklists[grand_childlink_handle] and linklists[grand_childlink_handle].links.size > 0 %}
+        <li class="megamenu-li"><a class="mega__title" href="{{ childlink.url }}">{{ childlink.title }}</a>
+          <ul class="mega__item">
+            {% for grand_childlink_handle in linklists[grand_childlink_handle].links %}  
+            <li><a href="{{ grand_childlink_handle.url }}">{{ grand_childlink_handle.title }}</a></li>
+            {% endfor %}  
+          </ul>
+        </li>
+        {% elsif childlink.type == "collection_link" and childlink.object.image %}
+        <li class="megamenu-li image-menu">
+          <a href="{{ childlink.url }}"><img src="{{ childlink.object.image | img_url: 'large' }}" alt="" /></a>
+        </li>
+        {% else %}
+        <li class="submenu-li"><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </li>
+    {% else %}
+    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</nav>

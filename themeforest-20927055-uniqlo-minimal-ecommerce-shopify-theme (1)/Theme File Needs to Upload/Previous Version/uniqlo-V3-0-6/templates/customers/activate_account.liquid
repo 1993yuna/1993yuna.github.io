@@ -1,0 +1,44 @@
+<!-- Start Login Register Area -->
+<div class="htc__login__register bg__white ptb--130" {% if settings.customer_page_bg %}style="background: rgba(0, 0, 0, 0) url({{ settings.customer_page_bg | img_url: 'master' }}) no-repeat scroll center center / cover ;"{% endif %}>
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="login__register__menu">
+          <h2 class="login active">{{ 'customer.activate_account.title' | t }}</h2>
+        </div>
+      </div>
+    </div>
+    <!-- Start Login Register Content -->
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="htc__login__register__wrap">
+          <!-- Start Single Content -->
+          <div id="register" class="single__tabs__panel login">
+            {% form 'activate_customer_password' %}
+
+            {{ form.errors | default_errors }}
+
+            <label for="CustomerPassword" class="hidden-label">{{ 'customer.activate_account.password' | t }}</label>
+            <input type="password" value="" name="customer[password]" id="CustomerPassword" class="input-full" placeholder="{{ 'customer.activate_account.password' | t }}">
+
+            <label for="CustomerPasswordConfirmation" class="hidden-label">{{ 'customer.activate_account.password_confirm' | t }}</label>
+            <input type="password" value="" name="customer[password_confirmation]" id="CustomerPasswordConfirmation" class="input-full" placeholder="{{ 'customer.activate_account.password_confirm' | t }}">
+
+            <div class="htc__login__btn mt--20 active-account">
+              <button type="submit">{{ 'customer.activate_account.submit' | t }}</button>
+              <button type="submit" name="decline">{{ 'customer.activate_account.cancel' | t }}</button>
+            </div>
+
+            {% endform %}
+          </div>
+          <!-- End Single Content -->
+        </div>
+      </div>
+    </div>
+
+
+    <!-- End Login Register Content -->
+  </div>
+</div>
+<!-- End Login Register Area -->

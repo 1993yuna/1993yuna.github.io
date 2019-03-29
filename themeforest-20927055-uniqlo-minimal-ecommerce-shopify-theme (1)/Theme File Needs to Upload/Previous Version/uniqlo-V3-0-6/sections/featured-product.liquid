@@ -1,0 +1,281 @@
+<!-- Start Our Product Area -->
+<section class="htc__best__product__area bg__white" style="padding-bottom: {{ section.settings.section_padding_bottom }}px;">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    {% if section.settings.section_title != '' %}
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="section__title section__title--2 {% if section.settings.section_text_align == 'section_text_center' %}text-center{% endif %}{% if section.settings.section_text_align == 'section_text_left' %}text-left{% endif %}{% if section.settings.section_text_align == 'section_text_right' %}text-right{% endif %}">
+          <h2 class="title__line">{{ section.settings.section_title }}</h2>
+          {% if section.settings.section_content != '' %}
+          <p {% if section.settings.section_text_align == 'section_text_center' %}class="text-center" style="margin: 27px auto auto;"{% endif %}{% if section.settings.section_text_align == 'section_text_left' %}class="text-left" style="margin: 27px auto auto 0;"{% endif %}{% if section.settings.section_text_align == 'section_text_right' %}class="text-right" style="margin: 27px 0 auto auto;"{% endif %}>{{ section.settings.section_content }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <div class="row">
+      <div class="best__product__list clearfix mt--60">
+        <!-- Start Single Product -->
+        {% assign featured_product = collections[section.settings.featured_product_handle] %}
+        {% assign featured_product_limit = section.settings.featured_product_limit_handle %}
+        {% for product in featured_product.products limit: featured_product_limit %}
+        <div class="col-md-{{ section.settings.product_column }} col-sm-{{ section.settings.product_column_sm }} col-xs-12">
+          {% if section.settings.scroll_effect == 'fade_in' %}
+          {% include 'product-grid-item' %}
+          {% endif %}
+          {% if section.settings.scroll_effect == 'normal' %}
+          {% include 'product-grid-item-2' %}
+          {% endif %}
+        </div>
+        {% endfor %}
+        <!-- End Single Product -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Our Product Area -->
+
+<style>
+  .best__product__list .best__product, .best__product__list .product{
+    margin-bottom: {{ section.settings.product_margin_bottom }}px;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Featured Product",
+    "settings": [
+		{
+			"type": "header",
+            "content": "Section Header"
+        },
+		{
+          "type": "text",
+          "id": "section_title",
+          "label": "Section Title",
+          "default": "Section Title"		
+      	},
+		{
+          "type": "textarea",
+          "id": "section_content",
+          "label": "Section Content",
+          "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod temp incididunt ut labore et dolore magna aliqua."		
+      	},
+		{
+          "type": "select",
+          "id": "section_text_align",
+          "label": "Text Alignment",
+		  "options":[
+				{
+					"label": "Align Left",
+					"value": "section_text_left"
+				},
+				{
+					"label": "Align Center",
+					"value": "section_text_center"
+				},
+				{
+					"label": "Align Right",
+					"value": "section_text_right"
+				}
+			],
+			"default": "section_text_center"
+      	},
+		{
+			"type": "header",
+            "content": "Product Options"
+        },
+		{
+			"type": "collection",
+            "id": "featured_product_handle",
+            "label": "Select Your Collection"
+        },
+		{
+            "type": "radio",
+            "id": "product_style_handle",
+            "label": "Product Style",
+            "options": [
+                {
+                  "label": "Style One",
+                  "value": "product_style_1"
+                },
+                {
+                  "label": "Style Two",
+                  "value": "product_style_2"
+                },
+                {
+                  "label": "Style Three",
+                  "value": "product_style_3"
+                },
+				{
+                  "label": "Style Four",
+                  "value": "product_style_4"
+                },
+				{
+                  "label": "Style Five",
+                  "value": "product_style_5"
+                },
+				{
+                  "label": "Style Six",
+                  "value": "product_style_6"
+                }
+            ],
+            "default": "product_style_2"
+        },
+		{
+          "type": "radio",
+          "id": "scroll_effect",
+          "label": "Scroll Fade In Effect",
+		  "options":[
+				{
+					"label": "Yes",
+					"value": "fade_in"
+				},
+				{
+					"label": "No",
+					"value": "normal"
+				}
+			],
+			"default": "fade_in"
+      	},
+		{
+          "type": "select",
+          "id": "product_column",
+          "label": "Product Column",
+		  "options":[
+				{
+                    "label": "2 Products",
+                    "value": "6"
+                },
+                {
+                    "label": "3 Products",
+                    "value": "4"
+                },
+                {
+                    "label": "4 Products",
+                    "value": "3"
+                },
+                {
+                    "label": "6 Products",
+                    "value": "2"
+                }
+			],
+			"default": "4"
+      	},
+		{
+          "type": "select",
+          "id": "product_column_sm",
+          "label": "Product Column for Tablet Device",
+		  "options":[
+				{
+					"label": "2 Products",
+					"value": "6"
+				},
+				{
+					"label": "3 Products",
+					"value": "4"
+				},
+				{
+					"label": "4 Products",
+					"value": "3"
+				},
+				{
+					"label": "6 Products",
+					"value": "2"
+				}
+			],
+			"default": "4"
+      	},
+		{
+          "type": "select",
+          "id": "featured_product_limit_handle",
+          "label": "Produc Limit",
+		  "options":[
+				{
+					"label": "4 Products",
+					"value": "4"
+				},
+				{
+					"label": "6 Products",
+					"value": "6"
+				},
+				{
+					"label": "8 Products",
+					"value": "8"
+				},
+				{
+					"label": "10 Products",
+					"value": "10"
+				},
+				{
+					"label": "12 Products",
+					"value": "12"
+				},
+				{
+					"label": "14 Products",
+					"value": "14"
+				},
+				{
+					"label": "16 Products",
+					"value": "16"
+				},
+				{
+					"label": "18 Products",
+					"value": "18"
+				},
+				{
+					"label": "20 Products",
+					"value": "20"
+				},
+				{
+					"label": "21 Products",
+					"value": "21"
+				},
+				{
+					"label": "22 Products",
+					"value": "22"
+				},
+				{
+					"label": "24 Products",
+					"value": "24"
+				},
+				{
+					"label": "25 Products",
+					"value": "25"
+				}
+			],
+			"default": "8"
+      	},
+		{
+          "type": "text",
+          "id": "product_margin_bottom",
+          "label": "Product Margin Bottom",
+          "default": "30",
+          "info": "Defined in pixels. Do not add the 'px' unit."
+      	},
+		{
+			"type": "header",
+            "content": "Section Padding"
+        },
+		{
+          "type": "text",
+          "id": "section_padding_bottom",
+          "label": "Padding Bottom",
+          "default": "70",
+          "info": "Defined in pixels. Do not add the 'px' unit."	
+      	}
+    ],
+	"presets": [
+		{
+			"name": "Featured Product",
+			"category": "collection"
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

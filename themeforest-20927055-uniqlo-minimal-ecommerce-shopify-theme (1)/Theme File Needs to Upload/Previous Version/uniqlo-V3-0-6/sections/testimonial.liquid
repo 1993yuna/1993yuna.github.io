@@ -1,0 +1,122 @@
+<!-- Start Testimonial Area -->
+{% if section.settings.testimonial_area_enable %}
+<div class="htc__testimonial__area ptb--120" style="margin-bottom: {{ section.settings.section_margin_bottom }}px; {% if section.settings.testimonial_bg_image %}background: rgba(0, 0, 0, 0) url({{ section.settings.testimonial_bg_image | img_url: 'master' }}) no-repeat scroll center center / cover ;{% endif %}" data--black__overlay="6">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    <div class="row">
+      <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+        <div class="testimonial__wrap owl-carousel owl-theme clearfix">
+          <!-- Start Single Testimonial -->
+          {% for block in section.blocks %}
+          <div class="testimonial">
+            {% if block.settings.author_image %}
+            <div class="testimonial__thumb">
+              <img src="{{ block.settings.author_image | img_url: 'small' }}" alt="testimonial images">
+            </div>
+            {% endif %}
+            <div class="testimonial__details">
+              <p>{{ block.settings.client_comment }}</p>
+              <div class="test__info">
+                <span><a href="#">{{ block.settings.client_name }}</a></span>
+                {% if block.settings.client_designation != '' %}
+                <span> - </span>
+                <span>{{ block.settings.client_designation }}</span>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <!-- End Single Testimonial -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+<!-- End Testimonial Area -->
+
+
+
+{% schema %}
+  {
+    "name": "Testimonial",
+    "settings": [
+		{
+			"type": "header",
+            "content": "Testimonial Area"
+        },
+		{
+          "type": "checkbox",
+          "id": "testimonial_area_enable",
+          "label": "Show Testimonial Section",
+		  "default": true
+      	},
+		{
+          "type": "image_picker",
+          "id": "testimonial_bg_image",
+          "label": "Testomonial BG Image"
+        },
+		{
+			"type": "header",
+            "content": "Section Margin"
+        },
+		{
+          "type": "text",
+          "id": "section_margin_bottom",
+          "label": "Martin Bottom",
+          "default": "120",
+          "info": "Defined in pixels. Do not add the 'px' unit."	
+      	}
+	],
+	"blocks":[
+		{
+			"type":"testimonial",
+			"name": "Testimonial",
+			"settings": [
+				{
+                  "type": "image_picker",
+                  "id": "author_image",
+                  "label": "Client Image"
+                },
+                {
+                  "type": "text",
+                  "id": "client_name",
+                  "label": "Client Name",
+                  "default": "Client name"
+                },
+                {
+                  "type": "text",
+                  "id": "client_designation",
+                  "label": "Client Designation",
+                  "default": "Client Designation"
+                },
+                {
+                  "type": "textarea",
+                  "id": "client_comment",
+                  "label": "Client Comment",
+                  "default": "Client Comment"
+                }
+			]	
+		}
+	],
+  	"presets":[
+		{
+			"name": "Testimonial",
+			"category": "About",
+			"blocks":[
+				{
+					"type": "testimonial"
+				},
+				{
+					"type": "testimonial"
+				}
+			]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

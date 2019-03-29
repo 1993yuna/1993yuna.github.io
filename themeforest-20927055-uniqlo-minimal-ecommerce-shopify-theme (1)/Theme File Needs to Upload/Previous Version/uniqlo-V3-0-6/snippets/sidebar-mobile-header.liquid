@@ -1,0 +1,35 @@
+<header id="header" class="hidden-lg hidden-md htc-header {% if template == 'index' and settings.header_style_option == 'header_3' %}header--3 bg__white{% endif %} {% unless template == 'index' %}header--3 bg__white{% endunless %} {% if settings.header_style_option == 'header_2' and template == 'index' %}header--2{% endif %} {% if settings.header_style == 'header_two' %}header--5{% endif %}">
+  <!-- Start Mainmenu Area -->
+  <div {% if section.settings.header_sticky_enable %}id="sticky-header-with-topbar"{% endif %} class="mainmenu__area {% if settings.header_style_option == 'header_2' and template == 'index' %}header--2{% endif %} sticky__header">
+    <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid{% else %}container{% endif %}">
+      <div class="row">
+        <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3">
+          {% include 'header-logo' %}
+        </div>
+        <!-- Start MAinmenu Ares -->
+        <div class="col-md-8 col-lg-8 col-sm-6 col-xs-6">
+          {% include 'main-menu' %}
+          {% include 'mobile-menu' %}                         
+        </div>
+        <!-- End MAinmenu Ares -->
+        <div class="col-md-2 col-sm-4 col-xs-3">  
+          <ul class="menu-extra">
+            <li class="search search__open hidden-xs"><span class="ti-search"></span></li>
+            {% if customer and shop.customer_accounts_enabled %}
+            <li><a href="/account/logout" title="Log Out"><span class="ti-user"></span></a></li>
+            {% else %}
+            <li><a href="/account/login" title="Log In"><span class="ti-user"></span></a></li>
+            {% endif %}
+            <li class="cart__menu"><span {{ cursorStyle }} class="ti-shopping-cart"></span></li>
+            {% if section.settings.offset_menu_icon_enable %}
+            <li class="toggle__menu hidden-xs"><span class="ti-menu"></span></li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+      <div class="mobile-menu-area"></div>
+    </div>
+  </div>
+  <!-- End Mainmenu Area -->
+</header>
+<!-- End Header Style -->

@@ -1,0 +1,22 @@
+<!-- BREADCRUMBS SETCTION START -->
+{% if settings.breadcrumb_banner_enable %}
+<div class="ht__bradcaump__area">
+  <div class="ht__bradcaump__wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="bradcaump__inner text-center">
+            <h2 class="bradcaump-title">{{ page_title }}</h2>
+            <nav class="bradcaump-inner">
+              {% include 'breadcrumb-builtin' %}
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+<!-- BREADCRUMBS SETCTION END -->
+
+

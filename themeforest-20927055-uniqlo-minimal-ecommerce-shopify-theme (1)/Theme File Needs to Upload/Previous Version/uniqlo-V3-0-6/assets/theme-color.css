@@ -1,0 +1,344 @@
+a:hover,
+a:focus,
+a:active {
+    color: #ff4136;
+}
+p a:hover,
+p a:focus,
+p a:active {
+    color: #ff4136;
+}
+.mark, mark {
+    background: #ff4136 none repeat scroll 0 0;
+}
+.bg__theme {
+    background: #ff4136;
+}
+.text--theme { 
+  color: #ff4136;
+ }
+.text--blue { 
+  color: #ff4136;
+}
+textarea {
+    background: #ff4136;
+    border: 1px solid #ff4136;
+}
+textarea:focus {
+    border: 1px solid #ff4136;
+}
+*::-moz-selection {
+    background: #ff4136;
+}
+::-moz-selection {
+    background: #ff4136;
+}
+::selection {
+    background: #ff4136;
+}
+.main__menu > li:hover > a{
+  color: #ff4136;
+}
+.sidebar__menu li.active > a{
+    color: #ff4136;
+}
+.main__menu li.drop ul.dropdown li:hover > a {
+  color: #ff4136;
+}
+.menu-extra li span:hover {
+    color: #ff4136;
+}
+.select__language > li:hover {
+    color: #ff4136;
+}
+.select__language li.drop--lan .language__option span:hover {
+  color: #ff4136;
+}
+.search__area .search__inner form button:hover {
+  background: #ff4136 none repeat scroll 0 0;
+}
+.search__close__btn .search__close__btn_icon:hover i {
+    color: #ff4136;
+}
+.offsetmenu__close__btn a:hover i{
+  color: #ff4136;
+}
+.offset__single ul li a:hover {
+    color: #ff4136;
+}
+.sidebar__thumd > li a::before {
+    background: #ff4136 none repeat scroll 0 0;
+}
+.shopping__btn li a:hover{
+  background: #ff4136;
+  border: 1px solid #ff4136;
+}
+.remove__btn a:hover i {
+    color: #ff4136;
+}
+.main__menu li.drop ul.dropdown.mega_dropdown li:hover > a {
+  color: #ff4136;
+}
+.slider__btn a.htc__btn:hover {
+    color: #ff4136;
+}
+.slider__btn a.htc__btn:hover::before {
+    background: #ff4136 none repeat scroll 0 0;
+}
+.social__icon li a:hover i {
+    background: #ff4136 none repeat scroll 0 0;
+    border: 1px solid #ff4136;
+}
+.subscribe__btn:hover{
+  background: #ff4136;
+}
+.footer__menu li a:hover {
+  color: #ff4136;
+}
+.add__to__wishlist a span:hover {
+    color: #ff4136;
+}
+.product__price li {
+    color: #ff4136;
+}
+.product__menu button:hover {
+    color: #ff4136;
+}
+.product__menu button.is-checked {
+    color: #ff4136;
+}
+.login__register__menu li.active a {
+    color: #ff4136;
+}
+.login__register__menu li a:hover {
+    color: #ff4136;
+}
+.tabs__checkbox span.forget a{
+    color: #ff4136;
+}
+.htc__login__btn a:hover{
+    background: #ff4136;
+    border: 1px solid #ff4136;
+}
+.rating li span {
+    color: #ff4136;
+}
+.s-price-box span.new-price {
+    color: #ff4136;
+}
+.social-icons li a:hover {
+    color: #ff4136;
+}
+.addtocart-btn a:hover {
+    background: #ff4136 none repeat scroll 0 0;
+}
+.htc__btn.shop__now__btn:hover {
+    color: #ff4136;
+}
+.htc__btn.shop__now__btn:hover::before {
+    background: #ff4136 none repeat scroll 0 0;
+}
+.product__menu.product__tab.tab__style--1 li.active a{
+    color: #ff4136;
+}
+.htc__loadmore__btn a:hover {
+    border: 1px solid #ff4136;
+    background: #ff4136;
+}
+.store__btn a:hover{
+    background: #ff4136;
+    border: 1px solid #ff4136;
+}
+.team__hover__action .social__icon li a:hover i {
+    color: #ff4136;
+}
+.test__info span a:hover{
+    color: #ff4136;
+}
+.filter__list li:hover a ,
+.filter__menu__close__btn a:hover i{
+    color: #ff4136;
+}
+.htc__tags li a:hover{
+    color: #ff4136;
+}
+.contact__details p a:hover {
+    color: #ff4136;
+}
+.contact-btn .fv-btn:hover {
+    border: 1px solid #ff4136;
+    background: #ff4136;
+}
+.product__deatils__tab li a::before {
+    background: #ff4136 none repeat scroll 0 0;
+}
+.feature__list li a:hover {
+    color: #ff4136;
+}
+.rating__send a:hover {
+    background: #ff4136 none repeat scroll 0 0;
+}
+.pro__dtl__prize li {
+    color: #ff4136;
+}
+.pro__dtl__btn li a:hover{
+    background: #ff4136;
+    border: 1px solid #ff4136;
+}
+.pro__dtl__btn li.buy__now__btn a:hover{
+    color: #fff;
+    background: #ff4136;
+    border: 1px solid #ff4136;
+}
+.pro__soaial__link li a:hover i {
+    color: #ff4136;
+}
+.review-btn a.fv-btn:hover{
+    border: 1px solid #ff4136;
+    background: #ff4136 ;
+}
+.wrapper__sidebar .main__menu > li:hover > a, 
+.wrapper__sidebar .main__menu > li.current > a {
+    color: #ff4136;
+}
+.srch-btn:hover{
+    background: #ff4136;
+}
+.categore-menu li a:hover{
+    color: #ff4136;
+}
+.categore-menu li a span:hover {
+    color: #ff4136;
+}
+.tag-menu li a:hover {
+    background: #ff4136;
+    border: 1px solid #ff4136;
+}
+.comment-title-date h2 a:hover{
+    color: #ff4136;
+}
+.blog-social-icon ul li a:hover i {
+    color: #ff4136;
+}
+.reply p a:hover {
+    color: #ff4136;
+}
+.blog__details__btn a.htc__btn:hover{
+    background: #ff4136;
+    border: 1px solid #ff4136;
+}
+.shop__btn a.htc__btn:hover{
+    background: #ff4136;
+    border: 1px solid #ff4136;
+}
+.wishlist-table table .product-add-to-cart > a:hover{
+    background: #ff4136;
+}
+.table-content table td.product-name a:hover,.buttons-cart a:hover{
+    color:#ff4136
+}
+.buttons-cart input:hover,
+.coupon input[type=submit]:hover,
+.buttons-cart a:hover{
+    background:#ff4136;
+}
+a.shipping-calculator-button:hover{
+    color:#ff4136
+}
+.wc-proceed-to-checkout a:hover{
+    background: #ff4136;
+}
+.payment-menu li:hover {
+    border: 1px solid #ff4136;
+}
+.puick-contact-area a:hover {
+    color: #ff4136;
+}
+.product__menu ul li a:hover, .product__menu ul li.active a {
+  color: #ff4136;
+}
+#instafeed > a::before {
+  background: #ff4136 none repeat scroll 0 0;
+}
+.addtocart-btn button:hover {
+    background: #ff4136 none repeat scroll 0 0;
+}
+.product-availability {
+  color: #ff4136;
+}
+.htc__loadmore__btn button:hover {
+  background: #ff4136 none repeat scroll 0 0;
+  border: 1px solid #ff4136;
+}
+.filter__list li.active a{
+  color: #ff4136;
+}
+.swatch-element input:checked + label {
+  color: #ff4136;
+}
+.swatch-element > label:hover {
+  color: #ff4136;
+}
+.pro__dtl__btn li.buy__now__btn button:hover {
+  background: #ff4136 none repeat scroll 0 0;
+  border: 1px solid #ff4136;
+}
+.pro__feature .spr-form-actions input:hover {
+  background: #ff4136 none repeat scroll 0 0;
+  border: 1px solid #ff4136;
+}
+.blog__hover__action h2.blog__des a:hover {
+  color: #ff4136;
+}
+.blog__details__btn button.htc__btn:hover {
+  background: #ff4136 none repeat scroll 0 0;
+  border: 1px solid #ff4136;
+}
+.htc__login__btn button:hover {
+  background: #ff4136 none repeat scroll 0 0;
+  border: 1px solid #ff4136;
+}
+.ac-custom-btn:hover {
+  background: #ff4136 none repeat scroll 0 0;
+  border: 1px solid #ff4136;
+}
+.shipping-info button:hover {
+  background: #ff4136 none repeat scroll 0 0;
+}
+.text--price.pro-price .price--sale {
+  color: #ff4136;
+}
+.add__to__wishlist a.is-active span{
+	color: #ff4136;
+}
+.pro__dtl__btn li a.go-to-wishlist:hover {
+  color: #ff4136;
+}
+.page-pagination ul li.active a {
+  background-color: #ff4136;
+}
+.product__action li a span:hover {
+    color: #ff4136;
+}
+/* 2nd Time */
+.bst__pro__action li a.is-active span {
+  color: #ff4136;
+}
+.sidebar__list li.active a{
+  color: #ff4136;
+}
+.sidebar__list li.active a {
+  color: #ff4136;
+}
+.list__details__inner span.product__price {
+  color: #ff4136;
+}
+.pro__dtl__btn li .email-print:hover {
+  border: 1px solid #ff4136;
+}
+.empty-cart-page p a {
+  color: #ff4136;
+}  
+.menu-extra li span.cart-badge {
+  background: #ff4136 none repeat scroll 0 0;
+}

@@ -1,0 +1,103 @@
+<!-- Start Product tab -->
+{% if section.settings.product_tab_enable %}
+<section class="htc__product__details__tab bg__white pb--120">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    <div class="row">
+      <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+        <ul class="product__deatils__tab mb--60" role="tablist">
+          {% if section.settings.product_tab_1_enable %}
+          <li role="presentation" class="active">
+            <a href="#description" role="tab" data-toggle="tab">{{ section.settings.product_info_tab_title }}</a>
+          </li>
+          {% endif %}
+          {% if section.settings.product_tab_2_enable %}
+          <li role="presentation">
+            <a href="#sheet" role="tab" data-toggle="tab">{{ section.settings.product_review_tab_title }}</a>
+          </li>
+          {% endif %}
+          {% if section.settings.product_tab_3_enable %}
+          <li role="presentation">
+            <a href="#reviews" role="tab" data-toggle="tab">{{ section.settings.product_comments_title }}</a>
+          </li>
+          {% endif %}
+          {% if section.settings.custom_tab_1_enable %}
+          <li role="presentation">
+            <a href="#customtab1" role="tab" data-toggle="tab">{{ section.settings.custom_tab_1_title }}</a>
+          </li>
+          {% endif %}
+          {% if section.settings.custom_tab_2_enable %}
+          <li role="presentation">
+            <a href="#customtab2" role="tab" data-toggle="tab">{{ section.settings.custom_tab_2_title }}</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product__details__tab__content">
+          <!-- Start Single Content -->
+          {% if section.settings.product_tab_1_enable %}
+          <div role="tabpanel" id="description" class="product__tab__content fade in active">
+            <div class="product__description__wrap">
+              <div class="product__desc">
+                <h2 class="title__6">Details</h2>
+                {%- if product.description contains '[product_description]' -%}            
+                {%- assign product_description_first = product.description | split:'[/product_description]' | first -%}
+                {%- assign product_description_final = product_description_first | split:'[product_description]' | last -%} 
+                {{ product_description_final }}
+                {%- else -%}
+                {{ product.description | split: '[short_description]' | first | split: '[product_description]' | first | split: '[new_products]' | first | split: '[product_video]' | first | split: '[affiliate_link]' | first }}
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          <!-- End Single Content -->
+          <!-- Start Single Content -->
+          {% if section.settings.product_tab_2_enable %}
+          <div role="tabpanel" id="sheet" class="product__tab__content fade">
+            <div class="pro__feature">
+              <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+            </div>
+          </div>
+          {% endif %}
+          <!-- End Single Content -->
+          <!-- Start Single Content -->
+          {% if section.settings.product_tab_3_enable %}
+          <div role="tabpanel" id="reviews" class="product__tab__content fade">
+            <div class="review__address__inner">
+              {% if section.settings.product_page_comments_box =='disqus_comment' %}
+              {% include 'disqus-comment' %}
+              {% endif %}
+              <!-- disqus comment box end -->                
+              <!-- facebook comment box start -->
+              {% if section.settings.product_page_comments_box == 'facebook_comment' %}
+              {% include 'facebook-comment' %}
+              {% endif %}
+              <!-- facebook comment box end -->
+            </div>
+          </div>
+          {% endif %}
+          <!-- End Single Content -->
+          <!-- Start Single Content -->
+          {% if section.settings.custom_tab_1_enable %}
+          <div role="tabpanel" id="customtab1" class="product__tab__content fade custom_tab">
+            {{ pages[section.settings.custom_tab_handle_1].content }}
+          </div>
+          {% endif %}
+          <!-- End Single Content -->
+          <!-- Start Single Content -->
+          {% if section.settings.custom_tab_2_enable %}
+          <div role="tabpanel" id="customtab2" class="product__tab__content fade custom_tab">
+            {{ pages[section.settings.custom_tab_handle_2].content }}
+          </div>
+          {% endif %}
+          <!-- End Single Content -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+<!-- End Product tab -->

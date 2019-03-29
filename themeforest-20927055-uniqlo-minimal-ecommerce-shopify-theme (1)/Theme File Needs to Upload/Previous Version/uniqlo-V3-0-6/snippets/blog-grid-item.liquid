@@ -1,0 +1,29 @@
+<div class="{% if section.settings.scroll_effect == 'fade_in' %}blog foo{% endif %}{% if section.settings.scroll_effect == 'normal' %}blog{% endif %}">
+  <div class="blog__inner">
+    <div class="blog__thumb">
+      <a href="{{ article.url }}">
+        <img src="{{ article | img_url: "1024x1024" }}" alt="">
+      </a>
+      <div class="blog__post__time">
+        <div class="post__time--inner">
+          <span class="date">{{ article.published_at | date: "%d" }}</span>
+          <span class="month">{{ article.published_at | date: "%b" }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="blog__hover__info">
+      <div class="blog__hover__action">
+        <ul class="bl__meta">
+          <li>By : {{ article.author }}</li>
+          {% if article.comments.size > 0 %}
+          <li><a href="{{ article.url }}#comments">{{ 'blogs.comments.with_count' | t: count: article.comments_count }}</a></li>
+          {% endif %}
+        </ul>
+        <h2 class="blog__des"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+        <div class="blog__btn">
+          <a class="read__more__btn" href="{{ article.url }}">{{ 'blogs.article.read_more' | t }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

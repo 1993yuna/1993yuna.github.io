@@ -1,0 +1,306 @@
+<!-- Start Header Style -->
+{% unless settings.header_style == 'header_three' %}
+<header id="header" class="htc-header {% if template == 'index' and settings.header_style_option == 'header_3' %}header--3 bg__white{% endif %} {% unless template == 'index' %}header--3 bg__white{% endunless %} {% if settings.header_style_option == 'header_2' and template == 'index' %}header--2{% endif %} {% if settings.header_style == 'header_two' %}header--5{% endif %}">
+  <!-- Start Mainmenu Area -->
+  <div {% if section.settings.header_sticky_enable %}id="sticky-header-with-topbar"{% endif %} class="mainmenu__area {% if settings.header_style_option == 'header_2' and template == 'index' %}header--2{% endif %} sticky__header">
+    <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid{% else %}container{% endif %}">  
+      {% if settings.header_style == 'header_one' %}
+      <div class="row">
+        <div class="col-md-2 col-lg-2 col-sm-3 col-xs-3">
+          {% if template == 'index' %}
+          {% include 'header-logo' %}
+          {% else %}
+          {% include 'header-logo-2' %}
+          {% endif %}
+        </div>
+        <!-- Start MAinmenu Ares -->
+        <div class="col-md-8 col-lg-8 col-sm-6 col-xs-6">
+          {% include 'main-menu' %}
+          {% include 'mobile-menu' %}                         
+        </div>
+        <!-- End MAinmenu Ares -->
+        <div class="col-md-2 col-sm-4 col-xs-3">  
+          <ul class="menu-extra">
+            <li class="search search__open hidden-xs"><span class="ti-search"></span></li>
+            {% if customer and shop.customer_accounts_enabled %}
+            <li><a href="/account/logout" title="Log Out"><span class="ti-user"></span></a></li>
+            {% else %}
+            <li><a href="/account/login" title="Log In"><span class="ti-user"></span></a></li>
+            {% endif %}
+            <li class="cart__menu">
+              <span class="ti-shopping-cart"></span>
+              <span class="cart-badge bigcounter">{{ cart.item_count }}</span>
+            </li>
+            {% if section.settings.offset_menu_icon_enable %}
+            <li class="toggle__menu hidden-xs"><span class="ti-menu"></span></li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+      {% if settings.header_style == 'header_two' %}
+      <div class="row">
+        <div class="col-md-2 col-lg-2 col-sm-3 hidden-xs">
+          <ul class="select__language left-header-currency">
+            <li class="drop--lan">
+              {% include 'currency-picker' %}
+            </li>
+          </ul>
+        </div>
+        <!-- Start MAinmenu Ares -->
+        <div class="col-md-8 col-lg-8 col-sm-5 col-xs-5">
+          {% if template == 'index' %}
+          {% include 'header-logo' %}
+          {% else %}
+          {% include 'header-logo-2' %}
+          {% endif %}
+          {% include 'mobile-menu' %}
+        </div>
+        <!-- End MAinmenu Ares -->
+        <div class="col-md-2 col-sm-4 col-xs-7">  
+          <ul class="menu-extra">
+            <li class="search search__open hidden-xs"><span class="ti-search"></span></li>
+            {% if customer and shop.customer_accounts_enabled %}
+            <li><a href="/account/logout" title="Log Out"><span class="ti-user"></span></a></li>
+            {% else %}
+            <li><a href="/account/login" title="Log In"><span class="ti-user"></span></a></li>
+            {% endif %}
+            <li class="cart__menu">
+              <span class="ti-shopping-cart"></span>
+              <span class="cart-badge bigcounter">{{ cart.item_count }}</span>
+            </li>
+            {% if section.settings.offset_menu_icon_enable %}
+            <li class="toggle__menu hidden-sm hidden-xs"><span class="ti-menu"></span></li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+      <div class="mobile-menu-area"></div>
+    </div>
+  </div>
+  <!-- End Mainmenu Area -->
+</header>
+<!-- End Header Style -->
+{% endunless %}
+{% if settings.header_style == 'header_three' %}
+{% include 'sidebar-header' %}
+{% endif %}
+
+{% include 'overlay_and_offset_menu' %}
+
+
+
+
+
+
+
+<style>
+  {% if section.settings.logo_custom_width %}
+  .logo img, .sidebar--logo img{
+    width: {{ section.settings.logo_width }}px;
+  }
+  {% endif %}
+  .main__menu {
+    justify-content: {% if section.settings.menu_position_44 == 'right' %}flex-end{% elsif section.settings.menu_position_44 == 'left' %}flex-start{% else %}center{% endif %};
+  }
+</style>
+
+
+
+
+
+
+
+
+
+<script>
+  $('.mobile-menu nav').meanmenu({
+      meanMenuContainer: '.mobile-menu-area',
+      meanScreenWidth: "991",
+      meanRevealPosition: "right",
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+		
+		{
+          "type": "checkbox",
+          "id": "header_sticky_enable",
+          "label": "Header Sticky Enable",
+		  "default": true
+        },
+		{
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo image (Index Page)"
+        },
+		{
+          "type": "image_picker",
+          "id": "logo_2",
+          "label": "Logo image for Offset Menu & Other Page"
+        },
+		{
+          "type": "checkbox",
+          "id": "logo_custom_width",
+          "label": "Use Logo Custom Width",
+		  "default": false
+        },
+		{
+          "type": "text",
+          "id": "logo_width",
+          "label": "Logo Width",
+		  "default": "106",
+		  "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+		{
+          "type": "header",
+          "content": "Menu Position"
+        },
+		{
+          "type": "radio",
+          "id": "menu_position_44",
+          "label": "Select Menu Position",
+		  "options": [
+			  {
+				  "label": "Left Side",
+				  "value": "left"
+			  },
+			  {
+				  "label": "Center",
+				  "value": "center"
+			  },
+			  {
+				  "label": "Right Side",
+				  "value": "right"
+			  }
+		  ],
+		  "default": "center"
+        },
+		{
+          "type": "header",
+          "content": "Offset Menu"
+        },
+		{
+          "type": "checkbox",
+          "id": "offset_menu_icon_enable",
+          "label": "Show Offset Menu Icon",
+		  "default": true
+        },
+        {
+          "type": "textarea",
+          "id": "store_content",
+          "label": "Your Store Some Content",
+          "default": "Lorem ipsum dolor sit amet consectetu adipisicing elit sed do eiusmod tempor incididunt ut labore."
+        },
+        {
+          "type": "header",
+          "content": "Instafeed"
+        },
+		{
+          "type": "checkbox",
+          "id": "instafeed_enable",
+          "label": "Show Instafeed",
+		  "default": true
+        },
+        {
+          "type": "text",
+          "id": "instafeed_user_id",
+          "label": "Instafeed Use Id",
+          "default": "3314048741"
+        },
+        {
+          "type": "select",
+          "id": "instafeed_limit",
+          "label": "Instafeed Limit",
+          "options": [
+            {
+              "label": "3",
+              "value": "3"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            },
+            {
+              "label": "6",
+              "value": "6"
+            },
+            {
+              "label": "8",
+              "value": "8"
+            },
+            {
+              "label": "9",
+              "value": "9"
+            },
+            {
+              "label": "10",
+              "value": "10"
+            },
+            {
+              "label": "12",
+              "value": "12"
+            }
+          ],
+          "default": "8"
+        },
+        {
+          "type": "textarea",
+          "id": "instafeed_access_token",
+          "label": "Instafeed Access Token",
+          "default": "3314048741.1677ed0.312841e77dd94fd694b05808d34204f1"
+        },
+        {
+          "type": "header",
+          "content": "Social Icon"
+        },
+        {
+          "type": "checkbox",
+          "id": "sidebar_social_midea_enble",
+          "label": "Show Social Media",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "social_fild_title",
+          "label": "Social Fild Title",
+          "default": "Follow Us"
+        },
+		{
+          "type": "header",
+          "content": "Currency"
+        },
+		{
+          "type": "checkbox",
+          "id": "currency_enable",
+          "label": "Show Currency",
+          "default": true
+        },
+		{
+          "type": "text",
+          "id": "currency_title",
+          "label": "Currency Title",
+          "default": "Currencies"
+        }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

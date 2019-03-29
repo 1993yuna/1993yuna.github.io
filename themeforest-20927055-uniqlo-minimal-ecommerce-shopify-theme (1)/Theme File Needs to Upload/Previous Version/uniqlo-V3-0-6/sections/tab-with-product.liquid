@@ -1,0 +1,446 @@
+<!-- Start Our Product Area -->
+<section class="htc__product__area bg__white tab_with_product" style="padding-bottom: {{ section.settings.section_padding_bottom }}px">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' %}custop__container bg__cat--2{% endif %}">
+    <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' or settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+      <div class="htc__product__container">
+        {% if section.settings.section_title != '' %}
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="section__title section__title--2 {% if section.settings.section_text_align == 'section_text_center' %}text-center{% endif %}{% if section.settings.section_text_align == 'section_text_left' %}text-left{% endif %}{% if section.settings.section_text_align == 'section_text_right' %}text-right{% endif %}">
+              <h2 class="title__line">{{ section.settings.section_title }}</h2>
+              {% if section.settings.section_content != '' %}
+              <p {% if section.settings.section_text_align == 'section_text_center' %}class="text-center" style="margin: 27px auto auto;"{% endif %}{% if section.settings.section_text_align == 'section_text_left' %}class="text-left" style="margin: 27px auto auto 0;"{% endif %}{% if section.settings.section_text_align == 'section_text_right' %}class="text-right" style="margin: 27px 0 auto auto;"{% endif %}>{{ section.settings.section_content }}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- Start Product MEnu -->
+        <div class="row {% if section.settings.section_title != '' %}mt--70{% endif %}">
+          <div class="col-md-12">
+            <div class="product__menu {% if section.settings.tab_text_align == 'section_text_center' %}text-center{% endif %}{% if section.settings.tab_text_align == 'section_text_left' %}text-left{% endif %}{% if section.settings.tab_text_align == 'section_text_right' %}text-right{% endif %}">
+              <ul>
+                {% for block in section.blocks %}
+                {% assign tab_collection = collections[block.settings.tab_collection_handle] %}
+                <li class="{% if forloop.first == true %}active{% endif %}">
+                  <a href="#{{ tab_collection.title | handle }}" data-toggle="tab">{{ tab_collection.title }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- End Product MEnu -->
+        <div class="row">
+          <div class="product__list tab-product-list {% if section.settings.variant_image_product %}variant-image-product{% endif %}">
+            <div class="tab-content">
+              {% for block in section.blocks %}
+              {% assign tab_collection = collections[block.settings.tab_collection_handle] %}
+              <div class="tab-pane {% if forloop.first == true %}active{% endif %}" id="{{ tab_collection.title | handle }}">
+
+                {% assign tab_product_limit = section.settings.tab_product_limit_handle %}
+                {% for product in tab_collection.products limit: tab_product_limit %}
+                <div class="col-md-{{ section.settings.product_column }} col-sm-{{ section.settings.product_column_sm }} col-xs-12">
+                  
+                  {% if section.settings.scroll_effect == 'fade_in' %}
+                  {% include 'product-grid-item' %}
+                  {% endif %}
+                  
+                  {% if section.settings.scroll_effect == 'normal' %}
+                  {% include 'product-grid-item-2' %}
+                  {% endif %}
+                  
+                </div>
+                {% endfor %}
+
+              </div>
+              {% endfor %}      
+            </div>
+          </div>
+        </div>
+        <!-- Start Load More BTn -->
+        {% if section.settings.vew_more_button_enable %}
+        <div class="row pagination-type-margin">
+          <div class="col-md-12">
+            <div class="htc__loadmore__btn">
+              <a href="{{ section.settings.view_more_button_link }}">{{ section.settings.view_more_button_name }}</a>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!-- End Load More BTn -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Our Product Area -->
+
+
+<style>
+  .htc__product__area.bg__white.tab_with_product {
+    background: {{ section.settings.section_bg_color }};
+  }
+  {% if section.settings.tab_text_align == 'section_text_left' %}
+  .product__menu{
+    margin-left: -20px;
+  }
+  {% endif %}
+  {% if section.settings.tab_text_align == 'section_text_right' %}
+  .product__menu{
+    margin-right: -20px;
+  }
+  {% endif %}
+  {% if section.settings.variant_image_product %}
+  .variant-image-product .tab-pane > div:nth-child(2n+1) > div {
+    padding: 37px 40px 0;
+  }
+  {% endif %}
+
+  .product__list.tab-product-list .product, .product__list.tab-product-list .best__product {
+    margin-bottom: {{ section.settings.product_margin_bottom }}px;
+  }
+  .product__menu{
+    margin-bottom: {{ section.settings.tab_list_margin_bottom }}px;
+  }
+  .pagination-type-margin{
+    margin-top: {{ section.settings.pagination_margin_top }}px;
+  }
+  .htc__loadmore__btn a {
+    border: 1px solid {{ section.settings.button_border_color }};
+  }
+</style>
+
+
+
+{% schema %}
+  {
+    "name": "Tab With Products",
+    "settings": [
+		{
+			"type": "header",
+            "content": "Section Header"
+        },
+		{
+          "type": "text",
+          "id": "section_title",
+          "label": "Section Title",
+          "default": "Section Title"		
+      	},
+		{
+          "type": "textarea",
+          "id": "section_content",
+          "label": "Section Content",
+          "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod temp incididunt ut labore et dolore magna aliqua."		
+      	},
+		{
+          "type": "select",
+          "id": "section_text_align",
+          "label": "Text Alignment",
+		  "options":[
+				{
+					"label": "Align Left",
+					"value": "section_text_left"
+				},
+				{
+					"label": "Align Center",
+					"value": "section_text_center"
+				},
+				{
+					"label": "Align Right",
+					"value": "section_text_right"
+				}
+			],
+			"default": "section_text_center"
+      	},
+		{
+			"type": "header",
+            "content": "Section Functionality"
+        },
+		{
+          "type": "select",
+          "id": "tab_text_align",
+          "label": "Tab List Alignment",
+		  "options":[
+				{
+					"label": "Align Left",
+					"value": "section_text_left"
+				},
+				{
+					"label": "Align Center",
+					"value": "section_text_center"
+				},
+				{
+					"label": "Align Right",
+					"value": "section_text_right"
+				}
+			],
+			"default": "section_text_center"
+      	},
+		{
+          "type": "text",
+          "id": "tab_list_margin_bottom",
+          "label": "Tab List Margin Bottom",
+          "default": "70",
+          "info": "Defined in pixels. Do not add the 'px' unit."
+      	},
+		{
+            "type": "radio",
+            "id": "product_style_handle",
+            "label": "Product Style",
+            "options": [
+                {
+                  "label": "Style One",
+                  "value": "product_style_1"
+                },
+                {
+                  "label": "Style Two",
+                  "value": "product_style_2"
+                },
+                {
+                  "label": "Style Three",
+                  "value": "product_style_3"
+                },
+				{
+                  "label": "Style Four",
+                  "value": "product_style_4"
+                },
+				{
+                  "label": "Style Five",
+                  "value": "product_style_5"
+                },
+				{
+                  "label": "Style Six",
+                  "value": "product_style_6"
+                }
+            ],
+            "default": "product_style_1"
+        },
+		{
+          "type": "radio",
+          "id": "scroll_effect",
+          "label": "Scroll Fade In Effect",
+		  "options":[
+				{
+					"label": "Yes",
+					"value": "fade_in"
+				},
+				{
+					"label": "No",
+					"value": "normal"
+				}
+			],
+			"default": "fade_in"
+      	},
+		{
+          "type": "checkbox",
+          "id": "variant_image_product",
+          "label": "Vraiant Product Image size",
+          "default": false,
+          "info": "No need to upload variant size product image. When checked it then recommended product style is 'Style Four'"	
+      	},
+		{
+          "type": "select",
+          "id": "product_column",
+          "label": "Product Column",
+		  "options":[
+				{
+					"label": "2 Products",
+					"value": "6"
+				},
+				{
+					"label": "3 Products",
+					"value": "4"
+				},
+				{
+					"label": "4 Products",
+					"value": "3"
+				},
+				{
+					"label": "6 Products",
+					"value": "2"
+				}
+			],
+			"default": "3"
+      	},
+		{
+          "type": "select",
+          "id": "product_column_sm",
+          "label": "Product Column for Tablet Device",
+		  "options":[
+				{
+					"label": "2 Products",
+					"value": "6"
+				},
+				{
+					"label": "3 Products",
+					"value": "4"
+				},
+				{
+					"label": "4 Products",
+					"value": "3"
+				},
+				{
+					"label": "6 Products",
+					"value": "2"
+				}
+			],
+			"default": "4"
+      	},
+		{
+          "type": "select",
+          "id": "tab_product_limit_handle",
+          "label": "Produc Limit",
+		  "options":[
+				{
+					"label": "3 Products",
+					"value": "3"
+				},
+				{
+					"label": "4 Products",
+					"value": "4"
+				},
+				{
+					"label": "6 Products",
+					"value": "6"
+				},
+				{
+					"label": "8 Products",
+					"value": "8"
+				},
+				{
+					"label": "9 Products",
+					"value": "9"
+				},
+				{
+					"label": "10 Products",
+					"value": "10"
+				},
+				{
+					"label": "12 Products",
+					"value": "12"
+				},
+				{
+					"label": "14 Products",
+					"value": "14"
+				},
+				{
+					"label": "15 Products",
+					"value": "15"
+				},
+				{
+					"label": "16 Products",
+					"value": "16"
+				},
+				{
+					"label": "18 Products",
+					"value": "18"
+				},
+				{
+					"label": "20 Products",
+					"value": "20"
+				},
+				{
+					"label": "Unlimited",
+					"value": "100"
+				}
+			],
+			"default": "8"
+      	},
+		{
+          "type": "text",
+          "id": "product_margin_bottom",
+          "label": "Product Margin Bottom",
+          "default": "70",
+          "info": "Defined in pixels. Do not add the 'px' unit."
+      	},
+		{
+			"type": "header",
+            "content": "View More Button"
+        },
+		{
+			"type": "checkbox",
+            "id": "vew_more_button_enable",
+            "label": "Show View More Button",
+			"default": false
+        },
+		{
+			"type": "text",
+            "id": "view_more_button_name",
+            "label": "Button Name",
+			"default": "Button Name"
+        },
+		{
+			"type": "url",
+            "id": "view_more_button_link",
+            "label": "Button Link"
+        },
+		{
+			"type": "color",
+            "id": "button_border_color",
+            "label": "Button Border Color",
+			"default": "#eeeeee"
+        },
+		{
+            "type": "text",
+            "id": "pagination_margin_top",
+            "label": "Button Margin Top",
+            "default": "0",
+            "info": "Defined in pixels. Do not add the 'px' unit."
+      	},
+		{
+			"type": "header",
+            "content": "Section Padding"
+        },
+		{
+          "type": "text",
+          "id": "section_padding_bottom",
+          "label": "Padding Bottom",
+          "default": "60",
+          "info": "Defined in pixels. Do not add the 'px' unit."	
+      	},
+		{
+          "type": "color",
+          "id": "section_bg_color",
+          "label": "Section BG Color",
+          "default": "#ffffff",
+          "info": "[See more color](https:\/\/www.w3schools.com/colors/colors_picker.asp)"	
+      	}
+	],
+	"blocks": [
+		{
+			"type": "tab_products",
+			"name": "Tab With Products",
+			"settings": [
+				{
+					"type": "collection",
+					"id": "tab_collection_handle",
+					"label": "Collection"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Tab With Products",
+			"category": "collection",
+			"blocks": [
+				{
+					"type": "tab_products"
+				},
+				{
+					"type": "tab_products"
+				},
+				{
+					"type": "tab_products"
+				}
+			]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

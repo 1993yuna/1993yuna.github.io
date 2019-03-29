@@ -1,0 +1,181 @@
+<!-- Start Footer Area -->
+<footer {% if section.settings.footer_style_handle == 'footer_3' %}id="contact"{% endif %} class="htc__foooter__area {% if section.settings.footer_style_handle == 'footer_2' %}bg__white footer--6{% endif %} {% if section.settings.footer_style_handle == 'footer_3' %}footer--7{% endif %} {% if settings.wrapper_handle == 'wrapper_box' %}bg__cat--2{% endif %}" {% if section.settings.footer_bg_image %}style="background: rgba(0, 0, 0, 0) url({{ section.settings.footer_bg_image | img_url: 'master' }}) no-repeat scroll center center / cover ;"{% endif %}>
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' %}container-fluid box-width-footer{% elsif settings.wrapper_handle == 'wrapper_box_2' or settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    
+    {% if section.settings.footer_style_handle == 'footer_1' %}
+    {% include 'footer-1' %}
+    {% endif %}
+    
+    {% if section.settings.footer_style_handle == 'footer_2' %}
+    {% include 'footer-2' %}
+    {% endif %}
+    
+    {% if section.settings.footer_style_handle == 'footer_3' %}
+    {% include 'footer-3' %}
+    {% endif %}
+    
+  </div>
+</footer>
+<!-- End Footer Area -->
+
+
+<style>
+  .htc__foooter__area {
+    background-color: {{ section.settings.footer_bg_color }};
+  }
+  .footer__container {
+    padding-bottom: {{ section.settings.footer_padding_bottom }}px;
+    padding-top: {{ section.settings.footer_padding_top }}px;
+  }
+  
+  
+  {% if settings.body_bg_img %}
+  .box-width-footer .footer__container {
+    padding: 76px 0 65px;
+  }
+  .box-width-footer .htc__copyright__area {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  {% endif %}
+</style>
+
+
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+		{
+          "type": "radio",
+          "id": "footer_style_handle",
+          "label": "Footer Style",
+		  "options":[
+				{
+					"label": "Footer One",
+					"value": "footer_1"
+				},
+				{
+					"label": "Footer Two",
+					"value": "footer_2"
+				},
+				{
+					"label": "Footer Three",
+					"value": "footer_3"
+				}
+			],
+			"default": "footer_1"
+      	},
+		{
+			"type": "color",
+			"id": "footer_bg_color",
+			"label": "Footer BG Color",
+			"default": "#f2f2f2",
+			"info": "[See More Color](https:\/\/www.w3schools.com/colors/colors_picker.asp)"
+		},
+		{
+			"type": "image_picker",
+			"id": "footer_bg_image",
+			"label": "Footer BG Image"
+		},
+		{
+			"type": "header",
+			"content": "Footer Info"
+		},
+		{
+			"type": "image_picker",
+			"id": "logo_2",
+			"label": "Footer Logo"
+		},
+		{
+			"type": "textarea",
+			"id": "footer_content",
+			"label": "Footer Info (Not Applicable Footer 2)",
+			"default": "Footer Information.."
+		},
+		{
+			"type": "header",
+			"content": "Newsletter (Applicable Footer 1)"
+		},
+		{
+			"type": "text",
+			"id": "newsletter_title",
+			"label": "Newsletter Title",
+			"default": "Newsletters"
+		},
+		{
+			"type": "header",
+			"content": "Contact Information"
+		},
+		{
+			"type": "text",
+			"id": "contact_us_title",
+			"label": "Contact Title",
+			"default": "Contact Us"
+		},
+		{
+			"type": "textarea",
+			"id": "contact_information",
+			"label": "Contact Information",
+			"default": "Address..",
+			"info": "Use <br> for line break"
+		},
+		{
+			"type": "header",
+			"content": "Follow Us",
+			"info": "Follow Us Icon Below"
+		},
+		{
+			"type": "text",
+			"id": "follow_us_title",
+			"label": "Follow Us Title",
+			"default": "Follow Us"
+		},
+		{
+			"type": "header",
+			"content": "Footer Bottom"
+		},
+		{
+			"type": "checkbox",
+			"id": "footer_bottom_enable",
+			"label": "Show Footer Bottom (Not Applicable Footer 2)",
+			"default": true
+		},
+		{
+			"type": "html",
+			"id": "copy_ritht_text",
+			"label": "Copyright Text",
+			"info": "HTML Code Available"
+		},
+		{
+			"type": "link_list",
+			"id": "footer_menu_1_handle",
+			"label": "Select Menu"
+		},
+		{
+			"type": "header",
+            "content": "Section Padding"
+        },
+		{
+          "type": "text",
+          "id": "footer_padding_top",
+          "label": "Padding Top",
+          "default": "76",
+          "info": "Defined in pixels. Do not add the 'px' unit."	
+      	},
+		{
+          "type": "text",
+          "id": "footer_padding_bottom",
+          "label": "Padding Bottom",
+          "default": "65",
+          "info": "Defined in pixels. Do not add the 'px' unit."	
+      	}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

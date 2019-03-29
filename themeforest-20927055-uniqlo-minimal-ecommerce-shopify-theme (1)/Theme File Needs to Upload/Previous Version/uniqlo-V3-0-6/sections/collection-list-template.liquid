@@ -1,0 +1,305 @@
+<!-- Start Our Product Area -->
+<section class="htc__product__area shop__page ptb--130 bg__white">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    <div class="row">
+      <div class="{% if section.settings.sidebar_handle == 'without_sidebar' %}col-md-12{% else %}{% if section.settings.sidebar_handle == 'left_sidebar_handle' %}col-md-push-3{% endif %} col-md-9{% endif %} col-sm-12">
+        <div class="htc__product__container">
+          {% if section.settings.collection_page_handle == 'by_pagination' %}
+          {% assign products_limit = section.settings.products_limit_handle %}
+          {% paginate collection.products by products_limit %}
+          {% include 'collection-list-template-inner' %}
+          {% if paginate.pages > 1 %}
+          <div class="row mt--60">
+            <div class="col-md-12">
+              {% include 'pagination' %}
+            </div>
+          </div>
+          {% endif %}
+          {% endpaginate %}
+          {% endif %}
+          {% if section.settings.collection_page_handle == 'by_loadmore' %}
+          {% include 'collection-list-template-inner' %}
+          <!-- Start Load More BTn -->
+          <div class="row mt--60" id="loadmore-area">
+            <div class="col-md-12">
+              <div class="htc__loadmore__btn">
+                <button type="button" id="loadMore">{{ section.settings.load_more_button }}</button>
+              </div>
+            </div>
+          </div>
+          <!-- End Load More BTn -->
+          {% endif %}
+        </div>
+      </div>
+      {% unless section.settings.sidebar_handle == 'without_sidebar' %}
+      <div class="col-md-3 {% if section.settings.sidebar_handle == 'left_sidebar_handle' %}col-md-pull-9{% endif %} col-sm-12">
+        {% include 'collection-sidebar' %}
+      </div>
+      {% endunless %}
+    </div>
+  </div>
+</section>
+<!-- End Our Product Area -->
+
+
+
+
+
+
+
+<script>
+  var size_lib={{ collection.all_products.count }},b;
+  b={{ section.settings.products_limit_handle }};
+  {% for c in collections %}
+  c={{ c.products_count }};
+  {% endfor %}
+  $('.load-more:lt('+b+')').show();  
+  $('#loadMore').on("click", function () {
+    b= (b+2 <= size_lib) ? b+2 : size_lib;
+    $('.load-more:lt('+b+')').slideDown(1000);  
+    if(size_lib<=b)
+    {
+      $("#loadmore-area").fadeOut(1000);
+    } 
+  });
+</script>
+
+
+
+<style>
+  {% if section.settings.sorting_enable == false %}
+  .single__list__content:first-child {
+    margin-top: 0px;
+  }
+  {% endif %}
+  .htc__loadmore__btn button {
+    border: 1px solid {{ section.settings.button_border_color }};
+  }
+  .page-pagination ul li a {
+    background-color: {{ section.settings.pagination_bg_color }};
+  }
+</style>
+
+
+
+
+
+{% schema %}
+{
+"name": "List Collection",
+"settings": [
+		{
+			"type": "header",
+			"content": "List Collection"
+		},
+		{
+          "type": "select",
+          "id": "products_limit_handle",
+          "label": "Product Limit",
+		  "options":[
+				{
+					"label": "4 Products",
+					"value": "4"
+				},
+				{
+					"label": "6 Products",
+					"value": "6"
+				},
+				{
+					"label": "8 Products",
+					"value": "8"
+				},
+				{
+					"label": "9 Products",
+					"value": "9"
+				},
+				{
+					"label": "10 Products",
+					"value": "10"
+				},
+				{
+					"label": "12 Products",
+					"value": "12"
+				},
+				{
+					"label": "14 Products",
+					"value": "14"
+				},
+				{
+					"label": "15 Products",
+					"value": "15"
+				},
+				{
+					"label": "16 Products",
+					"value": "16"
+				},
+				{
+					"label": "18 Products",
+					"value": "18"
+				},
+				{
+					"label": "20 Products",
+					"value": "20"
+				},
+				{
+					"label": "21 Products",
+					"value": "21"
+				},
+				{
+					"label": "22 Products",
+					"value": "22"
+				},
+				{
+					"label": "24 Products",
+					"value": "24"
+				},
+				{
+					"label": "25 Products",
+					"value": "25"
+				},
+				{
+					"label": "Unlimited",
+					"value": "100"
+				}
+			],
+			"default": "12",
+			"info": "How many products show on per page"
+      	},
+
+		{
+          "type": "radio",
+          "id": "collection_page_handle",
+          "label": "Pagination Type",
+		  "options":[
+				{
+					"label": "Pagination",
+					"value": "by_pagination"
+				},
+				{
+					"label": "Loadmore",
+					"value": "by_loadmore"
+				}
+			],
+			"default": "by_pagination"
+      	},
+		{
+            "type": "text",
+            "id": "load_more_button",
+            "label": "Load More Button Name",
+            "default": "Load More"
+        },
+		{
+			"type": "color",
+            "id": "button_border_color",
+            "label": "Button Border Color",
+			"default": "#eeeeee"
+        },
+		{
+			"type": "color",
+            "id": "pagination_bg_color",
+            "label": "Pagination BG Color",
+			"default": "#f6f6f6"
+        },
+		{
+			"type": "header",
+			"content": "Collection Sorting"
+		},
+		{
+			"type": "checkbox",
+			"id": "sorting_enable",
+			"label": "Show Sorting",
+			"info": "If Sorting is enabled the following three options will work",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "short_by_enable",
+			"label": "Show Short By",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "filter_button_enable",
+			"label": "Show Filter Button",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "tab_bar_enable",
+			"label": "Show Tab Bar",
+			"default": false
+		},
+		{
+			"type": "header",
+			"content": "Collection Sidebar"
+		},
+		{
+			"type": "radio",
+			"id": "sidebar_handle",
+			"label": "Sidebar Position",
+			"options": [
+				{
+					"label": "Left Sidebar",
+					"value": "left_sidebar_handle"
+				},
+				{
+					"label": "Right Sidebar",
+					"value": "right_sidebar_handle"
+				},
+				{
+					"label": "Without Sidebar",
+					"value": "without_sidebar"
+				}
+			],
+			"default": "left_sidebar_handle"
+		},
+		{
+			"type": "header",
+			"content": "Collection Sidebar/Filter List"
+		},
+		{
+			"type": "checkbox",
+			"id": "categories_enable",
+			"label": "Show Categories",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "vendors_enable",
+			"label": "Show Vendors",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "types_enable",
+			"label": "Show Types",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "size_enable",
+			"label": "Show Size",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "color_enable",
+			"label": "Show Color",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "tags_enable",
+			"label": "Show Tags",
+			"default": true
+		}
+	]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+
+{% javascript %}
+{% endjavascript %}

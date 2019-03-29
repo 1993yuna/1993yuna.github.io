@@ -1,0 +1,121 @@
+<div class="filter__wrap">
+  <div class="filter__cart">
+    <div class="filter__cart__inner">
+      <div class="filter__menu__close__btn">
+        <a href="#"><i class="zmdi zmdi-close"></i></a>
+      </div>
+      <div class="filter__content">
+        <!-- Start Single Content -->
+        <div class="fiter__content__inner">
+          {% if section.settings.categories_enable %}
+          <div class="single__filter">
+            {% if settings.categories_title != '' %}
+            <h2>{{ settings.categories_title }}</h2>
+            {% endif %}
+            <ul class="filter__list">
+              {% assign categories_list_limit = settings.categories_list_limit_hanlde %}
+              {% for c in collections limit: categories_list_limit %}
+              <li class="{% if collection and collection.handle == c.handle %}active{% endif %}"><a href="{{ c.url }}">{{ c.title }}</a></li>                                       
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+          {% if section.settings.types_enable %}
+          <div class="single__filter">
+            {% if settings.types_title != '' %}
+            <h2>{{ settings.types_title }}</h2>
+            {% endif %}
+            <ul class="filter__list">
+              {% assign types_list_limit = settings.types_list_limit_hanlde %}
+              {% for type in shop.types limit: types_list_limit %}
+              {% if type != '' %}
+              <li class="{% if collection.current_type == type %}active{% endif %}"><a href="{{ type | url_for_type }}">{{ type }}</a></li> 
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+
+          {% if section.settings.vendors_enable %}
+          <div class="single__filter">
+            {% if settings.vendors_title != '' %}
+            <h2>{{ settings.vendors_title }}</h2>
+            {% endif %}
+            <ul class="filter__list">
+              {% assign vendors_list_limit = settings.vendors_list_limit_hanlde %}
+              {% for vendor in shop.vendors limit: vendors_list_limit %}
+              <li class="{% if collection.current_vendor == vendor %}active{% endif %}"><a href="{{ vendor | url_for_vendor }}">{{ vendor }}</a></li>                                       
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+          {% if section.settings.size_enable %}
+          <div class="single__filter">
+            {% if settings.size_title != '' %}
+            <h2>{{ settings.size_title }}</h2>
+            {% endif %}
+            <ul class="filter__list">
+              {% assign tags = settings.size_picker | replace: ', ', ',' | replace: ' ,', ',' | split: ',' %}
+              {% assign size_list_limit = settings.size_list_limit_hanlde %}
+
+              {% for t in tags limit: size_list_limit %}
+              {% assign tag = t | strip %}
+              {% if collection.all_tags contains tag %}
+              <li class="{% if current_tags contains tag %}active{% endif %}"><a href="/collections/all/{{ tag | handle }}">{{ tag }}</a></li>
+              {% else %}
+              <li><a href="/collections/all/{{ tag | handle }}">{{ tag }}</a></li>
+              {% endif %}
+              {% endfor %}
+
+            </ul>
+          </div>
+          {% endif %}
+
+          {% if section.settings.color_enable %}
+          <div class="single__filter">
+            {% if settings.color_title != '' %}
+            <h2>{{ settings.color_title }}</h2>
+            {% endif %}
+            <ul class="filter__list sidebar__list">
+
+              {% assign tags = settings.color_picker | replace: ', ', ',' | replace: ' ,', ',' | split: ',' %}
+              {% assign colors_list_limit = settings.colors_list_limit_hanlde %}
+
+              {% for t in tags limit: colors_list_limit %}
+              {% assign tag = t | strip %}
+              {% if collection.all_tags contains tag %}
+              <li class="{{ tag }} {% if current_tags contains tag %}active{% endif %}"><a href="/collections/all/{{ tag | handle }}"><i class="zmdi zmdi-circle" style="color: {{ tag }};"></i>{{ tag }}</a></li>
+              {% else %}
+              <li><a href="/collections/all/{{ tag | handle }}"><i class="zmdi zmdi-circle" style="background-color: {{ tag }};"></i>{{ tag }}</a></li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+
+
+
+          {% if section.settings.tags_enable %}
+          <div class="single__filter">
+            {% if settings.tags_title != '' %}
+            <h2>{{ settings.tags_title }}</h2>
+            {% endif %}
+            <ul class="htc__tags">
+              {% assign tags_list_limit = settings.tags_list_limit_hanlde %}
+
+              {% for tag in collection.tags limit: tags_list_limit %}
+              <li class="{% if current_tags contains tag %}active{% endif %}"><a href="/collections/all/{{ tag | handle }}">{{ tag }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+        </div>
+        <!-- End Single Content -->
+      </div>
+    </div>
+  </div>
+</div>

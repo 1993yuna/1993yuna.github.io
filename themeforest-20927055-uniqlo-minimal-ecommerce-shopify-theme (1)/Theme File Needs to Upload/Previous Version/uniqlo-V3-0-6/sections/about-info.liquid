@@ -1,0 +1,331 @@
+<!-- Start Our Store Area -->
+{% if section.settings.about_content_enable %}
+<section class="htc__store__area ptb--120 bg__white">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section__title section__title--2 text-center">
+          {% if section.settings.about_image %}
+          <img class="mb--50" src="{{ section.settings.about_image | img_url: 'master' }}" alt="" />
+          {% endif %}
+          {% if section.settings.about_title != '' %}
+          <h2 class="title__line">{{ section.settings.about_title }}</h2>
+          {% endif %}
+          {% if section.settings.about_content != '' %}
+          <p>{{ section.settings.about_content }}</p>
+          {% endif %}
+        </div>
+        {% if section.settings.about_button_name != '' %}
+        <div class="store__btn">
+          <a href="{{ section.settings.about_url }}">{{ section.settings.about_button_name }}</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+<!-- End Our Store Area -->
+
+
+<!-- Start Choose Us Area -->
+{% if section.settings.choose_us_section %}
+<section class="htc__choose__us__ares bg__white pb--120 {% if section.settings.about_content_enable == false %}pt--120{% endif %}">
+  <div class="container-fluid">
+    <div class="row">
+      {% if section.settings.choose_us_video %}
+      <div class="{% if section.settings.choose_us_area == true %}col-md-6{% else %}col-md-12{% endif %} col-sm-12 col-xs-12">
+        <div class="video__wrap bg--3" data--black__overlay="5">
+          <div class="video__inner">
+            <a class="video__trigger video-popup" href="{{ section.settings.video_url }}">
+              <i class="zmdi zmdi-play"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% if section.settings.choose_us_area %}
+      <div class="{% if section.settings.choose_us_video == true %}col-md-6{% else %}col-md-12{% endif %} col-sm-12 col-xs-12">
+        <div class="htc__choose__wrap bg__cat--4">
+          {% if section.settings.choose_us_title %}
+          <h2 class="choose__title">{{ section.settings.choose_us_title }}</h2>
+          {% endif %}
+          <div class="choose__container">
+            <div class="single__chooose">
+              {% if section.settings.single_choose_us_1 %}
+              <div class="choose__us">
+                <div class="choose__icon">
+                  <span class="ti-{{ section.settings.choose_us_1_icon }}"></span>
+                </div>
+                <div class="choose__details">
+                  <h4>{{ section.settings.choose_us_1_title }}</h4>
+                  <p>{{ section.settings.choose_us_1_content }} </p>
+                </div>
+              </div>
+              {% endif %}
+              {% if section.settings.single_choose_us_2 %}
+              <div class="choose__us">
+                <div class="choose__icon">
+                  <span class="ti-{{ section.settings.choose_us_2_icon }}"></span>
+                </div>
+                <div class="choose__details">
+                  <h4>{{ section.settings.choose_us_2_title }}</h4>
+                  <p>{{ section.settings.choose_us_2_content }} </p>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+            <div class="single__chooose">
+              {% if section.settings.single_choose_us_3 %}
+              <div class="choose__us">
+                <div class="choose__icon">
+                  <span class="ti-{{ section.settings.choose_us_3_icon }}"></span>
+                </div>
+                <div class="choose__details">
+                  <h4>{{ section.settings.choose_us_3_title }}</h4>
+                  <p>{{ section.settings.choose_us_3_content }} </p>
+                </div>
+              </div>
+              {% endif %}
+              {% if section.settings.single_choose_us_4 %}
+              <div class="choose__us">
+                <div class="choose__icon">
+                  <span class="ti-{{ section.settings.choose_us_4_icon }}"></span>
+                </div>
+                <div class="choose__details">
+                  <h4>{{ section.settings.choose_us_4_title }}</h4>
+                  <p>{{ section.settings.choose_us_4_content }} </p>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+<!-- End Choose Us Area -->
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  .bg--3 {
+    background: rgba(0, 0, 0, 0) url("{% if section.settings.video_thumbnail_image %}{{ section.settings.video_thumbnail_image | img_url: 'master' }}{% else %}https://placehold.it/960x505{% endif %}") no-repeat scroll center center / cover ;
+  }
+  
+</style>
+
+
+
+{% schema %}
+  {
+    "name": "About Info",
+    "settings": [
+		{
+			"type": "header",
+            "content": "About Us Content"
+        },
+		{
+          "type": "checkbox",
+          "id": "about_content_enable",
+          "label": "Show About Content Section",
+		  "default": true
+      	},
+		{
+          "type": "image_picker",
+          "id": "about_image",
+          "label": "About Image",
+		  "info": "Recommended Size: 1170 x 500px"
+      	},
+		{
+          "type": "text",
+          "id": "about_title",
+          "label": "About Title",
+		  "default": "About Title"
+      	},
+		{
+          "type": "textarea",
+          "id": "about_content",
+          "label": "About Content",
+		  "default": "About Content"
+      	},
+		{
+          "type": "text",
+          "id": "about_button_name",
+          "label": "About Button Name",
+		  "default": "Button Name"
+      	},
+		{
+          "type": "url",
+          "id": "about_url",
+          "label": "About Button URL"
+      	},
+		{
+			"type": "header",
+            "content": "Choose Us Section"
+        },
+		{
+          "type": "checkbox",
+          "id": "choose_us_section",
+          "label": "Show Choose Us Section",
+		  "default": true
+      	},
+		{
+			"type": "header",
+            "content": "Video Area"
+        },
+		{
+          "type": "checkbox",
+          "id": "choose_us_video",
+          "label": "Show Video Area",
+		  "default": true
+      	},
+		{
+          "type": "url",
+          "id": "video_url",
+          "label": "Youtube Video URL",
+		  "info": "EX: https://www.youtube.com/watch?v=Bs7VCV7MreA"
+      	},
+		{
+          "type": "image_picker",
+          "id": "video_thumbnail_image",
+          "label": "Video Thumbnail Image",
+		  "info": "Recommended Size: 960 x 505px"
+      	},
+		{
+			"type": "header",
+            "content": "Choose Us Area"
+        },
+		{
+          "type": "checkbox",
+          "id": "choose_us_area",
+          "label": "Show Choose Us Area",
+		  "default": true
+      	},
+		{
+          "type": "text",
+          "id": "choose_us_title",
+          "label": "Area Title",
+		  "default": "Why Choose Us?"
+      	},
+		{
+          "type": "checkbox",
+          "id": "single_choose_us_1",
+          "label": "Show Single Choose Us #1",
+		  "default": true
+      	},
+		{
+          "type": "text",
+          "id": "choose_us_1_icon",
+          "label": "Choose Us #1 Icon",
+		  "default": "heart",
+		  "info": "[See Icon](https://themify.me/themify-icons)"
+      	},
+		{
+          "type": "text",
+          "id": "choose_us_1_title",
+          "label": "Choose Us #1 Title",
+		  "default": "Free Gift Box"
+      	},
+		{
+          "type": "textarea",
+          "id": "choose_us_1_content",
+          "label": "Choose Us #1 Content",
+		  "default": "Lorem ipsum dolor sit amet consect adipisic elit sed do."
+      	},
+
+		{
+          "type": "checkbox",
+          "id": "single_choose_us_2",
+          "label": "Show Single Choose Us #2",
+		  "default": true
+      	},
+		{
+          "type": "text",
+          "id": "choose_us_2_icon",
+          "label": "Choose Us #2 Icon",
+		  "default": "heart",
+		  "info": "[See Icon](https://themify.me/themify-icons)"
+      	},
+		{
+          "type": "text",
+          "id": "choose_us_2_title",
+          "label": "Choose Us #2 Title",
+		  "default": "Free Gift Box"
+      	},
+		{
+          "type": "textarea",
+          "id": "choose_us_2_content",
+          "label": "Choose Us #2 Content",
+		  "default": "Lorem ipsum dolor sit amet consect adipisic elit sed do."
+      	},
+		{
+          "type": "checkbox",
+          "id": "single_choose_us_3",
+          "label": "Show Single Choose Us #3",
+		  "default": true
+      	},
+		{
+          "type": "text",
+          "id": "choose_us_3_icon",
+          "label": "Choose Us #3 Icon",
+		  "default": "heart",
+		  "info": "[See Icon](https://themify.me/themify-icons)"
+      	},
+		{
+          "type": "text",
+          "id": "choose_us_3_title",
+          "label": "Choose Us #3 Title",
+		  "default": "Free Gift Box"
+      	},
+		{
+          "type": "textarea",
+          "id": "choose_us_3_content",
+          "label": "Choose Us #3 Content",
+		  "default": "Lorem ipsum dolor sit amet consect adipisic elit sed do."
+      	},
+		{
+          "type": "checkbox",
+          "id": "single_choose_us_4",
+          "label": "Show Single Choose Us #4",
+		  "default": true
+      	},
+		{
+          "type": "text",
+          "id": "choose_us_4_icon",
+          "label": "Choose Us #4 Icon",
+		  "default": "heart",
+		  "info": "[See Icon](https://themify.me/themify-icons)"
+      	},
+		{
+          "type": "text",
+          "id": "choose_us_4_title",
+          "label": "Choose Us #4 Title",
+		  "default": "Free Gift Box"
+      	},
+		{
+          "type": "textarea",
+          "id": "choose_us_4_content",
+          "label": "Choose Us #4 Content",
+		  "default": "Lorem ipsum dolor sit amet consect adipisic elit sed do."
+      	}	
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

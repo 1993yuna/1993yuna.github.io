@@ -1,0 +1,43 @@
+<!-- Start Product MEnu -->
+{% if section.settings.sorting_enable %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="filter__menu__container">
+      {% if section.settings.short_by_enable %}
+      <div class="product__menu">
+        {% include 'collection-sorting' %}
+      </div>
+      {% endif %}
+      {% if section.settings.filter_button_enable %}
+      <div class="filter__box">
+        <a class="filter__menu" href="#">filter</a>
+      </div>
+      {% endif %}
+      {% if section.settings.tab_bar_enable %}
+      {% include 'tab-bar' %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
+<!-- Start Filter Menu -->
+{% include 'product-filter' %}
+<!-- End Filter Menu -->
+<!-- End Product MEnu -->
+<div class="row">
+  <div class="product__list single-grid-view">
+    <!-- Start Single Product -->
+    {% for product in collection.products %}
+    <div class="col-md-{{ section.settings.product_column }} single__pro cat--1 col-sm-{{ section.settings.product_column_sm }} col-xs-12 {% if section.settings.collection_page_handle == 'by_loadmore' %}load-more{% endif %}">
+      {% if section.settings.scroll_effect == 'fade_in' %}
+      {% include 'product-grid-item' %}
+      {% endif %}
+
+      {% if section.settings.scroll_effect == 'normal' %}
+      {% include 'product-grid-item-2' %}
+      {% endif %}
+    </div>
+    {% endfor %}
+    <!-- End Single Product -->
+  </div>
+</div>

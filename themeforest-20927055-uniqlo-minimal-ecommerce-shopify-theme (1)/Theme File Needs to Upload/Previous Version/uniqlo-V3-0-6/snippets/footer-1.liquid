@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="{% unless section.settings.lg_width_footer %}footer__container{% endunless %} clearfix">
+    <!-- Start Single Footer Widget -->
+    <div class="col-md-3 col-lg-3 col-sm-6">
+      <div class="ft__widget">
+        <div class="ft__logo">
+          {% if section.settings.logo_2 %}
+          <a href="/"><img src="{{ section.settings.logo_2 | img_url: 'medium' }}" alt="logo"></a>
+          {% else %}
+          <a href="/">{{ shop.name }}</a>
+          {% endif %}
+        </div>
+        <div class="footer__details">
+          <p>{{ section.settings.footer_content }}</p>
+        </div>
+      </div>
+    </div>
+    <!-- End Single Footer Widget -->
+    <!-- Start Single Footer Widget -->
+    <div class="col-md-3 col-lg-3 col-lg-offset-1 col-sm-6 smb-30 xmt-30">
+      <div class="ft__widget">
+        <h2 class="ft__title">{{ section.settings.newsletter_title }}</h2>
+        <div class="newsletter__form">
+          <div class="input__box">
+            <div id="mc_embed_signup">
+              <form action="{{ settings.newsletter_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll" class="htc__news__inner">
+                  <div class="news__input">
+                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="{{ settings.email_placeholder }}" required>
+                  </div>
+                  <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                  <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
+                  <div class="clearfix subscribe__btn"><input type="submit" value="{{ settings.button_name }}" name="subscribe" id="mc-embedded-subscribe" class="bst__btn btn--white__color">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>        
+        </div>
+      </div>
+    </div>
+    <!-- End Single Footer Widget -->
+    <!-- Start Single Footer Widget -->
+    <div class="col-md-3 col-lg-3 col-sm-6 smt-30 xmt-30">
+      <div class="ft__widget contact__us">
+        <h2 class="ft__title">{{ section.settings.contact_us_title }}</h2>
+        <div class="footer__inner">
+          <p>{{ section.settings.contact_information }}</p>
+        </div>
+      </div>
+    </div>
+    <!-- End Single Footer Widget -->
+    <!-- Start Single Footer Widget -->
+    <div class="col-md-3 col-lg-2 col-sm-6 smt-30 xmt-30">
+      <div class="ft__widget">
+        <h2 class="ft__title">{{ section.settings.follow_us_title }}</h2>
+        <ul class="social__icon">
+          {% include 'social-link' %}
+        </ul>
+      </div>
+    </div>
+    <!-- End Single Footer Widget -->
+  </div>
+</div>
+<!-- Start Copyright Area -->
+{% if section.settings.footer_bottom_enable %}
+<div class="htc__copyright__area">
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+      <div class="copyright__inner">
+        <div class="copyright">
+          <p>{{ section.settings.copy_ritht_text }}</p>
+        </div>
+        <ul class="footer__menu">
+          {% assign footer_menu_1 = section.settings.footer_menu_1_handle %}
+          {% for link in linklists[footer_menu_1].links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+<!-- End Copyright Area -->

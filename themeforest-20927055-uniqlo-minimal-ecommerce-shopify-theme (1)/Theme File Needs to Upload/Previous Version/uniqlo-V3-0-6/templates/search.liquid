@@ -1,0 +1,46 @@
+<!-- /templates/search.liquid -->
+{% assign grid_results = false %}
+{% assign respond_js_secret_key = shop.domain | md5 %}
+{% unless search.terms == respond_js_secret_key %}
+
+{% paginate search.results by 5 %}
+<div class="ptb--100 search-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-push-2">
+        {% if search.performed %}
+        {% if search.results_count == 0 %}
+        <h4 class="text-center search-title">{{ 'general.search.no_results_html' | t: terms: search.terms }}</h4>
+        {% else %}
+        <h4 class="text-center search-title">{{ 'general.search.results_for_html' | t: terms: search.terms }}</h4>
+        {% endif %}
+        {% else %}
+        <h4 class="text-center search-title">{{ 'general.search.title' | t }}</h4>
+        {% endif %}
+        {% if search.performed %}
+        <hr class="hr--clear mb-50">
+        <div class="search-item">
+          <div class="row">
+            {% for item in search.results limit: 10 %}
+            {% include 'product-search-item' %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+        {% if paginate.pages > 1 %}
+        <div class="pagination-box text-center mt--60">
+          <div class="pagination-ineer">
+            {% include 'pagination' %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endpaginate %}
+
+{% else %}
+{% include 'respond' %}
+{% layout none %}
+{% endunless %}

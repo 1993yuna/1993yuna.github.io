@@ -1,0 +1,152 @@
+{% include 'single-product-tab' %}
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Product Tab",
+    "settings": [
+		{
+            "type": "checkbox",
+            "id": "product_tab_enable",
+            "label": "Show Product Tab Section",
+            "default": true
+        },
+		{
+            "type": "paragraph",
+            "content": "Product Description comes from short code - Full Description: [product_description] Your content or text here [/product_description]"
+        },
+		{
+            "type": "header",
+            "content": "Product Tab-1"
+        },
+		{
+            "type": "checkbox",
+            "id": "product_tab_1_enable",
+            "label": "Show Product More Info",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "product_info_tab_title",
+            "label": "More Info Title",
+            "default": "More Info"
+        },
+		{
+            "type": "header",
+            "content": "Product Tab-2"
+        },
+		{
+            "type": "checkbox",
+            "id": "product_tab_2_enable",
+            "label": "Show Product Review",
+            "info": "Install Free Apps for Product Review [Click Here](https:/\/\apps.shopify.com/\product-reviews)",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "product_review_tab_title",
+            "label": "Product Review Title",
+            "default": "Reviews"
+        },
+		{
+            "type": "header",
+            "content": "Product Tab-3"
+        },
+		{
+            "type": "checkbox",
+            "id": "product_tab_3_enable",
+            "label": "Show Tab Comment",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "product_comments_title",
+            "label": "Comments Title",
+            "default": "Comments"
+        },
+        {
+            "type": "radio",
+            "id": "product_page_comments_box",
+            "label": "Select comments box",
+            "options": [
+              {
+                "value": "disqus_comment",
+                "label": "Disqus comments"
+              },
+              {
+                "value": "facebook_comment",
+                "label": "Facebook comments"
+              }
+            ],
+            "default": "disqus_comment"
+        },
+        {
+            "type": "text",
+            "id": "facebook_comments_post_limit",
+            "label": "FacebooK Comment Limit",
+            "default": "10"
+        },
+        {
+            "type": "text",
+            "id": "disqus_shortname",
+            "label": "Your Store Name",
+            "default": "demo-store",
+            "info": "Disqus Shortname (Get your shortname)[disqus.com](http:\/\/disqus.com)"
+        },
+		{
+            "type": "header",
+            "content": "Custom Tab-1"
+        },
+		{
+            "type": "checkbox",
+            "id": "custom_tab_1_enable",
+            "label": "Show Custom Tab-1",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "custom_tab_1_title",
+            "label": "Custom Tab Title",
+            "default": "Custom Tab-1"
+        },
+		{
+            "type": "page",
+            "id": "custom_tab_handle_1",
+            "label": "Select Page for information",
+            "info": "[Create a page](\/admin\/pages\/new)"
+        },
+		{
+            "type": "header",
+            "content": "Custom Tab-2"
+        },
+		{
+            "type": "checkbox",
+            "id": "custom_tab_2_enable",
+            "label": "Show Custom Tab-2",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "custom_tab_2_title",
+            "label": "Custom Tab Title",
+            "default": "Custom Tab-2"
+        },
+		{
+            "type": "page",
+            "id": "custom_tab_handle_2",
+            "label": "Select Page for information",
+            "info": "[Create a page](\/admin\/pages\/new)"
+        }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

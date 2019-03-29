@@ -1,0 +1,254 @@
+<!-- Start Our Team Area -->
+{% if section.settings.team_member_area_enable %}
+<section class="htc__team__area bg__white {% if section.settings.about_content_enable == false and section.settings.choose_us_section == false %}pt--120{% endif %}" style="padding-bottom: {{ section.settings.section_padding_bottom }}px;">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    {% if section.settings.section_title != blank %}
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section__title section__title--2 text-center">
+          <h2 class="title__line">{{ section.settings.section_title }}</h2>
+          {% if section.settings.section_content != blank %}
+          <p>{{ section.settings.section_content }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <div class="row">
+      <div class="team__wrap clearfix mt--60">
+        <!-- Start Single Team -->
+        {% for block in section.blocks %}
+        <div class="col-md-{{ section.settings.product_column }} col-sm-6 col-xs-12">
+          <div class="{% if section.settings.scroll_effect == 'fade_in' %}team foo{% endif %} {% if section.settings.scroll_effect == 'normal' %}team{% endif %}">
+            <div class="team__thumb">
+              <a href="{{ block.settings.member_url }}">
+                {% if block.settings.member_image %}
+                <img src="{{ block.settings.member_image | img_url: 'large' }}" alt="">
+                {% else %}
+                <img src="https://via.placeholder.com/390x450" alt="Team Member">
+                {% endif %}
+              </a>
+            </div>
+            <div class="team__bg__color"></div>
+            <div class="team__hover__info">
+              <div class="team__hover__action">
+                <h2><a href="{{ block.settings.member_url }}">{{ block.settings.member_name }}</a></h2>
+                {% if section.settings.member_social_icon_enable %}
+                <ul class="social__icon">
+                  {% if block.settings.member_link_1 %}
+                  <li><a href="{{ block.settings.member_link_1 }}" target="_blank"><i class="zmdi zmdi-facebook"></i></a></li>
+                  {% endif %}
+                  {% if block.settings.member_link_2 %}
+                  <li><a href="{{ block.settings.member_link_2 }}" target="_blank"><i class="zmdi zmdi-twitter"></i></a></li>
+                  {% endif %}
+                  {% if block.settings.member_link_3 %}
+                  <li><a href="{{ block.settings.member_link_3 }}" target="_blank"><i class="zmdi zmdi-google-plus"></i></a></li>
+                  {% endif %}
+                  {% if block.settings.member_link_4 %}
+                  <li><a href="{{ block.settings.member_link_4 }}" target="_blank"><i class="zmdi zmdi-linkedin"></i></a></li>
+                  {% endif %}
+                </ul>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <!-- End Single Team -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Our Team Area -->
+{% endif %}
+
+
+
+
+{% schema %}
+  {
+    "name": "Team member",
+    "settings": [
+		{
+			"type": "header",
+            "content": "Team Member"
+        },
+		{
+          "type": "checkbox",
+          "id": "team_member_area_enable",
+          "label": "Show Team Member Section",
+		  "default": true
+      	},
+		{
+          "type": "text",
+          "id": "section_title",
+          "label": "Team Member Section Title",
+		  "default": "Team Member"
+      	},
+		{
+          "type": "text",
+          "id": "section_content",
+          "label": "Team Member Section Title",
+		  "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labo."
+      	},
+		{
+          "type": "checkbox",
+          "id": "member_social_icon_enable",
+          "label": "Show Social Icon",
+		  "default": true
+      	},
+		{
+          "type": "select",
+          "id": "product_column",
+          "label": "Team Column",
+		  "options":[
+				{
+					"label": "2 Columns",
+					"value": "6"
+				},
+				{
+					"label": "3 Columns",
+					"value": "4"
+				},
+				{
+					"label": "4 Columns",
+					"value": "3"
+				},
+				{
+					"label": "6 Columns",
+					"value": "2"
+				}
+			],
+			"default": "4"
+      	},
+		{
+          "type": "radio",
+          "id": "scroll_effect",
+          "label": "Scroll Fade In Effect",
+		  "options":[
+				{
+					"label": "Yes",
+					"value": "fade_in"
+				},
+				{
+					"label": "No",
+					"value": "normal"
+				}
+			],
+			"default": "fade_in"
+      	},
+		{
+			"type": "paragraph",
+            "content": "Team Member Content widget below."
+        },
+		{
+			"type": "header",
+            "content": "Section Padding"
+        },
+		{
+          "type": "text",
+          "id": "section_padding_bottom",
+          "label": "Padding Bottom",
+          "default": "120",
+          "info": "Defined in pixels. Do not add the 'px' unit."	
+      	}
+	],
+	"blocks":[
+		{
+			"type":"team_member",
+			"name": "Team Member",
+			"settings": [
+				{
+                  "type": "image_picker",
+                  "id": "member_image",
+                  "label": "Member Image",
+				  "info": "Recommended Size: 390 x 450px"
+                },
+				{
+                  "type": "text",
+                  "id": "member_name",
+                  "label": "Member Name",
+				  "default": "Member Name"
+                },
+				{
+                  "type": "url",
+                  "id": "member_url",
+                  "label": "Member URL"
+                },
+				{
+					"type": "header",
+					"content": "Social Links"
+				},
+				{
+                  "type": "checkbox",
+                  "id": "member_link_1_enable",
+                  "label": "Show Facebook",
+                  "default": true
+                },
+				{
+                  "type": "url",
+                  "id": "member_link_1",
+                  "label": "Facebook Link"
+                },
+				{
+                  "type": "checkbox",
+                  "id": "member_link_2_enable",
+                  "label": "Show Twittre",
+                  "default": true
+                },
+				{
+                  "type": "url",
+                  "id": "member_link_2",
+                  "label": "Twittler Link"
+                },
+				{
+                  "type": "checkbox",
+                  "id": "member_link_3_enable",
+                  "label": "Show Google+",
+                  "default": true
+                },
+				{
+                  "type": "url",
+                  "id": "member_link_3",
+                  "label": "Google+ Link"
+                },
+				{
+                  "type": "checkbox",
+                  "id": "member_link_4_enable",
+                  "label": "Show Linkedin",
+                  "default": true
+                },
+				{
+                  "type": "url",
+                  "id": "member_link_4",
+                  "label": "Linkedin Link"
+                }
+			]	
+		}
+	],
+	"presets":[
+		{
+			"name": "Team Member",
+			"category": "About",
+			"blocks":[
+				{
+					"type": "team_member"
+				},
+				{
+					"type": "team_member"
+				},
+				{
+					"type": "team_member"
+				}
+			]
+		}
+	]
+  }
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,504 @@
+<!-- Start Contact Area -->
+<section class="htc__contact__area ptb--120 bg__white">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    <div class="row">
+      {% if section.settings.contact_form_and_contact_info_enable %}
+      <div class="{% if section.settings.map_enable == true %}col-md-6{% else %}col-md-12{% endif %} col-sm-12 col-xs-12">
+        <div class="htc__contact__container">
+          {% if section.settings.contact_information_enable %}
+          <div class="htc__contact__address">
+            <h2 class="contact__title">{{ section.settings.contact_information_title }}</h2>
+            <div class="contact__address__inner">
+              <!-- Start Single Adress -->
+              <div class="single__contact__address">
+                <div class="contact__icon">
+                  <span class="ti-{{ section.settings.icon_name1 }}"></span>
+                </div>
+                <div class="contact__details">
+                  <p>{{ section.settings.contact_info1 }}</p>
+                </div>
+              </div>
+              <!-- End Single Adress -->
+            </div>
+            <div class="contact__address__inner">
+              <!-- Start Single Adress -->
+              <div class="single__contact__address">
+                <div class="contact__icon">
+                  <span class="ti-{{ section.settings.icon_name2 }}"></span>
+                </div>
+                <div class="contact__details">
+                  <p>{{ section.settings.contact_info2 }}</p>
+                </div>
+              </div>
+              <!-- End Single Adress -->
+              <!-- Start Single Adress -->
+              <div class="single__contact__address">
+                <div class="contact__icon">
+                  <span class="ti-{{ section.settings.icon_name3 }}"></span>
+                </div>
+                <div class="contact__details">
+                  <p>{{ section.settings.contact_info3 }}</p>
+                </div>
+              </div>
+              <!-- End Single Adress -->
+            </div>
+          </div>
+          {% endif %}
+
+          {% if section.settings.contact_form_enable %}
+          <div class="contact-form-wrap">
+            <div class="contact-title">
+              <h2 class="contact__title">{{ section.settings.form_title }}</h2>
+            </div>
+            {% include 'contact-form' %}
+          </div> 
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+      
+      {% if section.settings.map_enable %}
+      <div class="{% if section.settings.contact_form_and_contact_info_enable == true %}col-md-6{% else %}col-md-12{% endif %} col-sm-12 col-xs-12 smt-60 xmt-60">
+        <div class="map-contacts">
+          <div id="googleMap"></div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+<!-- End Contact Area -->
+
+
+
+
+{% schema %}
+  {
+  "name": "Contact Page",
+  "settings": [
+		  {
+              "type": "checkbox",
+              "id": "contact_form_and_contact_info_enable",
+              "label": "Show Contact Information & Contact Form Area",
+              "default": true
+          },
+		  {
+              "type": "header",
+              "content": "Contact Information"
+          },
+          {
+              "type": "checkbox",
+              "id": "contact_information_enable",
+              "label": "Show Contact Information",
+              "default": true
+          },
+		  {
+              "type": "text",
+              "id": "contact_information_title",
+              "label": "Contact Information Title",
+              "default": "Contact Information Title"
+          },
+          {
+              "type": "text",
+              "id": "icon_name1",
+              "label": "Icon",
+              "default": "location-pin",
+              "info": "[See Icon](https://themify.me/themify-icons)"
+          },
+          {
+              "type": "textarea",
+              "id": "contact_info1",
+              "label": "Contact Information",
+			  "default": "Contact Information",
+			  "info": "Use <br> for line break"
+          },
+		  {
+              "type": "text",
+              "id": "icon_name2",
+              "label": "Icon",
+              "default": "location-pin",
+              "info": "[See Icon](https://themify.me/themify-icons)"
+          },
+          {
+              "type": "textarea",
+              "id": "contact_info2",
+              "label": "Contact Information",
+			  "default": "Contact Information",
+			  "info": "Use <br> for line break"
+          },
+		  {
+              "type": "text",
+              "id": "icon_name3",
+              "label": "Icon",
+              "default": "location-pin",
+              "info": "[See Icon](https://themify.me/themify-icons)"
+          },
+		  {
+              "type": "textarea",
+              "id": "contact_info3",
+              "label": "Contact Information",
+			  "default": "Contact Information",
+			  "info": "Use <br> for line break"
+          },
+		  {
+              "type": "header",
+              "content": "Contact Form"
+          },
+          {
+              "type": "checkbox",
+              "id": "contact_form_enable",
+              "label": "Show Contact Form",
+              "default": true
+          },
+          {
+              "type": "text",
+              "id": "form_title",
+              "label": "Form Title",
+              "default": "send message"
+          },
+          {
+              "type": "text",
+              "id": "name_placeholder",
+              "label": "Input fild Name",
+              "default": "Your name"
+          },
+          {
+              "type": "text",
+              "id": "email_placeholder",
+              "label": "Input fild Email",
+              "default": "Your email"
+          },
+		  {
+              "type": "text",
+              "id": "subject_placeholder",
+              "label": "Input fild Email",
+              "default": "Subject"
+          },
+          {
+              "type": "text",
+              "id": "message_placeholder",
+              "label": "Input fild Message",
+              "default": "Message"
+          },
+          {
+              "type": "text",
+              "id": "form_button_name",
+              "label": "Form Button Name",
+              "default": "Send"
+          },
+		  {
+              "type": "header",
+              "content": "Map"
+          },
+          {
+              "type": "checkbox",
+              "id": "map_enable",
+              "label": "Show Map",
+              "default": true
+          },
+          {
+              "type": "text",
+              "id": "latitude",
+              "label": "Your Adderss Latititude",
+              "default": "47.606205"
+          },
+          {
+              "type": "text",
+              "id": "languid",
+              "label": "Your Adderss Languid",
+              "default": "-122.332046"
+          },
+		  {
+              "type": "image_picker",
+              "id": "map_icon_image",
+              "label": "Map Marker Image"
+          },
+		  {
+              "type": "checkbox",
+              "id": "icon_animation_enable",
+              "label": "Map Marker Animation Enable",
+			  "default": true
+          },
+		  {
+              "type": "text",
+              "id": "google_map_api_key",
+              "label": "Google Map API Key",
+              "default": "AIzaSyCBEypW1XtGLWpikFPcityAok8rhJzzWRw"
+          }   
+      ]
+  }
+{% endschema %}
+
+
+
+
+<!-- Google Map js -->
+<script src="https://maps.googleapis.com/maps/api/js?key={{ section.settings.google_map_api_key }}"></script>
+<script>
+  // When the window has finished loading create our google map below
+  google.maps.event.addDomListener(window, 'load', init);
+
+  function init() {
+    // Basic options for a simple Google Map
+    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+    var mapOptions = {
+      // How zoomed in you want the map to start at (always required)
+      zoom: 12,
+
+      scrollwheel: false,
+
+      // The latitude and longitude to center the map (always required)
+      center: new google.maps.LatLng({{ section.settings.latitude }}, {{ section.settings.languid }}), // New York
+
+      // How you would like to style the map. 
+      // This is where you would paste any style found on Snazzy Maps.
+      styles: [
+
+
+        {
+          "featureType": "administrative",
+          "elementType": "all",
+          "stylers": [
+            {
+              "hue": "#ff0000"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#888888"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative",
+          "elementType": "geometry.fill",
+          "stylers": [
+            {
+              "hue": "#ff0000"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative",
+          "elementType": "labels.text",
+          "stylers": [
+            {
+              "color": "#6e6e6e"
+            },
+            {
+              "visibility": "simplified"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative.country",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#6f6b6b"
+            }
+          ]
+        },
+        {
+          "featureType": "landscape",
+          "elementType": "labels.text",
+          "stylers": [
+            {
+              "color": "#c5c5c5"
+            }
+          ]
+        },
+        {
+          "featureType": "landscape.natural",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#cfcfcf"
+            }
+          ]
+        },
+        {
+          "featureType": "landscape.natural.landcover",
+          "elementType": "all",
+          "stylers": [
+            {
+              "hue": "#ff0000"
+            }
+          ]
+        },
+        {
+          "featureType": "landscape.natural.landcover",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "hue": "#ff0000"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "all",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "labels.text",
+          "stylers": [
+            {
+              "visibility": "off"
+            },
+            {
+              "color": "#909090"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "labels.icon",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.medical",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#e5e5e5"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.park",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#e5e5e5"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.place_of_worship",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#ff0000"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.sports_complex",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#f7f7f7"
+            }
+          ]
+        },
+        {
+          "featureType": "road",
+          "elementType": "geometry.fill",
+          "stylers": [
+            {
+              "color": "#ffffff"
+            }
+          ]
+        },
+        {
+          "featureType": "road",
+          "elementType": "geometry.stroke",
+          "stylers": [
+            {
+              "gamma": 7.18
+            }
+          ]
+        },
+        {
+          "featureType": "road",
+          "elementType": "labels.icon",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "road.local",
+          "elementType": "labels.text",
+          "stylers": [
+            {
+              "visibility": "simplified"
+            }
+          ]
+        },
+        {
+          "featureType": "transit.line",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "gamma": 0.48
+            }
+          ]
+        },
+        {
+          "featureType": "transit.station",
+          "elementType": "labels.icon",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "all",
+          "stylers": [
+            {
+              "color": "#bcbcbc"
+            },
+            {
+              "visibility": "on"
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#ffffff"
+            }
+          ]
+        }
+      ]
+    };
+
+    // Get the HTML DOM element that will contain your map 
+    // We are using a div with id="map" seen below in the <body>
+    var mapElement = document.getElementById('googleMap');
+
+    // Create the Google Map using our element and options defined above
+    var map = new google.maps.Map(mapElement, mapOptions);
+
+    // Let's also add a marker while we're at it
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng({{ section.settings.latitude }}, {{ section.settings.languid }}),
+      map: map,
+      title: 'Tasfiu!',
+      icon: '{% if section.settings.map_icon_image %}{{ section.settings.map_icon_image | img_url: 'small' }}{% else %}https://via.placeholder.com/100x150{% endif %}',
+      {% if section.settings.icon_animation_enable %}
+      animation:google.maps.Animation.BOUNCE
+      {% endif %}
+    });
+  }
+</script>

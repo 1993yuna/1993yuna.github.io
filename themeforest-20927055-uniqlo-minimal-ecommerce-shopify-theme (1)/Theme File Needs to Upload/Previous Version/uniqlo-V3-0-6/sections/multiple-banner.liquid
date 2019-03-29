@@ -1,0 +1,166 @@
+<!-- Start Slider Area -->
+<section class="htc__new__product bg__white mlt_banner {% if settings.body_bg_img %}pl--60 pr--60{% endif %}" style="padding-bottom: {{ section.settings.section_padding_bottom }}px;">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    <div class="row">
+      <div class="new__product__wrap clearfix">
+        {% assign i = 0 %}
+        {% for block in section.blocks %}
+        <div class="col-md-{{ block.settings.banner_column }} col-sm-12 col-xs-12 pb--30">
+          <div class="{% if section.settings.scroll_effect == 'fade_in' %}new__product foo{% endif %}{% if section.settings.scroll_effect == 'normal' %}new__product{% endif %}">
+            <div class="new__product__thumb">
+              <a href="{{ block.settings.banner_url }}">
+                {% if block.settings.banner_image %}
+                <img src="{{ block.settings.banner_image | img_url: '1024x1024' }}" alt="banner">
+                {% else %}
+                <img src="https://via.placeholder.com/570x290" alt="banner">
+                {% endif %}
+              </a>
+            </div>
+            {% if block.settings.banner_content %}
+            <div class="new__product__details">
+			  {% if block.settings.banner_title %}
+              <h2><a href="{{ block.settings.banner_url }}">{{ block.settings.banner_title }}</a></h2>
+              {% endif %}
+              {% if block.settings.banner_button_name != '' %}
+              <div class="new__product__btn">
+                <a class="htc__btn shop__now__btn" href="{{ block.settings.banner_url }}">{{ block.settings.banner_button_name }}</a>
+              </div>
+              {% endif %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+        <!-- End New Product -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Start Our Product Area -->
+
+
+
+
+
+<style>
+  .htc__new__product.bg__white.mlt_banner {
+    background: {{ section.settings.bg_color }};
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Multiple Banner",
+    "settings": [
+		{
+          "type": "radio",
+          "id": "scroll_effect",
+          "label": "Scroll Fade In Effect",
+		  "options":[
+				{
+					"label": "Yes",
+					"value": "fade_in"
+				},
+				{
+					"label": "No",
+					"value": "normal"
+				}
+			],
+			"default": "fade_in"
+      	},
+		{
+			"type": "header",
+            "content": "Section Padding"
+        },
+		{
+          "type": "text",
+          "id": "section_padding_bottom",
+          "label": "Padding Bottom",
+          "default": "70",
+          "info": "Defined in pixels. Do not add the 'px' unit."	
+      	},
+		{
+          "type": "color",
+          "id": "bg_color",
+          "label": "Section Background Color",
+          "default": "#ffffff",
+          "info": "[See More Color](https:\/\/www.w3schools.com/colors/colors_picker.asp)"	
+      	}
+	],
+	"blocks": [
+		{
+			"type": "mulitple_banner",
+			"name": "Banner",
+			"settings": [
+				{
+                  "type": "text",
+                  "id": "banner_column",
+                  "label": "Banner Column",
+                  "default": "6"
+                },
+				{
+                  "type": "image_picker",
+                  "id": "banner_image",
+                  "label": "Banner Image",
+				  "info": "Recommended Size: 570 x 290px"
+                },
+				{
+                  "type": "checkbox",
+                  "id": "banner_content",
+                  "label": "Show Content",
+                  "default": true
+                },
+                {
+                  "type": "text",
+                  "id": "banner_title",
+                  "label": "Title",
+                  "default": "Title"
+                },
+                {
+                  "type": "text",
+                  "id": "banner_button_name",
+                  "label": "Button Name",
+                  "default": "Shop Now"
+                },
+                {
+                  "type": "url",
+                  "id": "banner_url",
+                  "label": "Link"
+                }
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Multiple Banner",
+			"category": "banner",
+			"blocks": [
+				{
+					"type": "mulitple_banner"
+				},
+				{
+					"type": "mulitple_banner"
+				}
+			]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

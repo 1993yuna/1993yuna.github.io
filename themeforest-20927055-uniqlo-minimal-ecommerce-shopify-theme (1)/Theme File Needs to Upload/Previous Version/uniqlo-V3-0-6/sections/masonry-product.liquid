@@ -1,0 +1,245 @@
+<!-- Start Slider Area -->
+<div class="custop__container--2 bg__white" style="padding-bottom: {{ section.settings.section_padding_bottom }}px">
+  <div class="masonry-product">
+    <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' or settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+      <!-- Start Product MEnu -->
+      <div class="htc__product__container">
+        <!-- End Product MEnu -->
+        <div class="row">     
+          <div class="product__list clearfix masonry-poduct-list">
+            {% assign masonry_product = collections[section.settings.masonry_product_handle] %}
+
+            {% for product in masonry_product.products limit: 1 %}
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {% if section.settings.scroll_effect == 'fade_in' %}
+              {% include 'product-grid-item-3' %}
+              {% endif %}
+
+              {% if section.settings.scroll_effect == 'normal' %}
+              {% include 'product-grid-item-4' %}
+              {% endif %}
+            </div>
+            {% endfor %}
+            {% for product in masonry_product.products limit: 1 offset: 1 %}
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              {% if section.settings.scroll_effect == 'fade_in' %}
+              {% include 'product-grid-item-3' %}
+              {% endif %}
+
+              {% if section.settings.scroll_effect == 'normal' %}
+              {% include 'product-grid-item-4' %}
+              {% endif %}
+            </div>
+            {% endfor %}
+            {% for product in masonry_product.products limit: 1 offset: 2 %}
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              {% if section.settings.scroll_effect == 'fade_in' %}
+              {% include 'product-grid-item-3' %}
+              {% endif %}
+
+              {% if section.settings.scroll_effect == 'normal' %}
+              {% include 'product-grid-item-4' %}
+              {% endif %}
+            </div>
+            {% endfor %}
+            {% for product in masonry_product.products limit: 1 offset: 3 %}
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              {% if section.settings.scroll_effect == 'fade_in' %}
+              {% include 'product-grid-item-3' %}
+              {% endif %}
+
+              {% if section.settings.scroll_effect == 'normal' %}
+              {% include 'product-grid-item-4' %}
+              {% endif %}
+            </div>
+            {% endfor %}
+            {% for product in masonry_product.products limit: 1 offset: 4 %}
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              {% if section.settings.scroll_effect == 'fade_in' %}
+              {% include 'product-grid-item-3' %}
+              {% endif %}
+
+              {% if section.settings.scroll_effect == 'normal' %}
+              {% include 'product-grid-item-4' %}
+              {% endif %}
+            </div>
+            {% endfor %}
+            {% for product in masonry_product.products limit: 1 offset: 5 %}
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              {% if section.settings.scroll_effect == 'fade_in' %}
+              {% include 'product-grid-item-3' %}
+              {% endif %}
+
+              {% if section.settings.scroll_effect == 'normal' %}
+              {% include 'product-grid-item-4' %}
+              {% endif %}
+            </div>
+            {% endfor %}
+            {% for product in masonry_product.products limit: 1 offset: 6 %}
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              {% if section.settings.scroll_effect == 'fade_in' %}
+              {% include 'product-grid-item-3' %}
+              {% endif %}
+
+              {% if section.settings.scroll_effect == 'normal' %}
+              {% include 'product-grid-item-4' %}
+              {% endif %}
+            </div>
+            {% endfor %}
+            {% for product in masonry_product.products limit: 1 offset: 7 %}
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              {% if section.settings.scroll_effect == 'fade_in' %}
+              {% include 'product-grid-item-3' %}
+              {% endif %}
+
+              {% if section.settings.scroll_effect == 'normal' %}
+              {% include 'product-grid-item-4' %}
+              {% endif %}
+            </div>
+            {% endfor %}
+            {% for product in masonry_product.products limit: 1 offset: 8 %}
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              {% if section.settings.scroll_effect == 'fade_in' %}
+              {% include 'product-grid-item-3' %}
+              {% endif %}
+
+              {% if section.settings.scroll_effect == 'normal' %}
+              {% include 'product-grid-item-4' %}
+              {% endif %}
+            </div>
+            {% endfor %}
+            {% for product in masonry_product.products limit: 1 offset: 9 %}
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              {% if section.settings.scroll_effect == 'fade_in' %}
+              {% include 'product-grid-item-3' %}
+              {% endif %}
+
+              {% if section.settings.scroll_effect == 'normal' %}
+              {% include 'product-grid-item-4' %}
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <!-- Start Load More BTn -->
+      {% if section.settings.vew_more_button_enable %}
+      <div class="row mt--60">
+        <div class="col-md-12">
+          <div class="htc__loadmore__btn">
+            <a href="{{ section.settings.view_more_button_link }}">{{ section.settings.view_more_button_name }}</a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <!-- End Load More BTn -->
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Product With Masonry",
+    "settings": [
+		{
+			"type": "header",
+            "content": "Product Options"
+        },
+		{
+            "type": "radio",
+            "id": "product_style_handle",
+            "label": "Product Style",
+            "info": "Select any one without 'Style One'",
+            "options": [
+                {
+                  "label": "Style One",
+                  "value": "product_style_1"
+                },
+                {
+                  "label": "Style Two",
+                  "value": "product_style_2"
+                },
+                {
+                  "label": "Style Three",
+                  "value": "product_style_3"
+                },
+				{
+                  "label": "Style Four",
+                  "value": "product_style_4"
+                },
+				{
+                  "label": "Style Five",
+                  "value": "product_style_5"
+                },
+				{
+                  "label": "Style Six",
+                  "value": "product_style_6"
+                }
+            ],
+            "default": "product_style_5"
+        },
+		{
+          "type": "radio",
+          "id": "scroll_effect",
+          "label": "Scroll Fade In Effect",
+		  "options":[
+				{
+					"label": "Yes",
+					"value": "fade_in"
+				},
+				{
+					"label": "No",
+					"value": "normal"
+				}
+			],
+			"default": "fade_in"
+      	},
+		{
+			"type": "collection",
+            "id": "masonry_product_handle",
+            "label": "Select Your Collection",
+            "info": "Selected Collection Must have minimum 10 products"
+        },
+		{
+			"type": "checkbox",
+            "id": "vew_more_button_enable",
+            "label": "Show View More Button",
+			"default": true
+        },
+		{
+			"type": "text",
+            "id": "view_more_button_name",
+            "label": "Button Name",
+			"default": "Button Name"
+        },
+		{
+			"type": "url",
+            "id": "view_more_button_link",
+            "label": "Button Link"
+        },
+		{
+			"type": "header",
+            "content": "Section Padding"
+        },
+		{
+          "type": "text",
+          "id": "section_padding_bottom",
+          "label": "Padding Bottom",
+          "default": "120",
+          "info": "Defined in pixels. Do not add the 'px' unit."	
+      	}
+	],
+	"presets": [
+		{
+			"name": "Product With Masonry",
+			"category": "collection"
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,298 @@
+<!-- Start Feature Product -->
+<section class="htc__feature__product bg__white" style="padding-bottom: {{ section.settings.section_padding_bottom }}px;">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    <div class="row">
+      <!-- Start Left Feature -->
+      <div class="col-md-5 col-lg-5 col-sm-6 col-xs-12">
+        <div class="{% if section.settings.scroll_effect == 'fade_in' %}feature foo{% endif %}{% if section.settings.scroll_effect == 'normal' %}feature{% endif %}">
+          <div class="feature__thumb">
+            <a href="{{ section.settings.banner_1_url }}">
+              {% if section.settings.banner_1_image %}
+              <img src="{{ section.settings.banner_1_image | img_url: '1024x1024' }}" alt="banner">
+              {% else %}
+              <img src="https://via.placeholder.com/470x678" alt="banner">
+              {% endif %}
+            </a>
+          </div>
+          {% if section.settings.banner_1_content %}
+          <div class="feature__details">
+            <h4><a href="{{ section.settings.banner_1_url }}">{{ section.settings.banner_1_title }}</a></h4>
+            <div class="feature__btn">
+              <a class="htc__btn shop__now__btn" href="{{ section.settings.banner_1_url }}">{{ section.settings.banner_1_button_name }}</a>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <!-- End Left Feature -->
+      <div class="col-md-7 col-lg-7 col-sm-6 col-xs-12">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12 xmt-30">
+            <div class="{% if section.settings.scroll_effect == 'fade_in' %}feature foo{% endif %}{% if section.settings.scroll_effect == 'normal' %}feature{% endif %}">
+              <div class="feature__thumb">
+                <a href="{{ section.settings.banner_2_url }}">
+                  {% if section.settings.banner_2_image %}
+                  <img src="{{ section.settings.banner_2_image | img_url: '1024x1024' }}" alt="banner">
+                  {% else %}
+                  <img src="https://via.placeholder.com/670x324" alt="banner">
+                  {% endif %}
+                </a>
+              </div>
+              {% if section.settings.banner_2_content %}
+              <div class="feature__details">
+                <h4><a href="{{ section.settings.banner_2_url }}">{{ section.settings.banner_2_title }}</a></h4>
+                <div class="feature__btn">
+                  <a class="htc__btn shop__now__btn" href="{{ section.settings.banner_2_url }}">{{ section.settings.banner_2_button_name }}</a>
+                </div>
+              </div>
+              {% endif %}
+            </div>                               
+          </div>
+          <div class="col-md-5 mt--30 hidden-sm hidden-xs">
+            <div class="{% if section.settings.scroll_effect == 'fade_in' %}feature foo{% endif %}{% if section.settings.scroll_effect == 'normal' %}feature{% endif %}">
+              <div class="feature__thumb">
+                <a href="{{ section.settings.banner_3_url }}">
+                  {% if section.settings.banner_3_image %}
+                  <img src="{{ section.settings.banner_3_image | img_url: '1024x1024' }}" alt="banner">
+                  {% else %}
+                  <img src="https://via.placeholder.com/262x324" alt="banner">
+                  {% endif %}
+                </a>
+              </div>
+              {% if section.settings.banner_3_content %}
+              <div class="feature__details">
+                <h4><a href="{{ section.settings.banner_1_url }}">{{ section.settings.banner_3_title }}</a></h4>
+                <div class="feature__btn">
+                  <a class="htc__btn shop__now__btn" href="{{ section.settings.banner_3_url }}">{{ section.settings.banner_3_button_name }}</a>
+                </div>
+              </div>
+              {% endif %}
+            </div>                               
+          </div>
+          <div class="col-md-7 mt--30 col-sm-12 col-xs-12 xmt-30">
+            <div class="{% if section.settings.scroll_effect == 'fade_in' %}feature foo{% endif %}{% if section.settings.scroll_effect == 'normal' %}feature{% endif %}">
+              <div class="feature__thumb">
+                <a href="{{ section.settings.banner_4_url }}">
+                  {% if section.settings.banner_4_image %}
+                  <img src="{{ section.settings.banner_4_image | img_url: '1024x1024' }}" alt="banner">
+                  {% else %}
+                  <img src="https://via.placeholder.com/380x324" alt="banner">
+                  {% endif %}
+                </a>
+              </div>
+              {% if section.settings.banner_4_content %}
+              <div class="feature__details">
+                <h4><a href="{{ section.settings.banner_4_url }}">{{ section.settings.banner_4_title }}</a></h4>
+                <div class="feature__btn">
+                  <a class="htc__btn shop__now__btn" href="{{ section.settings.banner_4_url }}">{{ section.settings.banner_4_button_name }}</a>
+                </div>
+              </div>
+              {% endif %}
+            </div>                               
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Feature Product -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Multiple Banner (Masonry)",
+    "settings": [
+		{
+			"type": "header",
+			"content": "Banner 1"
+		},
+		{
+            "type": "image_picker",
+            "id": "banner_1_image",
+            "label": "Image",
+            "info": "Recommended Size: 470 x 678px"
+        },
+		{
+            "type": "checkbox",
+            "id": "banner_1_content",
+            "label": "Show Banner Content",
+            "default": true
+        },
+		{
+            "type": "text",
+            "id": "banner_1_title",
+            "label": "Title",
+            "default": "Banner Title"
+        },
+		{
+            "type": "text",
+            "id": "banner_1_button_name",
+            "label": "Button Name",
+            "default": "Shop Now"
+        },
+		{
+            "type": "url",
+            "id": "banner_1_url",
+            "label": "Banner Link"
+        },
+		{
+			"type": "header",
+			"content": "Banner 2"
+		},
+		{
+            "type": "image_picker",
+            "id": "banner_2_image",
+            "label": "Image",
+            "info": "Recommended Size: 670 x 324px"
+        },
+		{
+            "type": "checkbox",
+            "id": "banner_2_content",
+            "label": "Show Banner Content",
+            "default": true
+        },
+		{
+            "type": "text",
+            "id": "banner_2_title",
+            "label": "Title",
+            "default": "Banner Title"
+        },
+		{
+            "type": "text",
+            "id": "banner_2_button_name",
+            "label": "Button Name",
+            "default": "Shop Now"
+        },
+		{
+            "type": "url",
+            "id": "banner_2_url",
+            "label": "Banner Link"
+        },
+		{
+			"type": "header",
+			"content": "Banner 3"
+		},
+		{
+            "type": "image_picker",
+            "id": "banner_3_image",
+            "label": "Image",
+            "info": "Recommended Size: 262 x 324px"
+        },
+		{
+            "type": "checkbox",
+            "id": "banner_3_content",
+            "label": "Show Banner Content",
+            "default": true
+        },
+		{
+            "type": "text",
+            "id": "banner_3_title",
+            "label": "Title",
+            "default": "Banner Title"
+        },
+		{
+            "type": "text",
+            "id": "banner_3_button_name",
+            "label": "Button Name",
+            "default": "Shop Now"
+        },
+		{
+            "type": "url",
+            "id": "banner_3_url",
+            "label": "Banner Link"
+        },
+		{
+			"type": "header",
+			"content": "Banner 4"
+		},
+		{
+            "type": "image_picker",
+            "id": "banner_4_image",
+            "label": "Image",
+            "info": "Recommended Size: 380 x 324px"
+        },
+		{
+            "type": "checkbox",
+            "id": "banner_4_content",
+            "label": "Show Banner Content",
+            "default": true
+        },
+		{
+            "type": "text",
+            "id": "banner_4_title",
+            "label": "Title",
+            "default": "Banner Title"
+        },
+		{
+            "type": "text",
+            "id": "banner_4_button_name",
+            "label": "Button Name",
+            "default": "Shop Now"
+        },
+		{
+            "type": "url",
+            "id": "banner_4_url",
+            "label": "Banner Link"
+        },
+		{
+			"type": "header",
+			"content": "Banner Options"
+		},
+		{
+          "type": "radio",
+          "id": "scroll_effect",
+          "label": "Scroll Fade In Effect",
+		  "options":[
+				{
+					"label": "Yes",
+					"value": "fade_in"
+				},
+				{
+					"label": "No",
+					"value": "normal"
+				}
+			],
+			"default": "fade_in"
+      	},
+		{
+			"type": "header",
+            "content": "Section Padding"
+        },
+		{
+          "type": "text",
+          "id": "section_padding_bottom",
+          "label": "Padding Bottom",
+          "default": "100",
+          "info": "Defined in pixels. Do not add the 'px' unit."	
+      	}
+	],
+	"presets": [
+		{
+			"name": "Multiple Banner With Masonry",
+			"category": "banner"
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

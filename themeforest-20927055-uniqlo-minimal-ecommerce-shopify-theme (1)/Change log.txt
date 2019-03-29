@@ -1,0 +1,38 @@
+
+Date:    20-01-2019
+Version: 3.1.1
+===================
+1. Fixed: Single product responsive issue
+
+
+Date:    23-12-2018
+Version: 3.1.0
+===================
+1. Fixed: RTL version design issue
+
+
+Date:    23-12-2018
+Version: 3.0.9
+===================
+Added: 	1. Countdown product option
+	2. "Buy it now" button
+	3. Product thumb carousel
+	4. Sidebar custom menu
+
+Modify: 1. Color swatch option
+
+
+Date:    27-11-2018
+Version: 3.0.8
+===================
+Added: 	1. Custom Content Section
+	2. Custom HTML Section
+	3. Custom Page Section
+	4. Rich Text Section
+	5. Video Banner Section
+
+
+Date:    29-10-2018
+Version: 3.0.7
+===================
+1. Custom menu has been added in collection sidebar and filter

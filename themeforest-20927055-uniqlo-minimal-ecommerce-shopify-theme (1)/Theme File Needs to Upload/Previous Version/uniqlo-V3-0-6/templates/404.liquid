@@ -1,0 +1,31 @@
+<!-- /templates/404.liquid -->
+<div class="area-404 fix ptb--100">
+  <div class="{% if settings.wrapper_handle == 'wrapper_box' or settings.wrapper_handle == 'wrapper_box_2' %}container-fluid-custom{% elsif settings.header_style == 'header_three' %}container-fluid{% else %}container{% endif %}">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="error-content text-center">
+          {% if settings.error_404_image_enable %}
+          {% if settings.error_404_image %}
+          <img src="{{ settings.error_404_image | img_url: 'master' }}" />
+          {% else %}
+          <img src="{{ '404.png' | asset_url }}" />
+          {% endif %}
+          {% endif %}
+          {% if settings.heading_404 != blank %}
+          <h4 class="mb--30">{{ settings.heading_404 }}</h4>
+          {% endif %}
+          {% if settings.sub_text_404 != blank %}
+          <h5 class="mb--40">{{ settings.sub_text_404 }}</h5>
+          {% endif %}
+          <div class="error-404-form">
+            {% include 'search-bar' %}
+          </div>
+          <p class="text-uppercase mb--30 mt--50">Or</p>
+          <div class="htc__loadmore__btn error_404_btn">
+            <a href="{{ settings.error_404_btn_url }}" data-text="{{ settings.button_title }}" >{{ settings.button_title }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

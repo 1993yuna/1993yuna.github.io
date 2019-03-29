@@ -1,0 +1,100 @@
+<div class="htc__shop__left__sidebar">
+  <!-- Start Product Cat -->
+  {% if section.settings.categories_enable %}
+  <div class="htc__shop__cat">
+    {% if settings.categories_title != '' %}
+    <h4 class="section-title-4">{{ settings.categories_title }}</h4>
+    {% endif %}
+    <ul class="sidebar__list">
+      {% assign categories_list_limit = settings.categories_list_limit_hanlde %}
+      {% for c in collections limit: categories_list_limit %}
+      <li class="{% if collection and collection.handle == c.handle %}active{% endif %}"><a href="{{ c.url }}">{{ c.title }} <span>{{ c.products_count }}</span></a></li>                                       
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  {% if section.settings.types_enable %}
+  <div class="htc__shop__cat">
+    {% if settings.types_title != '' %}
+    <h4 class="section-title-4">{{ settings.types_title }}</h4>
+    {% endif %}
+    <ul class="sidebar__list">
+      {% assign types_list_limit = settings.types_list_limit_hanlde %}
+      {% for type in shop.types limit: types_list_limit %}
+      {% if type != '' %}
+      <li class="{% if collection.current_type == type %}active{% endif %}"><a href="{{ type | url_for_type }}">{{ type }}</a></li> 
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  {% if section.settings.vendors_enable %}
+  <div class="htc__shop__cat">
+    {% if settings.vendors_title != '' %}
+    <h4 class="section-title-4">{{ settings.vendors_title }}</h4>
+    {% endif %}
+    <ul class="sidebar__list">
+      {% assign vendors_list_limit = section.settings.vendors_list_limit_hanlde %}
+      {% for vendor in shop.vendors limit: vendors_list_limit %}
+      {% if type != '' %}
+      <li class="{% if collection.current_vendor == vendor %}active{% endif %}"><a href="{{ vendor | url_for_vendor }}">{{ vendor }}</a></li> 
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  {% if section.settings.color_enable %}
+  <div class="htc__shop__cat">
+    {% if settings.color_title != '' %}
+    <h4 class="section-title-4">{{ settings.color_title }}</h4>
+    {% endif %}
+    <ul class="sidebar__list">
+      {% assign tags = settings.color_picker | replace: ', ', ',' | replace: ' ,', ',' | split: ',' %}
+      {% assign colors_list_limit = settings.colors_list_limit_hanlde %}
+
+      {% for t in tags limit: colors_list_limit %}
+      {% assign tag = t | strip %}
+      {% if collection.all_tags contains tag %}
+      <li class="{{ tag }} {% if current_tags contains tag %}active{% endif %}"><a href="/collections/all/{{ tag | handle }}"><i class="zmdi zmdi-circle" style="color: {{ tag }};"></i>{{ tag }}</a></li>
+      {% else %}
+      <li><a href="/collections/all/{{ tag | handle }}"><i class="zmdi zmdi-circle" style="background-color: {{ tag }};"></i>{{ tag }}</a></li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  {% if section.settings.size_enable %}
+  <div class="htc__shop__cat">
+    {% if settings.size_title != '' %}
+    <h4 class="section-title-4">{{ settings.size_title }}</h4>
+    {% endif %}
+    <ul class="sidebar__list">
+      {% assign tags = settings.size_picker | replace: ', ', ',' | replace: ' ,', ',' | split: ',' %}
+      {% assign size_list_limit = settings.size_list_limit_hanlde %}
+
+      {% for t in tags limit: size_list_limit %}
+      {% assign tag = t | strip %}
+      {% if collection.all_tags contains tag %}
+      <li class="{% if current_tags contains tag %}active{% endif %}"><a href="/collections/all/{{ tag | handle }}">{{ tag }}</a></li>
+      {% else %}
+      <li><a href="/collections/all/{{ tag | handle }}">{{ tag }}</a></li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  {% if section.settings.tags_enable %}
+  <div class="htc__shop__cat">
+    {% if settings.tags_title != '' %}
+    <h4 class="section-title-4">{{ settings.tags_title }}</h4>
+    {% endif %}
+    <ul class="htc__tags">
+      {% assign tags_list_limit = settings.tags_list_limit_hanlde %}
+
+      {% for tag in collection.tags limit: tags_list_limit %}
+      <li class="{% if current_tags contains tag %}active{% endif %}"><a href="/collections/all/{{ tag | handle }}">{{ tag }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</div>
